@@ -23,5 +23,27 @@ namespace Kargo
             YK.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ARAS_KARGO ARAS=new ARAS_KARGO();
+            ARAS.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MNG_KARGO MNG = new MNG_KARGO();
+            MNG.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SURAT_KARGO SURAT=new SURAT_KARGO();
+            SURAT.Show();
+            this.Hide();
+
+        }
     }
 }

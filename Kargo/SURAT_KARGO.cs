@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Kargo
 {
-    public partial class YURTICI_KARGO : Form
+    public partial class SURAT_KARGO : Form
     {
-        public YURTICI_KARGO()
+        public SURAT_KARGO()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace Kargo
                 //textBox4.ForeColor = Color.Red;
                 var satir = new ListViewItem(sonuc.ToString());
 
-                dataGridView1.Rows.Add(sonuc.ToString());
+                //dataGridView1.Rows.Add(sonuc.ToString());
                 dataGridView1.Visible = true;
 
 
@@ -59,13 +59,13 @@ namespace Kargo
                 else if (sonuc >= 21 || sonuc <= 25)
                     dataGridView1.Rows.Add(sonuc, "58.75");
                 else if (sonuc >= 26 || sonuc <= 30)
-                    dataGridView1.Rows.Add(sonuc,"70");
+                    dataGridView1.Rows.Add(sonuc, "70");
 
 
             }
         }
 
-        private void YURTICI_KARGO_Load(object sender, EventArgs e)
+        private void SURAT_KARGO_Load(object sender, EventArgs e)
         {
             dataGridView1.ColumnCount = 2;
             dataGridView1.Columns[0].Name = "DESI";
