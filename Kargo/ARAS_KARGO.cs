@@ -76,5 +76,12 @@ namespace Kargo
         {
             dataGridView1.Rows.Clear();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            KARGO_SIRKETLERI KS = new KARGO_SIRKETLERI();
+            KS.Show();
+            this.Hide();
+        }
     }
 }

@@ -37,24 +37,27 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(78, 203);
+            this.dataGridView1.Location = new System.Drawing.Point(89, 271);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(241, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(275, 200);
             this.dataGridView1.TabIndex = 32;
             // 
             // TEMIZLE
             // 
-            this.TEMIZLE.Location = new System.Drawing.Point(173, 369);
+            this.TEMIZLE.Location = new System.Drawing.Point(198, 492);
+            this.TEMIZLE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TEMIZLE.Name = "TEMIZLE";
-            this.TEMIZLE.Size = new System.Drawing.Size(75, 23);
+            this.TEMIZLE.Size = new System.Drawing.Size(86, 31);
             this.TEMIZLE.TabIndex = 31;
             this.TEMIZLE.Text = "TEMIZLE";
             this.TEMIZLE.UseVisualStyleBackColor = true;
@@ -62,9 +65,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(173, 174);
+            this.button1.Location = new System.Drawing.Point(198, 232);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 30;
             this.button1.Text = "HESAPLA";
             this.button1.UseVisualStyleBackColor = true;
@@ -73,56 +77,71 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 137);
+            this.label3.Location = new System.Drawing.Point(75, 183);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
+            this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 29;
             this.label3.Text = "YÜKSEKLİK:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 104);
+            this.label2.Location = new System.Drawing.Point(114, 139);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 15);
+            this.label2.Size = new System.Drawing.Size(40, 20);
             this.label2.TabIndex = 28;
             this.label2.Text = "BOY:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(108, 62);
+            this.label1.Location = new System.Drawing.Point(123, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 15);
+            this.label1.Size = new System.Drawing.Size(31, 20);
             this.label1.TabIndex = 27;
             this.label1.Text = "EN:";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(139, 135);
+            this.textBox3.Location = new System.Drawing.Point(159, 180);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 23);
+            this.textBox3.Size = new System.Drawing.Size(166, 27);
             this.textBox3.TabIndex = 26;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(140, 101);
+            this.textBox2.Location = new System.Drawing.Point(160, 135);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 23);
+            this.textBox2.Size = new System.Drawing.Size(166, 27);
             this.textBox2.TabIndex = 25;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(139, 59);
+            this.textBox1.Location = new System.Drawing.Point(159, 79);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 23);
+            this.textBox1.Size = new System.Drawing.Size(166, 27);
             this.textBox1.TabIndex = 24;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 559);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 29);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "ANA MENÜ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MNG_KARGO
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 450);
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ClientSize = new System.Drawing.Size(439, 600);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TEMIZLE);
             this.Controls.Add(this.button1);
@@ -132,6 +151,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MNG_KARGO";
             this.Text = "MNG_KARGO";
             this.Load += new System.EventHandler(this.MNG_KARGO_Load);
@@ -152,5 +172,6 @@
         private TextBox textBox3;
         private TextBox textBox2;
         private TextBox textBox1;
+        private Button button2;
     }
 }

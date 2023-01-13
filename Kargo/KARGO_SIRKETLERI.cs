@@ -12,6 +12,7 @@ namespace Kargo
 {
     public partial class KARGO_SIRKETLERI : Form
     {
+        
         public KARGO_SIRKETLERI()
         {
             InitializeComponent();
@@ -43,6 +44,20 @@ namespace Kargo
             SURAT_KARGO SURAT=new SURAT_KARGO();
             SURAT.Show();
             this.Hide();
+
+        }
+
+        private void KARGO_SIRKETLERI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+             if (MessageBox.Show("Çıkmak istediğinize emin misiniz?", "www.kaizen40.com",
+                MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+
+                // iptal ederseniz ne yapacağınızı buraya yazın
+            }
+
+            // Evet' i tıklarsanız çıkarsınız
 
         }
     }

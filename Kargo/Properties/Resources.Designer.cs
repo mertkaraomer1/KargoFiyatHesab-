@@ -24,11 +24,7 @@ namespace Kargo.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
      public class Resources {
-        public static readonly Image _1632067735235;
-        internal static readonly Image yurtici_logo;
-        internal static readonly Image Aras_Cargo_logo_3DBF0CCAFA_seeklogo_com;
-        internal static readonly Image mng_kargo_orjinal_logo_748D01020C_seeklogo_com;
-        internal static readonly Image surat_kargo_logo;
+
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
