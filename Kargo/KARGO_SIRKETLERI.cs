@@ -34,17 +34,17 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MNG_KARGO MNG = new MNG_KARGO();
-            MNG.Show();
+            SURAT_KARGO SURAT = new SURAT_KARGO();
+            SURAT.Show();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SURAT_KARGO SURAT=new SURAT_KARGO();
-            SURAT.Show();
-            this.Hide();
 
+            MNG_KARGO MNG = new MNG_KARGO();
+            MNG.Show();
+            this.Hide();
         }
 
         private void KARGO_SIRKETLERI_FormClosing(object sender, FormClosingEventArgs e)

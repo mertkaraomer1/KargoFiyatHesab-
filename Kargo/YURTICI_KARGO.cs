@@ -46,32 +46,32 @@ namespace Kargo
                 textBox3.Text = "";
 
                 if (sonuc < 1)
-                    textBox5.Text = (22.6).ToString();
+                    textBox5.Text = (22.6).ToString() + " TL";
                     
                 else if (sonuc >= 1 && sonuc <= 4)
-                    textBox5.Text = 27.55.ToString();
+                    textBox5.Text = 27.55.ToString() + " TL";
 
                 else if (sonuc > 4 && sonuc<6)
-                    textBox5.Text = 30.80.ToString();
+                    textBox5.Text = 30.80.ToString() + " TL";
      
                 else if (sonuc >6 && sonuc <= 10)
-                    textBox5.Text = 33.85.ToString();
+                    textBox5.Text = 33.85.ToString() + " TL";
 
                 else if (sonuc > 10 && sonuc <= 15)
-                    textBox5.Text = 38.40.ToString();
+                    textBox5.Text = 38.40.ToString() + " TL";
 
                 else if (sonuc > 15 && sonuc <= 20)
-                    textBox5.Text = 47.ToString();
+                    textBox5.Text = 47.ToString() + " TL";
 
 
                 else if (sonuc > 20 && sonuc <= 25)
-                    textBox5.Text = 58.75.ToString();
+                    textBox5.Text = 58.75.ToString() + " TL";
 
                 else if (sonuc > 25 && sonuc <= 30)
-                    textBox5.Text = 70.ToString();
+                    textBox5.Text = 70.ToString() + " TL";
 
                 else if (sonuc > 30)
-                    textBox5.Text = ekdesı.ToString();
+                    textBox5.Text = ekdesı.ToString() + " TL";
 
 
             }
