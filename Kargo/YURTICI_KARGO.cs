@@ -108,7 +108,7 @@ namespace Kargo
             {
                 toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value);
             }
-            textBox6.Text = toplam.ToString();
+            textBox6.Text = toplam.ToString() + "TL";
         }
     }
 }
