@@ -45,29 +45,29 @@ namespace Kargo
                 textBox3.Text = "";
 
                 if (sonuc < 1)
-                    textBox5.Text = 25.45.ToString() + " TL";
+                    textBox5.Text = 25.45.ToString();
 
                 else if (sonuc >= 1 && sonuc <= 5)
-                    textBox5.Text = 25.65.ToString() + " TL";
+                    textBox5.Text = 25.65.ToString();
 
                 else if (sonuc > 5 && sonuc <= 10)
-                    textBox5.Text = 32.33.ToString() + " TL";
+                    textBox5.Text = 32.33.ToString();
 
                 else if (sonuc > 10 && sonuc <= 15)
-                    textBox5.Text = 40.37.ToString() + " TL";
+                    textBox5.Text = 40.37.ToString();
 
                 else if (sonuc > 15 && sonuc <= 20)
-                    textBox5.Text = 46.44.ToString() + " TL";
+                    textBox5.Text = 46.44.ToString();
 
 
                 else if (sonuc > 20 && sonuc <= 25)
-                    textBox5.Text = 53.53.ToString() + " TL";
+                    textBox5.Text = 53.53.ToString();
 
                 else if (sonuc > 25 && sonuc <= 30)
-                    textBox5.Text = 63.ToString() + " TL";
+                    textBox5.Text = 63.ToString();
 
                 else if (sonuc > 30)
-                    textBox5.Text = ekdesı.ToString() + " TL";
+                    textBox5.Text = ekdesı.ToString();
 
 
             }
@@ -75,9 +75,10 @@ namespace Kargo
 
         private void SURAT_KARGO_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 2;
+            dataGridView1.ColumnCount = 3;
             dataGridView1.Columns[0].Name = "DESI";
-            dataGridView1.Columns[1].Name = "FIYAT";
+            dataGridView1.Columns[1].Name = "FIYAT TL";
+            dataGridView1.Columns[2].Name = "ADET";
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)
@@ -94,7 +95,39 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(textBox4.Text, textBox5.Text);
+            int adet = 1;
+            adet = Convert.ToInt32(textBox7.Text);
+            double desı = Convert.ToDouble(textBox4.Text);
+
+            if (textBox4 != null)
+            {
+                double ekdesı = 70 + (desı - 30) * 2.7;
+                if (desı < 1)
+                    textBox5.Text = (adet * 25.45).ToString();
+
+                else if (desı >= 1 && desı <= 5)
+                    textBox5.Text = (adet*25.65).ToString();
+
+                else if (desı > 5 && desı <= 10)
+                    textBox5.Text = (adet * 32.33).ToString();
+
+                else if (desı > 10 && desı <= 15)
+                    textBox5.Text = (adet * 40.37).ToString();
+
+                else if (desı > 15 && desı <= 20)
+                    textBox5.Text = (adet * 46.44).ToString();
+
+
+                else if (desı > 20 && desı <= 25)
+                    textBox5.Text = (adet * 53.53).ToString();
+
+                else if (desı > 25 && desı <= 30)
+                    textBox5.Text = (adet * 63).ToString();
+
+                else if (desı > 30)
+                    textBox5.Text = (adet * ekdesı).ToString();
+            }
+            dataGridView1.Rows.Add(desı, textBox5.Text,adet);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -104,7 +137,22 @@ namespace Kargo
             {
                 toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value);
             }
-            textBox6.Text = toplam.ToString() + "TL";
+            textBox6.Text = toplam.ToString() + " TL";
         }
+
+        private void SURAT_KARGO_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Çıkmak istediğinize emin misiniz?", "www.kaizen40.com",
+                MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+
+                // iptal ederseniz ne yapacağınızı buraya yazın
+            }
+
+            // Evet' i tıklarsanız çıkarsınız
+        }
+
+
     }
 }

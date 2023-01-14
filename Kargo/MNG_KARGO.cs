@@ -16,10 +16,11 @@ namespace Kargo
         {
             InitializeComponent();
         }
-
+        double sonuc = 0;
+        double ekdesı = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            double sonuc = 0;
+            
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
                 MessageBox.Show("Alanları Doldur.");
@@ -39,40 +40,41 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                double ekdesı = 80 + (sonuc - 30) * 3;
+                ekdesı = 80 + (sonuc - 30) * 3;
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
 
                 if (sonuc == 0 && sonuc < 1)
-                    textBox5.Text = 30.ToString() + " TL";
+                    textBox5.Text = 30.ToString();
 
                 else if (sonuc >= 1 && sonuc <= 5)
-                    textBox5.Text = 32.ToString() + " TL";
+                    textBox5.Text = 32.ToString();
 
                 else if (sonuc > 5 && sonuc <= 10)
-                    textBox5.Text = 36.ToString() + " TL";
+                    textBox5.Text = 36.ToString();
 
                 else if (sonuc > 10 && sonuc <= 20)
-                    textBox5.Text = 47.ToString() + " TL";
+                    textBox5.Text = 47.ToString();
 
                 else if (sonuc > 20 && sonuc <= 30)
-                    textBox5.Text = 62.ToString() + " TL";
+                    textBox5.Text = 62.ToString();
 
                 else if (sonuc > 30 && sonuc <=40)
-                    textBox5.Text = 80.ToString() + " TL";
-                else if (sonuc > 30 && sonuc <= 40)
-                    textBox5.Text = ekdesı.ToString() + " TL";
+                    textBox5.Text = 80.ToString();
 
+                else if ( sonuc > 40)
+                    textBox5.Text = ekdesı.ToString();
 
             }
         }
 
         private void MNG_KARGO_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 2;
+            dataGridView1.ColumnCount = 3;
             dataGridView1.Columns[0].Name = "DESI";
-            dataGridView1.Columns[1].Name = "FIYAT";
+            dataGridView1.Columns[1].Name = "FIYAT TL";
+            dataGridView1.Columns[2].Name = "ADET";
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)
@@ -89,7 +91,34 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(textBox4.Text, textBox5.Text);
+            int adet = 1;
+            adet = Convert.ToInt32(textBox7.Text);
+            double desı =Convert.ToDouble(textBox4.Text);
+            if (textBox4 != null)
+            {
+                ekdesı = 80 + (desı - 40) * 3;
+                if (desı == 0 && desı < 1)
+                    textBox5.Text = (adet*30).ToString();
+
+                else if (desı >= 1 && desı <= 5)
+                    textBox5.Text = (adet*32).ToString();
+
+                else if (desı > 5 && desı <= 10)
+                    textBox5.Text = (adet * 36).ToString();
+
+                else if (desı > 10 && desı <= 20)
+                    textBox5.Text = (adet * 47).ToString();
+
+                else if (desı > 20 && desı <= 30)
+                    textBox5.Text = (adet * 62).ToString();
+
+                else if (desı > 30 && desı <= 40)
+                    textBox5.Text = (adet * 80).ToString();
+
+                else if ( desı > 40)
+                    textBox5.Text = (adet*ekdesı).ToString();
+            }
+            dataGridView1.Rows.Add(desı,textBox5.Text,adet);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -100,6 +129,19 @@ namespace Kargo
                 toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value);
             }
             textBox6.Text = toplam.ToString() + "TL";
+        }
+
+        private void MNG_KARGO_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Çıkmak istediğinize emin misiniz?", "www.kaizen40.com",
+                MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+
+                // iptal ederseniz ne yapacağınızı buraya yazın
+            }
+
+            // Evet' i tıklarsanız çıkarsınız
         }
     }
 }
