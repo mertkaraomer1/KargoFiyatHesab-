@@ -101,14 +101,7 @@ namespace Kargo
         public void button3_Click(object sender, EventArgs e)
         {
             int adet = 1;
-            if (textBox7.Text!= null)
-            {
-                textBox7.Text = adet.ToString();
-            }
-            else
-            {
-                adet = 1;
-            }
+            adet = Convert.ToInt32(textBox7.Text);
 
             double desı = Convert.ToDouble(textBox4.Text);
             if (textBox4 != null)
