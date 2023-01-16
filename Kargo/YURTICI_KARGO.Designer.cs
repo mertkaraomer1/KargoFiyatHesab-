@@ -50,10 +50,13 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -135,27 +138,30 @@
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox3.Location = new System.Drawing.Point(107, 148);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(190, 27);
+            this.textBox3.Size = new System.Drawing.Size(190, 30);
             this.textBox3.TabIndex = 16;
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox2.Location = new System.Drawing.Point(107, 113);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 27);
+            this.textBox2.Size = new System.Drawing.Size(190, 30);
             this.textBox2.TabIndex = 15;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(107, 78);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 27);
+            this.textBox1.Size = new System.Drawing.Size(190, 30);
             this.textBox1.TabIndex = 14;
             // 
             // button2
@@ -173,16 +179,18 @@
             // 
             // textBox4
             // 
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox4.Location = new System.Drawing.Point(370, 44);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(149, 27);
+            this.textBox4.Size = new System.Drawing.Size(149, 30);
             this.textBox4.TabIndex = 25;
             // 
             // textBox5
             // 
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox5.Location = new System.Drawing.Point(370, 77);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(149, 27);
+            this.textBox5.Size = new System.Drawing.Size(149, 30);
             this.textBox5.TabIndex = 26;
             // 
             // label4
@@ -247,9 +255,10 @@
             // 
             // textBox7
             // 
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox7.Location = new System.Drawing.Point(588, 42);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(149, 27);
+            this.textBox7.Size = new System.Drawing.Size(149, 30);
             this.textBox7.TabIndex = 32;
             this.textBox7.Text = "1";
             // 
@@ -270,12 +279,24 @@
             this.toolStrip1.BackColor = System.Drawing.Color.White;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton2,
+            this.toolStripSeparator1,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(788, 27);
             this.toolStrip1.TabIndex = 34;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -293,12 +314,14 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "1632067735235.jpg");
+            this.imageList1.Images.SetKeyName(1, "printer.png");
             // 
             // textBox8
             // 
+            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox8.Location = new System.Drawing.Point(107, 42);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(190, 27);
+            this.textBox8.Size = new System.Drawing.Size(190, 30);
             this.textBox8.TabIndex = 35;
             // 
             // label7
@@ -310,6 +333,16 @@
             this.label7.Size = new System.Drawing.Size(103, 23);
             this.label7.TabIndex = 36;
             this.label7.Text = "FİRMA ADI:";
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // YURTICI_KARGO
             // 
@@ -378,5 +411,8 @@
         private ImageList imageList1;
         private TextBox textBox8;
         private Label label7;
+        private ToolStripButton toolStripButton2;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }
