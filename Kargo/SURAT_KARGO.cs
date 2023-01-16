@@ -77,10 +77,11 @@ namespace Kargo
 
         private void SURAT_KARGO_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 3;
-            dataGridView1.Columns[0].Name = "DESI";
-            dataGridView1.Columns[1].Name = "FIYAT TL";
-            dataGridView1.Columns[2].Name = "ADET";
+            dataGridView1.ColumnCount = 4;
+            dataGridView1.Columns[0].Name = "FİRMA ADI";
+            dataGridView1.Columns[1].Name = "DESI";
+            dataGridView1.Columns[2].Name = "FIYAT TL";
+            dataGridView1.Columns[3].Name = "ADET";
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)
@@ -129,7 +130,7 @@ namespace Kargo
                 else if (desı > 30)
                     textBox5.Text = (adet * ekdesı).ToString();
             }
-            dataGridView1.Rows.Add(desı, textBox5.Text,adet);
+            dataGridView1.Rows.Add(textBox8.Text,desı, textBox5.Text,adet);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -137,7 +138,7 @@ namespace Kargo
             double toplam = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {
-                toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value);
+                toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value);
             }
             textBox6.Text = toplam.ToString() + " TL";
         }
@@ -171,6 +172,10 @@ namespace Kargo
                     Range alan2 = (Range)sayfa.Cells[j + 1, i + 1];
                     alan2.Cells[2, 1] = dataGridView1[i, j].Value;
                 }
+                Range alan4 = (Range)sayfa.Cells[1, 6];
+                alan4.Value2 = "TOPLAM FİYAT";
+                Range alan3 = (Range)sayfa.Cells[2, 6];
+                alan3.Value2 = textBox6.Text;
             }
         }
     }
