@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SURAT_KARGO));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TEMIZLE = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,7 +48,10 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -74,7 +78,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(136, 135);
+            this.button1.Location = new System.Drawing.Point(129, 147);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 31);
@@ -86,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 103);
+            this.label3.Location = new System.Drawing.Point(1, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 29;
@@ -95,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 65);
+            this.label2.Location = new System.Drawing.Point(45, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 20);
             this.label2.TabIndex = 28;
@@ -104,7 +108,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 31);
+            this.label1.Location = new System.Drawing.Point(54, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 20);
             this.label1.TabIndex = 27;
@@ -112,7 +116,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(97, 100);
+            this.textBox3.Location = new System.Drawing.Point(90, 112);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(166, 27);
@@ -120,7 +124,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(97, 62);
+            this.textBox2.Location = new System.Drawing.Point(90, 74);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(166, 27);
@@ -128,7 +132,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 27);
+            this.textBox1.Location = new System.Drawing.Point(90, 39);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(166, 27);
@@ -164,7 +168,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(519, 62);
+            this.button3.Location = new System.Drawing.Point(512, 74);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 38);
             this.button3.TabIndex = 38;
@@ -175,7 +179,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(274, 64);
+            this.label5.Location = new System.Drawing.Point(267, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 20);
             this.label5.TabIndex = 37;
@@ -184,7 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(278, 31);
+            this.label4.Location = new System.Drawing.Point(271, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 20);
             this.label4.TabIndex = 36;
@@ -192,14 +196,14 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(327, 61);
+            this.textBox5.Location = new System.Drawing.Point(320, 73);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(125, 27);
             this.textBox5.TabIndex = 35;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(327, 28);
+            this.textBox4.Location = new System.Drawing.Point(320, 40);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(125, 27);
             this.textBox4.TabIndex = 34;
@@ -207,7 +211,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(464, 27);
+            this.label6.Location = new System.Drawing.Point(457, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 20);
             this.label6.TabIndex = 41;
@@ -215,11 +219,32 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(519, 27);
+            this.textBox7.Location = new System.Drawing.Point(512, 39);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(125, 27);
             this.textBox7.TabIndex = 42;
             this.textBox7.Text = "1";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(675, 27);
+            this.toolStrip1.TabIndex = 43;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // SURAT_KARGO
             // 
@@ -227,6 +252,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(675, 585);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox6);
@@ -252,6 +278,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SURAT_KARGO_FormClosing);
             this.Load += new System.EventHandler(this.SURAT_KARGO_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +306,7 @@
         private TextBox textBox4;
         private Label label6;
         private TextBox textBox7;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButton1;
     }
 }

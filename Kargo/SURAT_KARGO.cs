@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
+using Range = Microsoft.Office.Interop.Excel.Range;
 namespace Kargo
 {
     public partial class SURAT_KARGO : Form
@@ -142,17 +144,34 @@ namespace Kargo
 
         private void SURAT_KARGO_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Çıkmak istediğinize emin misiniz?", "www.kaizen40.com",
-                MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                e.Cancel = true;
-
-                // iptal ederseniz ne yapacağınızı buraya yazın
-            }
-
-            // Evet' i tıklarsanız çıkarsınız
+            DialogResult c;
+            c = MessageBox.Show("Çıkmakistediğinizden eminmisiniz ? ", "KargoFiyatHesaplama Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (c == DialogResult.Yes)
+                Environment.Exit(0);
+            else
+                e.Cancel = true;//Çıkışı durdur
         }
 
-
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Excel.Application excel = new Excel.Application();
+            excel.Visible = true;
+            object Missing = Type.Missing;
+            Workbook kitap = excel.Workbooks.Add(Missing);
+            Worksheet sayfa = (Worksheet)kitap.Sheets[1];
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                Range alan = (Range)sayfa.Cells[1, 1];
+                alan.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.Rows.Count; j++)
+                {
+                    Range alan2 = (Range)sayfa.Cells[j + 1, i + 1];
+                    alan2.Cells[2, 1] = dataGridView1[i, j].Value;
+                }
+            }
+        }
     }
 }

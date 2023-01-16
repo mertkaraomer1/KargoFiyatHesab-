@@ -49,15 +49,12 @@ namespace Kargo
 
         private void KARGO_SIRKETLERI_FormClosing(object sender, FormClosingEventArgs e)
         {
-             if (MessageBox.Show("Çıkmak istediğinize emin misiniz?", "www.kaizen40.com",
-                MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                e.Cancel = true;
-
-                // iptal ederseniz ne yapacağınızı buraya yazın
-            }
-
-            // Evet' i tıklarsanız çıkarsınız
+            DialogResult c;
+            c = MessageBox.Show("Çıkmakistediğinizden eminmisiniz ? ", "KargoFiyatHesaplama Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (c == DialogResult.Yes)
+                Environment.Exit(0);
+            else
+                e.Cancel = true;//Çıkışı durdur
 
         }
     }

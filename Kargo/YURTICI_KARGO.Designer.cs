@@ -47,7 +47,10 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -74,10 +77,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(124, 156);
+            this.button1.Location = new System.Drawing.Point(87, 156);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 31);
+            this.button1.Size = new System.Drawing.Size(166, 31);
             this.button1.TabIndex = 20;
             this.button1.Text = "HESAPLA";
             this.button1.UseVisualStyleBackColor = true;
@@ -180,9 +183,9 @@
             // 
             this.button3.Location = new System.Drawing.Point(520, 82);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 38);
+            this.button3.Size = new System.Drawing.Size(125, 38);
             this.button3.TabIndex = 29;
-            this.button3.Text = "YAZDIR";
+            this.button3.Text = "LİSTEYE EKLE";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -221,12 +224,33 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "ADET:";
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(686, 27);
+            this.toolStrip1.TabIndex = 34;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // YURTICI_KARGO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(686, 600);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
@@ -249,9 +273,11 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "YURTICI_KARGO";
             this.Text = "YURTICI_KARGO";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YURTICI_KARGO_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YURTICI_KARGO_FormClosing_1);
             this.Load += new System.EventHandler(this.YURTICI_KARGO_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +304,7 @@
         private TextBox textBox6;
         private TextBox textBox7;
         private Label label6;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButton1;
     }
 }
