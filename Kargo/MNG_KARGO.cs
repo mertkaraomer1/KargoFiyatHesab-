@@ -48,28 +48,34 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                ekdesı = 80 + (sonuc - 30) * 3;
+                ekdesı = 75 + (sonuc - 40) * 2.30;
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
 
                 if (sonuc == 0 && sonuc < 1)
-                    textBox5.Text = 30.ToString();
+                    textBox5.Text = 32.ToString();
 
                 else if (sonuc >= 1 && sonuc <= 5)
                     textBox5.Text = 32.ToString();
 
                 else if (sonuc > 5 && sonuc <= 10)
-                    textBox5.Text = 36.ToString();
+                    textBox5.Text = 35.ToString();
 
-                else if (sonuc > 10 && sonuc <= 20)
-                    textBox5.Text = 47.ToString();
+                else if (sonuc > 10 && sonuc <= 15)
+                    textBox5.Text = 38.ToString();
 
-                else if (sonuc > 20 && sonuc <= 30)
-                    textBox5.Text = 62.ToString();
+                else if (sonuc > 15 && sonuc <= 20)
+                    textBox5.Text = 45.ToString();
+
+                else if (sonuc > 20 && sonuc <= 25)
+                    textBox5.Text = 55.ToString();
+
+                else if (sonuc > 25 && sonuc <= 30)
+                    textBox5.Text = 60.ToString();
 
                 else if (sonuc > 30 && sonuc <=40)
-                    textBox5.Text = 80.ToString();
+                    textBox5.Text = 75.ToString();
 
                 else if ( sonuc > 40)
                     textBox5.Text = ekdesı.ToString();
@@ -105,26 +111,32 @@ namespace Kargo
             double desı =Convert.ToDouble(textBox4.Text);
             if (textBox4 != null)
             {
-                ekdesı = 80 + (desı - 40) * 3;
+                ekdesı = 75 + (desı - 40) * 2.30;
                 if (desı == 0 && desı < 1)
-                    textBox5.Text = (adet*30).ToString();
+                    textBox5.Text = (adet*32).ToString();
 
                 else if (desı >= 1 && desı <= 5)
                     textBox5.Text = (adet*32).ToString();
 
                 else if (desı > 5 && desı <= 10)
-                    textBox5.Text = (adet * 36).ToString();
+                    textBox5.Text = (adet*35).ToString();
 
-                else if (desı > 10 && desı <= 20)
-                    textBox5.Text = (adet * 47).ToString();
+                else if (desı > 10 && desı <= 15)
+                    textBox5.Text = (adet * 38).ToString();
 
-                else if (desı > 20 && desı <= 30)
-                    textBox5.Text = (adet * 62).ToString();
+                else if (desı > 15 && desı <= 20)
+                    textBox5.Text = (adet * 45).ToString();
+
+                else if (desı > 20 && desı <= 25)
+                    textBox5.Text = (adet * 55).ToString();
+
+                else if (desı > 25 && desı <= 30)
+                    textBox5.Text = (adet * 60).ToString();
 
                 else if (desı > 30 && desı <= 40)
-                    textBox5.Text = (adet * 80).ToString();
+                    textBox5.Text = (adet * 75).ToString();
 
-                else if ( desı > 40)
+                else if (desı > 40)
                     textBox5.Text = (adet*ekdesı).ToString();
             }
             dataGridView1.Rows.Add(textBox8.Text,desı,textBox5.Text,adet);
@@ -241,9 +253,9 @@ namespace Kargo
                         if (bNewPage)
                         {
 
-                            e.Graphics.DrawString("KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
+                            e.Graphics.DrawString("MNG KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
                                     Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("KARGO FİYAT HESABI", new Font(dataGridView1.Font,
+                                    e.Graphics.MeasureString("MNG KARGO FİYAT HESABI", new Font(dataGridView1.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
                             e.Graphics.DrawString("ERMED TIP MEDİKAL", font,
                                    Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -

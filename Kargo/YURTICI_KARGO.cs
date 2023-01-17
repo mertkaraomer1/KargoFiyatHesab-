@@ -267,9 +267,10 @@ namespace Kargo
                         if (bNewPage)
                         {
 
-                            e.Graphics.DrawString("KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
+
+                            e.Graphics.DrawString("YURTİÇİ KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
                                     Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("KARGO FİYAT HESABI", new Font(dataGridView1.Font,
+                                    e.Graphics.MeasureString("YURTİÇİ KARGO FİYAT HESABI", new Font(dataGridView1.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
                             e.Graphics.DrawString("ERMED TIP MEDİKAL", font,
                                    Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -

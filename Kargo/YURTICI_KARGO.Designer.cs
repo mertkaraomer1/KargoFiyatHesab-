@@ -395,24 +395,7 @@
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
-        private Button TEMIZLE;
-        private Button button1;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button button2;
-        private TextBox textBox4;
-        private TextBox textBox5;
         private Label label4;
-        private Label label5;
-        private Button button3;
-        private Button button4;
-        private TextBox textBox6;
         private TextBox textBox7;
         private Label label6;
         private ToolStrip toolStrip1;
@@ -423,5 +406,21 @@
         private ToolStripButton toolStripButton2;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private ToolStripSeparator toolStripSeparator1;
+        public DataGridView dataGridView1;
+        public Button TEMIZLE;
+        public Button button1;
+        public Label label3;
+        public Label label2;
+        public Label label1;
+        public TextBox textBox3;
+        public TextBox textBox2;
+        public TextBox textBox1;
+        public Button button2;
+        public TextBox textBox4;
+        public TextBox textBox5;
+        public Label label5;
+        public Button button3;
+        public Button button4;
+        public TextBox textBox6;
     }
 }

@@ -46,7 +46,7 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                double ekdesı = 70 + (sonuc - 30) * 2.7;
+                double ekdesı = 63 + (sonuc - 30) * 2.7;
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
@@ -109,7 +109,7 @@ namespace Kargo
 
             if (textBox4 != null)
             {
-                double ekdesı = 70 + (desı - 30) * 2.7;
+                double ekdesı = 63 + (desı - 30) * 2.7;
                 if (desı < 1)
                     textBox5.Text = (adet * 25.45).ToString();
 
@@ -246,9 +246,9 @@ namespace Kargo
                         if (bNewPage)
                         {
 
-                            e.Graphics.DrawString("KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
+                            e.Graphics.DrawString("SÜRAT KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
                                     Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("KARGO FİYAT HESABI", new Font(dataGridView1.Font,
+                                    e.Graphics.MeasureString("SÜRAT KARGO FİYAT HESABI", new Font(dataGridView1.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
                             e.Graphics.DrawString("ERMED TIP MEDİKAL", font,
                                    Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -
