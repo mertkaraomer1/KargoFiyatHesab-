@@ -307,6 +307,7 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "excel.png");
             this.imageList1.Images.SetKeyName(1, "printer.png");
+            this.imageList1.Images.SetKeyName(2, "ERMED2.png");
             // 
             // textBox8
             // 

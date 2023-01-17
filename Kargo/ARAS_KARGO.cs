@@ -196,13 +196,20 @@ namespace Kargo
         int iHeaderHeight = 0;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            System.Drawing.Image Logo = imageList1.Images["ERMED2.png"];
+            Pen kalem = new Pen(Color.Black);
+            Font font = new Font("Arial", 14);
+            SolidBrush firca = new SolidBrush(Color.Black);
+            int iCount = 0;
+            int iTopMargin = e.MarginBounds.Top;
             try
             {
                 int iLeftMargin = e.MarginBounds.Left;
-                int iTopMargin = e.MarginBounds.Top;
+
                 bool bMorePagesToPrint = false;
                 int iTmpWidth = 0;
                 bFirstPage = true;
+
 
                 if (bFirstPage)
                 {
@@ -227,7 +234,7 @@ namespace Kargo
                     DataGridViewRow GridRow = dataGridView1.Rows[iRow];
 
                     iCellHeight = GridRow.Height + 5;
-                    int iCount = 0;
+
 
                     if (iTopMargin + iCellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
                     {
@@ -245,8 +252,11 @@ namespace Kargo
                                     Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
                                     e.Graphics.MeasureString("KARGO FİYAT HESABI", new Font(dataGridView1.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+                            e.Graphics.DrawString("ERMED TIP MEDİKAL", font,
+                                   Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -
+                                   e.Graphics.MeasureString("ERMED TIP MEDİKAL", font, e.MarginBounds.Left).Height - 15);
 
-                            String strDate = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+                            String strDate = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
 
                             e.Graphics.DrawString(strDate, new Font(dataGridView1.Font, FontStyle.Bold),
                                     Brushes.Black, e.MarginBounds.Left + (e.MarginBounds.Width -
@@ -290,9 +300,9 @@ namespace Kargo
 
                             e.Graphics.DrawRectangle(Pens.Black, new Rectangle((int)arrColumnLefts[iCount],
                                     iTopMargin, (int)arrColumnWidths[iCount], iCellHeight));
-
                             iCount++;
                         }
+
                     }
                     iRow++;
                     iTopMargin += iCellHeight;
@@ -308,6 +318,15 @@ namespace Kargo
             {
                 MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Graphics mg = Graphics.FromImage(Logo);
+            e.Graphics.DrawImage(Logo, 730, 10, 100, 100);
+            e.Graphics.DrawString("TOPLAM FİYAT=", font, firca, iCellHeight + 390, iTopMargin + 10);
+            e.Graphics.DrawString(textBox6.Text, font, firca, iCellHeight + 590, iTopMargin + 10);
+            e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin, iCellHeight + 360, iTopMargin + 40);
+            e.Graphics.DrawLine(kalem, iCellHeight + 695, iTopMargin, iCellHeight + 695, iTopMargin + 40);
+            e.Graphics.DrawLine(kalem, iCellHeight + 570, iTopMargin, iCellHeight + 570, iTopMargin + 40);
+            e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin, iCellHeight + 695, iTopMargin);
+            e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin + 40, iCellHeight + 695, iTopMargin + 40);
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
