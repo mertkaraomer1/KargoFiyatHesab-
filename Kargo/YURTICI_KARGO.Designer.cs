@@ -74,7 +74,7 @@
             // 
             // TEMIZLE
             // 
-            this.TEMIZLE.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.TEMIZLE.BackColor = System.Drawing.Color.White;
             this.TEMIZLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TEMIZLE.ForeColor = System.Drawing.SystemColors.Desktop;
             this.TEMIZLE.Location = new System.Drawing.Point(502, 224);
@@ -88,7 +88,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.button1.Location = new System.Drawing.Point(107, 183);
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label3.Location = new System.Drawing.Point(2, 151);
@@ -115,7 +115,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label2.Location = new System.Drawing.Point(55, 118);
@@ -127,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label1.Location = new System.Drawing.Point(64, 78);
@@ -166,7 +166,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.button2.Location = new System.Drawing.Point(12, 516);
@@ -196,7 +196,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label4.Location = new System.Drawing.Point(311, 47);
@@ -208,7 +208,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label5.Location = new System.Drawing.Point(307, 80);
@@ -219,7 +219,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.button3.Location = new System.Drawing.Point(575, 75);
@@ -232,7 +232,7 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.SystemColors.Desktop;
             this.button4.Location = new System.Drawing.Point(490, 527);
@@ -265,7 +265,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label6.Location = new System.Drawing.Point(523, 46);
@@ -323,6 +323,7 @@
             this.imageList1.Images.SetKeyName(2, "ERMED.png");
             this.imageList1.Images.SetKeyName(3, "ERMED1.png");
             this.imageList1.Images.SetKeyName(4, "ERMED2.png");
+            this.imageList1.Images.SetKeyName(5, "ERMED3.png");
             // 
             // textBox8
             // 
@@ -335,6 +336,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(2, 42);
             this.label7.Name = "label7";
@@ -352,6 +354,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(788, 600);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox8);
@@ -375,6 +379,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "YURTICI_KARGO";
             this.Text = "YURTICI_KARGO";
