@@ -381,6 +381,7 @@
             this.Controls.Add(this.textBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "YURTICI_KARGO";
             this.Text = "YURTICI_KARGO";

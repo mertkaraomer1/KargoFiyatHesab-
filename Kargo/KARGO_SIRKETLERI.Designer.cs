@@ -37,6 +37,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -74,7 +75,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.Color.Gold;
-            this.button3.Location = new System.Drawing.Point(12, 397);
+            this.button3.Location = new System.Drawing.Point(203, 397);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 75);
@@ -108,6 +109,7 @@
             this.imageList1.Images.SetKeyName(4, "1632067735235.jpg");
             this.imageList1.Images.SetKeyName(5, "1632067735235.jpg");
             this.imageList1.Images.SetKeyName(6, "ERMED3.png");
+            this.imageList1.Images.SetKeyName(7, "Jj00qHAEFYQ2KI8s-ankara-kargo.png");
             // 
             // label1
             // 
@@ -124,6 +126,17 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button5
+            // 
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Location = new System.Drawing.Point(12, 369);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(133, 106);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // KARGO_SIRKETLERI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -132,6 +145,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(521, 485);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -141,6 +155,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "KARGO_SIRKETLERI";
             this.Text = "KARGO_SIRKETLERI";
@@ -160,5 +175,6 @@
         private ImageList imageList1;
         private Label label1;
         private System.Windows.Forms.Timer timer1;
+        private Button button5;
     }
 }

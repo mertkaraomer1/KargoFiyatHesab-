@@ -97,6 +97,14 @@ namespace Kargo
             label1.Text = label1.Text.Substring(1) + label1.Text.Substring(0, 1);
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ANKARA_KARGO ANKR = new ANKARA_KARGO();
+            ANKR.Show();
+            this.Hide();
+
+        }
+
         //private void KARGO_SIRKETLERI_Resize(object sender, EventArgs e)
         //{
         //    ResizeChildrenControls();
@@ -121,14 +129,14 @@ namespace Kargo
         //    control.Width=(int)(originalControlRect.Width*xRatio);
         //    control.Height = (int)(originalControlRect.Height * xRatio);
 
-            //float ratio = xRatio;
-            //if(xRatio>=yRatio) 
-            //{
-            //    ratio = yRatio;
-            //}
-            //float newFontSize = originalFontSize * ratio * fontScale;
-            //Font newFont=new Font(control.Font.FontFamily,newFontSize);
-            //control.Font = newFont;
+        //float ratio = xRatio;
+        //if(xRatio>=yRatio) 
+        //{
+        //    ratio = yRatio;
+        //}
+        //float newFontSize = originalFontSize * ratio * fontScale;
+        //Font newFont=new Font(control.Font.FontFamily,newFontSize);
+        //control.Font = newFont;
         //}
     }
 }
