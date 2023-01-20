@@ -63,27 +63,30 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(5, 262);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(550, 314);
+            this.dataGridView1.Size = new System.Drawing.Size(710, 301);
             this.dataGridView1.TabIndex = 32;
             // 
             // TEMIZLE
             // 
             this.TEMIZLE.BackColor = System.Drawing.Color.White;
             this.TEMIZLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TEMIZLE.Location = new System.Drawing.Point(563, 262);
+            this.TEMIZLE.Location = new System.Drawing.Point(723, 262);
             this.TEMIZLE.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TEMIZLE.Name = "TEMIZLE";
-            this.TEMIZLE.Size = new System.Drawing.Size(108, 85);
+            this.TEMIZLE.Size = new System.Drawing.Size(121, 85);
             this.TEMIZLE.TabIndex = 31;
             this.TEMIZLE.Text = "TEMIZLE";
             this.TEMIZLE.UseVisualStyleBackColor = false;
             this.TEMIZLE.Click += new System.EventHandler(this.TEMIZLE_Click);
+            this.TEMIZLE.MouseEnter += new System.EventHandler(this.TEMIZLE_MouseEnter);
+            this.TEMIZLE.MouseLeave += new System.EventHandler(this.TEMIZLE_MouseLeave);
             // 
             // button1
             // 
@@ -97,6 +100,8 @@
             this.button1.Text = "HESAPLA";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // label3
             // 
@@ -170,12 +175,14 @@
             this.button2.Text = "ANA MENÜ";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox6.ForeColor = System.Drawing.Color.Red;
-            this.textBox6.Location = new System.Drawing.Point(572, 519);
+            this.textBox6.Location = new System.Drawing.Point(483, 571);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(232, 47);
@@ -185,7 +192,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(572, 582);
+            this.button4.Location = new System.Drawing.Point(484, 624);
             this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(232, 44);
@@ -193,19 +200,23 @@
             this.button4.Text = "TOPLAM FİYAT";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.MouseEnter += new System.EventHandler(this.button4_MouseEnter);
+            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(640, 85);
+            this.button3.Location = new System.Drawing.Point(640, 81);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 44);
+            this.button3.Size = new System.Drawing.Size(155, 44);
             this.button3.TabIndex = 38;
             this.button3.Text = "LİSTEYE EKLE";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
             // label5
             // 
@@ -314,7 +325,8 @@
             this.imageList1.Images.SetKeyName(0, "excel.png");
             this.imageList1.Images.SetKeyName(1, "printer.png");
             this.imageList1.Images.SetKeyName(2, "ERMED2.png");
-            this.imageList1.Images.SetKeyName(3, "ERMED3.png");
+            this.imageList1.Images.SetKeyName(3, "ASPİRASYON-SONDASI.ico");
+            this.imageList1.Images.SetKeyName(4, "ASPİRASYON SONDASI.PNG");
             // 
             // label7
             // 
@@ -343,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(844, 673);
@@ -374,7 +386,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
             this.Name = "SURAT_KARGO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SURAT_KARGO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SURAT_KARGO_FormClosing);
             this.Load += new System.EventHandler(this.SURAT_KARGO_Load);

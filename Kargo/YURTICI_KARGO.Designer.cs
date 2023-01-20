@@ -63,13 +63,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 224);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(472, 271);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(638, 271);
             this.dataGridView1.TabIndex = 23;
             // 
             // TEMIZLE
@@ -77,7 +79,7 @@
             this.TEMIZLE.BackColor = System.Drawing.Color.White;
             this.TEMIZLE.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TEMIZLE.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.TEMIZLE.Location = new System.Drawing.Point(502, 224);
+            this.TEMIZLE.Location = new System.Drawing.Point(656, 224);
             this.TEMIZLE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TEMIZLE.Name = "TEMIZLE";
             this.TEMIZLE.Size = new System.Drawing.Size(132, 76);
@@ -85,6 +87,8 @@
             this.TEMIZLE.Text = "TEMIZLE";
             this.TEMIZLE.UseVisualStyleBackColor = false;
             this.TEMIZLE.Click += new System.EventHandler(this.TEMIZLE_Click);
+            this.TEMIZLE.MouseEnter += new System.EventHandler(this.TEMIZLE_MouseEnter);
+            this.TEMIZLE.MouseLeave += new System.EventHandler(this.TEMIZLE_MouseLeave);
             // 
             // button1
             // 
@@ -99,6 +103,8 @@
             this.button1.Text = "HESAPLA";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // label3
             // 
@@ -169,13 +175,15 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button2.Location = new System.Drawing.Point(12, 516);
+            this.button2.Location = new System.Drawing.Point(12, 536);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 72);
+            this.button2.Size = new System.Drawing.Size(132, 72);
             this.button2.TabIndex = 24;
             this.button2.Text = "ANA MENÜ";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
             // textBox4
             // 
@@ -222,33 +230,37 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button3.Location = new System.Drawing.Point(575, 75);
+            this.button3.Location = new System.Drawing.Point(602, 72);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 42);
+            this.button3.Size = new System.Drawing.Size(149, 42);
             this.button3.TabIndex = 29;
             this.button3.Text = "LİSTEYE EKLE";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button4.Location = new System.Drawing.Point(490, 527);
+            this.button4.Location = new System.Drawing.Point(403, 555);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(247, 53);
             this.button4.TabIndex = 30;
             this.button4.Text = "TOPLAM FİYAT";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.MouseEnter += new System.EventHandler(this.button4_MouseEnter);
+            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
             // 
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.Window;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox6.ForeColor = System.Drawing.Color.Red;
-            this.textBox6.Location = new System.Drawing.Point(490, 474);
+            this.textBox6.Location = new System.Drawing.Point(403, 502);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(247, 47);
             this.textBox6.TabIndex = 31;
@@ -256,7 +268,7 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(588, 42);
+            this.textBox7.Location = new System.Drawing.Point(602, 39);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(149, 30);
             this.textBox7.TabIndex = 32;
@@ -268,7 +280,7 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label6.Location = new System.Drawing.Point(523, 46);
+            this.label6.Location = new System.Drawing.Point(537, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 23);
             this.label6.TabIndex = 33;
@@ -320,10 +332,9 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "1632067735235.jpg");
             this.imageList1.Images.SetKeyName(1, "printer.png");
-            this.imageList1.Images.SetKeyName(2, "ERMED.png");
-            this.imageList1.Images.SetKeyName(3, "ERMED1.png");
-            this.imageList1.Images.SetKeyName(4, "ERMED2.png");
-            this.imageList1.Images.SetKeyName(5, "ERMED3.png");
+            this.imageList1.Images.SetKeyName(2, "ERMED2.png");
+            this.imageList1.Images.SetKeyName(3, "ASPİRASYON-SONDASI.ico");
+            this.imageList1.Images.SetKeyName(4, "ASPİRASYON SONDASI.PNG");
             // 
             // textBox8
             // 
@@ -353,10 +364,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(788, 600);
+            this.ClientSize = new System.Drawing.Size(788, 630);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.toolStrip1);
@@ -380,10 +391,11 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "YURTICI_KARGO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YURTICI_KARGO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YURTICI_KARGO_FormClosing_1);
             this.Load += new System.EventHandler(this.YURTICI_KARGO_Load);

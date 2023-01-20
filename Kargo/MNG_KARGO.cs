@@ -48,48 +48,49 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                ekdesı = 75 + (sonuc - 40) * 2.30;
+                ekdesı = ((75 + (sonuc - 40)) * 1.18)+((75 + (sonuc - 40)) * 0.0235);
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
 
                 if (sonuc == 0 && sonuc < 1)
-                    textBox5.Text = 32.ToString();
+                    textBox5.Text = Math.Round((32*1.18)+ (32 * 0.0235), 2).ToString();
 
                 else if (sonuc >= 1 && sonuc <= 5)
-                    textBox5.Text = 32.ToString();
+                    textBox5.Text = Math.Round((32 * 1.18)+ (32 * 0.0235), 2).ToString();
 
                 else if (sonuc > 5 && sonuc <= 10)
-                    textBox5.Text = 35.ToString();
+                    textBox5.Text = Math.Round((35 * 1.18) + (35 * 0.0235), 2).ToString();
 
                 else if (sonuc > 10 && sonuc <= 15)
-                    textBox5.Text = 38.ToString();
+                    textBox5.Text = Math.Round((38 * 1.18) + (38 * 0.0235), 2).ToString();
 
                 else if (sonuc > 15 && sonuc <= 20)
-                    textBox5.Text = 45.ToString();
+                    textBox5.Text = Math.Round((45 * 1.18) + (45 * 0.0235), 2).ToString();
 
                 else if (sonuc > 20 && sonuc <= 25)
-                    textBox5.Text = 55.ToString();
+                    textBox5.Text = Math.Round((55 * 1.18) + (55 * 0.0235), 2).ToString();
 
                 else if (sonuc > 25 && sonuc <= 30)
-                    textBox5.Text = 60.ToString();
+                    textBox5.Text =Math.Round ((60 * 1.18) + (60 * 0.0235),2).ToString();
 
                 else if (sonuc > 30 && sonuc <=40)
-                    textBox5.Text = 75.ToString();
+                    textBox5.Text =Math.Round ((75 * 1.18) + (75 * 0.0235),2).ToString();
 
                 else if ( sonuc > 40)
-                    textBox5.Text = ekdesı.ToString();
+                    textBox5.Text =Math.Round(ekdesı,2).ToString();
 
             }
         }
 
         private void MNG_KARGO_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 4;
+            dataGridView1.ColumnCount = 5;
             dataGridView1.Columns[0].Name = "FİRMA ADI";
             dataGridView1.Columns[1].Name = "DESI";
-            dataGridView1.Columns[2].Name = "FIYAT TL";
-            dataGridView1.Columns[3].Name = "ADET";
+            dataGridView1.Columns[2].Name = "FIYAT";
+            dataGridView1.Columns[3].Name = "TL";
+            dataGridView1.Columns[4].Name = "ADET";
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)
@@ -108,38 +109,39 @@ namespace Kargo
         {
             int adet = 1;
             adet = Convert.ToInt32(textBox7.Text);
+            string TL = "TL";
             double desı =Convert.ToDouble(textBox4.Text);
             if (textBox4 != null)
             {
-                ekdesı = 75 + (desı - 40) * 2.30;
+                ekdesı = ((75 + (desı - 40) * 2.30)*1.18)+ ((75 + (desı - 40) * 2.30)*0.0235);
                 if (desı == 0 && desı < 1)
-                    textBox5.Text = (adet*32).ToString();
+                    textBox5.Text = Math.Round(adet * (32 * 1.18) + (32 * 0.0235), 2).ToString();
 
                 else if (desı >= 1 && desı <= 5)
-                    textBox5.Text = (adet*32).ToString();
+                    textBox5.Text = Math.Round(adet * (32 * 1.18) + (32 * 0.0235), 2).ToString();
 
                 else if (desı > 5 && desı <= 10)
-                    textBox5.Text = (adet*35).ToString();
+                    textBox5.Text = Math.Round(adet * (35 * 1.18) + (35 * 0.0235), 2).ToString();
 
                 else if (desı > 10 && desı <= 15)
-                    textBox5.Text = (adet * 38).ToString();
+                    textBox5.Text = Math.Round(adet * (38 * 1.18) + (38 * 0.0235), 2).ToString();
 
                 else if (desı > 15 && desı <= 20)
-                    textBox5.Text = (adet * 45).ToString();
+                    textBox5.Text = Math.Round(adet * (45 * 1.18) + (45 * 0.0235), 2).ToString();
 
                 else if (desı > 20 && desı <= 25)
-                    textBox5.Text = (adet * 55).ToString();
+                    textBox5.Text = Math.Round(adet * (55 * 1.18) + (55 * 0.0235), 2).ToString();
 
                 else if (desı > 25 && desı <= 30)
-                    textBox5.Text = (adet * 60).ToString();
+                    textBox5.Text = Math.Round(adet * (60 * 1.18) + (60 * 0.0235), 2).ToString();
 
                 else if (desı > 30 && desı <= 40)
-                    textBox5.Text = (adet * 75).ToString();
+                    textBox5.Text = Math.Round(adet * (75 * 1.18) + (75 * 0.0235), 2).ToString();
 
                 else if (desı > 40)
-                    textBox5.Text = (adet*ekdesı).ToString();
+                    textBox5.Text =Math.Round ((adet*ekdesı),2).ToString();
             }
-            dataGridView1.Rows.Add(textBox8.Text,desı,textBox5.Text,adet);
+            dataGridView1.Rows.Add(textBox8.Text,desı,textBox5.Text,TL,adet);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -148,21 +150,20 @@ namespace Kargo
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {
                 toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value);
+                toplam = Math.Round(toplam, 2);
             }
             textBox6.Text = toplam.ToString() + "TL";
+            toplam = Math.Round(toplam, 2);
         }
 
         private void MNG_KARGO_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Çıkmak istediğinize emin misiniz?", "www.kaizen40.com",
-                MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                e.Cancel = true;
-
-                // iptal ederseniz ne yapacağınızı buraya yazın
-            }
-
-            // Evet' i tıklarsanız çıkarsınız
+            DialogResult c;
+            c = MessageBox.Show("Çıkmakistediğinizden eminmisiniz ? ", "KargoFiyatHesaplama Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (c == DialogResult.Yes)
+                Environment.Exit(0);
+            else
+                e.Cancel = true;//Çıkışı durdur
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -326,7 +327,7 @@ namespace Kargo
             Graphics mg = Graphics.FromImage(Logo);
             e.Graphics.DrawImage(Logo, 730, 10, 100, 100);
             e.Graphics.DrawString("TOPLAM FİYAT=", font, firca, iCellHeight + 390, iTopMargin + 10);
-            e.Graphics.DrawString(textBox6.Text, font, firca, iCellHeight + 590, iTopMargin + 10);
+            e.Graphics.DrawString(textBox6.Text, font, firca, iCellHeight + 570, iTopMargin + 10);
             e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin, iCellHeight + 360, iTopMargin + 40);
             e.Graphics.DrawLine(kalem, iCellHeight + 695, iTopMargin, iCellHeight + 695, iTopMargin + 40);
             e.Graphics.DrawLine(kalem, iCellHeight + 570, iTopMargin, iCellHeight + 570, iTopMargin + 40);
@@ -374,6 +375,56 @@ namespace Kargo
             {
                 printDocument1.Print();
             }
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Green;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.White;
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.Red;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.White;
+        }
+
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.Green;
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.White;
+        }
+
+        private void TEMIZLE_MouseEnter(object sender, EventArgs e)
+        {
+            TEMIZLE.BackColor = Color.Gold;
+        }
+
+        private void TEMIZLE_MouseLeave(object sender, EventArgs e)
+        {
+            TEMIZLE.BackColor = Color.White;
+        }
+
+        private void button4_MouseEnter(object sender, EventArgs e)
+        {
+            button4.BackColor = Color.Green;
+        }
+
+        private void button4_MouseLeave(object sender, EventArgs e)
+        {
+            button4.BackColor = Color.White;
         }
     }
 }
