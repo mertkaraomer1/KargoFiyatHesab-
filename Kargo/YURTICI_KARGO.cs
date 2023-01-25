@@ -51,7 +51,7 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                double ekdesı = ((70 + (sonuc - 30) * 2.35)*1.18)+ ((70 + (sonuc - 30) * 2.35) * 0.0235);
+                double ekdesı = ((70 + (sonuc - 30) * 2.35) * 1.18 * 1.0235);
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
@@ -60,26 +60,26 @@ namespace Kargo
                     textBox5.Text = Math.Round((22.6*1.18)+ (22.6 * 0.0235),2).ToString();
 
                 else if (sonuc >= 1 && sonuc <= 4)
-                    textBox5.Text = (27.55*1.18)+ (27.55 * 0.0235).ToString();
+                    textBox5.Text = (27.55*1.18* 1.0235).ToString();
 
                 else if (sonuc > 4 && sonuc < 6)
-                    textBox5.Text = Math.Round((30.80 * 1.18) + (30.80 * 0.0235),2).ToString();
+                    textBox5.Text = Math.Round((30.80 * 1.18 * 1.0235),2).ToString();
 
                 else if (sonuc > 6 && sonuc <= 10)
-                    textBox5.Text = Math.Round((33.85 * 1.18) + (33.85 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((33.85 * 1.18 * 1.0235), 2).ToString();
 
                 else if (sonuc > 10 && sonuc <= 15)
-                    textBox5.Text = Math.Round((38.40 * 1.18) + (38.40 * 0.0235), 2).ToString();
-
+                    textBox5.Text = Math.Round((38.40 * 1.18 * 1.0235), 2).ToString();
+                    
                 else if (sonuc > 15 && sonuc <= 20)
-                    textBox5.Text = Math.Round((47 * 1.18) + (47 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((47 * 1.18 * 1.0235), 2).ToString();
 
 
                 else if (sonuc > 20 && sonuc <= 25)
-                    textBox5.Text = Math.Round((58.75 * 1.18) + (58.75 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((58.75 * 1.18 * 1.0235), 2).ToString();
 
                 else if (sonuc > 25 && sonuc <= 30)
-                    textBox5.Text = Math.Round((70 * 1.18) + (70 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((70 * 1.18 * 1.0235), 2).ToString();
 
                 else if (sonuc > 30)
                     textBox5.Text = Math.Round(ekdesı, 2).ToString();
@@ -91,7 +91,7 @@ namespace Kargo
         {
             dataGridView1.ColumnCount = 5;
             dataGridView1.Columns[0].Name = "FİRMA ADI";
-            dataGridView1.Columns[1].Name = "DESI";
+            dataGridView1.Columns[1].Name = "DESI/KİLO";
             dataGridView1.Columns[2].Name = "FIYAT";
             dataGridView1.Columns[3].Name = "TL";
             dataGridView1.Columns[4].Name = "ADET";
@@ -118,31 +118,31 @@ namespace Kargo
             if (textBox4 != null)
             {
 
-                double ekdesı = ((70 + (desı - 30) * 2.35) * 1.18) + ((70 + (desı - 30) * 2.35) * 0.0235);
+                double ekdesı = ((70 + (desı - 30) * 2.35) * 1.18 * 1.0235);
                 if (desı < 1)
-                    textBox5.Text =Math.Round(adet * (22.6 * 1.18) + (22.6 * 0.0235), 2).ToString();
+                    textBox5.Text =Math.Round(adet * (22.6 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı >= 1 && desı <= 4)
-                    textBox5.Text = Math.Round(adet * (27.55 * 1.18) + (27.55 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (27.55 * 1.18 * 1.0235), 2).ToString();
 
                 else if (desı > 4 && desı < 6)
-                    textBox5.Text = Math.Round(adet * (30.80 * 1.18) + (30.80 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (30.80 * 1.18 * 1.0235), 2).ToString();
 
                 else if (desı > 6 && desı <= 10)
-                    textBox5.Text = Math.Round(adet * (33.85 * 1.18) + (33.85 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (33.85 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı > 10 && desı <= 15)
-                    textBox5.Text = Math.Round(adet * (38.40 * 1.18) + (38.40 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (38.40 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı > 15 && desı <= 20)
-                    textBox5.Text = Math.Round(adet * (47 * 1.18) + (47 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (47 * 1.18* 1.0235), 2).ToString();
 
 
                 else if (desı > 20 && desı <= 25)
-                    textBox5.Text = Math.Round(adet * (58.75 * 1.18) + (58.75 * 0.0235), 2) .ToString();
+                    textBox5.Text = Math.Round(adet * (58.75 * 1.18* 1.0235), 2) .ToString();
 
                 else if (desı > 25 && desı <= 30)
-                    textBox5.Text = Math.Round(adet * (70 * 1.18) + (70 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (70 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı > 30)
                     textBox5.Text = Math.Round(adet * ekdesı,2).ToString();
@@ -217,7 +217,7 @@ namespace Kargo
         {
 
 
-            System.Drawing.Image Logo =imageList1.Images["ERMED2.png"];
+            System.Drawing.Image Logo =imageList1.Images["ASPİRASYON SONDASI.PNG"];
             Pen kalem=new Pen(Color.Black);
             Font font = new Font("Arial", 15);
             SolidBrush firca = new SolidBrush(Color.Black);
@@ -275,8 +275,8 @@ namespace Kargo
                                     e.Graphics.MeasureString("YURTİÇİ KARGO FİYAT HESABI", new Font(dataGridView1.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
                             e.Graphics.DrawString("ERMED TIP MEDİKAL", font,
-                                   Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -
-                                   e.Graphics.MeasureString("ERMED TIP MEDİKAL", font, e.MarginBounds.Left).Height - 15);
+                                  Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -
+                                  e.Graphics.MeasureString("ERMED TIP MEDİKAL", font, e.MarginBounds.Left).Height+10);
 
                             String strDate = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
 
@@ -341,7 +341,7 @@ namespace Kargo
                 MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Graphics mg = Graphics.FromImage(Logo);
-            e.Graphics.DrawImage(Logo, 730,10, 100, 100);
+            e.Graphics.DrawImage(Logo, 730,10, 80, 80);
 
 
 
@@ -389,14 +389,16 @@ namespace Kargo
         {
             PrintPreviewDialog onizleme = new PrintPreviewDialog();
             onizleme.Document = printDocument1;
+            ((Form)onizleme).WindowState = FormWindowState.Maximized; // Tam ekran olması için
+            onizleme.PrintPreviewControl.Zoom = 1.0; //Sayfanın %100 boyutunda olması için
             onizleme.ShowDialog();
-            //PrintDialog yazdir = new PrintDialog();
-            //yazdir.Document = printDocument1;
-            //yazdir.UseEXDialog = true;
-            //if (yazdir.ShowDialog() == DialogResult.OK)
-            //{
-            //    printDocument1.Print();
-            //}
+            PrintDialog yazdir = new PrintDialog();
+            yazdir.Document = printDocument1;
+            yazdir.UseEXDialog = true;
+            if (yazdir.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
         }
 
         private void button1_MouseEnter(object sender, EventArgs e)

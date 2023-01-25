@@ -79,5 +79,18 @@ namespace Kargo
             label1.Text = label1.Text.Substring(1) + label1.Text.Substring(0, 1);
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FILTER FTR = new FILTER();
+            FTR.Show();
+            this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            CAN_KARGO CN= new CAN_KARGO();
+            CN.Show();
+            this.Hide();
+        }
     }
 }

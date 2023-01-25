@@ -45,32 +45,32 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                double ekdesı = ((8.65 + (sonuc - 30) * 2.94) * 1.18) + ((8.65 + (sonuc - 30) * 2.94) * 0.0235);
+                double ekdesı = ((8.65 + (sonuc - 30) * 2.94) * 1.18* 1.0235);
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
 
                 if (sonuc < 1)  
-                    textBox5.Text = Math.Round((21.71 * 1.18) + (21.71 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((21.71 * 1.18* 1.0235), 2).ToString();
 
                 else if (sonuc >= 1 && sonuc <= 5)
-                    textBox5.Text = Math.Round((39.69 * 1.18) + (39.69 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((39.69 * 1.18* 1.0235), 2).ToString();
 
                 else if (sonuc > 5 && sonuc <= 10)
-                    textBox5.Text = Math.Round((58.57 * 1.18) + (58.57 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((58.57 * 1.18 * 1.0235), 2).ToString();
 
                 else if (sonuc > 10 && sonuc <= 15)
-                    textBox5.Text = Math.Round((62.36 * 1.18) + (62.36 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round((62.36 * 1.18 * 1.0235), 2).ToString();
 
                 else if (sonuc > 15 && sonuc <= 20)
-                    textBox5.Text =Math.Round( (67.9 * 1.18) + (67.9 * 0.0235),2).ToString();
+                    textBox5.Text =Math.Round( (67.9 * 1.18 * 1.0235),2).ToString();
 
 
                 else if (sonuc > 20 && sonuc <= 25)
-                    textBox5.Text = Math.Round((78.04 * 1.18) + (78.04 * 0.0235),2).ToString();
+                    textBox5.Text = Math.Round((78.04 * 1.18 * 1.0235),2).ToString();
 
                 else if (sonuc > 25 && sonuc <= 30)
-                    textBox5.Text =Math.Round ((88.65 * 1.18) + (88.65 * 0.0235),2).ToString();
+                    textBox5.Text =Math.Round ((88.65 * 1.18 * 1.0235),2).ToString();
 
                 else if (sonuc > 30)
                     textBox5.Text =Math.Round(ekdesı,2).ToString();
@@ -83,7 +83,7 @@ namespace Kargo
         {
             dataGridView1.ColumnCount = 5;
             dataGridView1.Columns[0].Name = "FİRMA ADI";
-            dataGridView1.Columns[1].Name = "DESI";
+            dataGridView1.Columns[1].Name = "DESI/KİLO";
             dataGridView1.Columns[2].Name = "FIYAT";
             dataGridView1.Columns[3].Name = "TL";
             dataGridView1.Columns[4].Name = "ADET";
@@ -110,28 +110,28 @@ namespace Kargo
 
             if (textBox4 != null)
             {
-                double ekdesı = ((8.65 + (desı - 30) * 2.94) * 1.18)+ ((8.65 + (desı - 30) * 2.94) * 0.0235);
+                double ekdesı = ((8.65 + (desı - 30) * 2.94) * 1.18 * 1.0235);
                 if (desı < 1)
-                    textBox5.Text = Math.Round(adet * (21.71 * 1.18) + (21.71 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (21.71 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı >= 1 && desı <= 5)
-                    textBox5.Text = Math.Round(adet * (39.69 * 1.18) + (39.69 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (39.69 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı > 5 && desı <= 10)
-                    textBox5.Text = Math.Round(adet * (58.57 * 1.18) + (58.57 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (58.57 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı > 10 && desı <= 15)
-                    textBox5.Text = Math.Round(adet * (62.36 * 1.18) + (62.36 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (62.36 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı > 15 && desı <= 20)
-                    textBox5.Text = Math.Round(adet * (67.9 * 1.18) + (67.9 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (67.9 * 1.18* 1.0235), 2).ToString();
 
 
                 else if (desı > 20 && desı <= 25)
-                    textBox5.Text = Math.Round(adet * (78.04 * 1.18) + (78.04 * 0.0235), 2).ToString();
+                    textBox5.Text = Math.Round(adet * (78.04 * 1.18* 1.0235), 2).ToString();
 
                 else if (desı > 25 && desı <= 30)
-                    textBox5.Text =Math.Round (adet * (88.65 * 1.18) + (88.65 * 0.0235),2).ToString();
+                    textBox5.Text =Math.Round (adet * (88.65 * 1.18* 1.0235),2).ToString();
 
                 else if (desı > 30)
                     textBox5.Text =Math.Round (adet*ekdesı,2).ToString();
@@ -201,7 +201,7 @@ namespace Kargo
         int iHeaderHeight = 0;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            System.Drawing.Image Logo = imageList1.Images["ERMED2.png"];
+            System.Drawing.Image Logo = imageList1.Images["ASPİRASYON SONDASI.PNG"];
             Pen kalem = new Pen(Color.Black);
             Font font = new Font("Arial", 14);
             SolidBrush firca = new SolidBrush(Color.Black);
@@ -324,7 +324,7 @@ namespace Kargo
                 MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Graphics mg = Graphics.FromImage(Logo);
-            e.Graphics.DrawImage(Logo, 730, 10, 100, 100);
+            e.Graphics.DrawImage(Logo, 730, 10, 80, 80);
             e.Graphics.DrawString("TOPLAM FİYAT=", font, firca, iCellHeight + 390, iTopMargin + 10);
             e.Graphics.DrawString(textBox6.Text, font, firca, iCellHeight + 570, iTopMargin + 10);
             e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin, iCellHeight + 360, iTopMargin + 40);
@@ -366,6 +366,8 @@ namespace Kargo
         {
             PrintPreviewDialog onizleme = new PrintPreviewDialog();
             onizleme.Document = printDocument1;
+            ((Form)onizleme).WindowState = FormWindowState.Maximized; // Tam ekran olması için
+            onizleme.PrintPreviewControl.Zoom = 1.0; //Sayfanın %100 boyutunda olması için
             onizleme.ShowDialog();
             PrintDialog yazdir = new PrintDialog();
             yazdir.Document = printDocument1;
