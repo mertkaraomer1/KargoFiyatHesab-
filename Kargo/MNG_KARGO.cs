@@ -48,7 +48,7 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                ekdesı = ((75 + (sonuc - 40)) * 1.18* 1.0235);
+                ekdesı = ((75 + (sonuc - 40)*2.30) * 1.18* 1.0235);
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";

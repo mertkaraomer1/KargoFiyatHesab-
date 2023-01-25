@@ -45,7 +45,7 @@ namespace Kargo
                 //dataGridView1.Rows.Add(sonuc.ToString());
                 //dataGridView1.Visible = true;
 
-                double ekdesı = ((8.65 + (sonuc - 30) * 2.94) * 1.18* 1.0235);
+                double ekdesı = ((88.65 + (sonuc - 30) * 2.94) * 1.18* 1.0235);
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
@@ -110,7 +110,7 @@ namespace Kargo
 
             if (textBox4 != null)
             {
-                double ekdesı = ((8.65 + (desı - 30) * 2.94) * 1.18 * 1.0235);
+                double ekdesı = ((88.65 + (desı - 30) * 2.94) * 1.18 * 1.0235);
                 if (desı < 1)
                     textBox5.Text = Math.Round(adet * (21.71 * 1.18* 1.0235), 2).ToString();
 
