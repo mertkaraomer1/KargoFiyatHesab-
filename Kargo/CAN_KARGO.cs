@@ -18,6 +18,8 @@ using Microsoft.VisualBasic.Logging;
 using static System.Net.Mime.MediaTypeNames;
 using System.Drawing.Imaging;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.OleDb;
+using DataTable = System.Data.DataTable;
 
 namespace Kargo
 {
@@ -27,28 +29,17 @@ namespace Kargo
         {
             InitializeComponent();
         }
+        OleDbConnection con;
 
         private void CAN_KARGO_Load(object sender, EventArgs e)
         {
-            comboBox1.Text = "Seçiniz...";
-            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-            object[] sehirler1 = new object[] { "Ankara", "Bursa", "Kocaeli", "Sakarya", "Eskişehir", "Manisa", "İzmir", "İstanbul Avrupa", "İstanbul Anadolu", "Balıkesir" };
-            comboBox1.Items.AddRange(sehirler1);
-            for (int i = 0; i < comboBox1.Items.Count; i++)
-            {
-                collection.Add(comboBox1.Items[i].ToString());
-            }
-            //AutoCompleteStringCollection'u comboBox'un AutoCompleteCustomSource özelliğine atıyoruz.
-            comboBox1.AutoCompleteCustomSource = collection;
-
-            //comboBox'un otomatik tamamlama türünü seçiyoruz.
-            comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-
-            //comboBox'un AutoCompleteSource özelliğinin CustomSource türünde olacağını belirtiyoruz.
-            comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-
-
+            con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=iller.accdb");
+            DataTable dt = new DataTable();
+            OleDbDataAdapter da = new OleDbDataAdapter("select * from iller1 ORDER BY id ASC ", con);
+            da.Fill(dt);
+            comboBox1.ValueMember = "id";
+            comboBox1.DisplayMember = "iller1";
+            comboBox1.DataSource = dt;
 
 
 
@@ -376,69 +367,16 @@ namespace Kargo
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "Ankara")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Akyurt", "Altındağ", "Çankaya", "Etimesgut", "Gölbaşı", "Kazan", "Keçiören", "Mamak", "Pursaklar", "Sincan", " Yenimahalle"};
-                    comboBox2.Items.AddRange(ilceler);
-                }
 
-                else if (comboBox1.Text == "Bursa")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Osmangazi", "Nilüfer", "Yıldırım", "Gürsu", "Kestel", "İnegöl","Hasanağa OSB","Mudanya" };
-                    comboBox2.Items.AddRange(ilceler);
-                }
-                else if (comboBox1.Text == "Kocaeli")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Merkez", "Derince", "İzmit", "Kartepe", "Başiskele", "Körfez", "Kuruçeşme", "Gebze","Gölcük","Karamürsel","Darıca","Çayırova","Dilovası"};
-                    comboBox2.Items.AddRange(ilceler);
-                }
-                else if (comboBox1.Text == "Sakarya")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Merkez", "Serdivan", "Erenler","Ferizli","Söğütlü","Sapanca","Arifiye"};
-                    comboBox2.Items.AddRange(ilceler);
-                }
-                else if (comboBox1.Text == "Eskişehir")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Odunpazarı", "Tepebaşı" };
-                    comboBox2.Items.AddRange(ilceler);
-                }
-                else if (comboBox1.Text == "Manisa")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Merkez","Yunusemre", "Şehzadeler" };
-                    comboBox2.Items.AddRange(ilceler);
-                }
-
-                else if (comboBox1.Text == "İzmir")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Bornova",  "Balçova", "Pınarbaşı", "Kemalpaşa", "Çiğle", "Karşıyaka", "Gaziemir", "Karabağlar", "Menderes", "Torbalı", "Bayraklı", "Buca", "Menemen","Kemalpaşa","Konak" };
-                    comboBox2.Items.AddRange(ilceler);
-                }
-
-                else if (comboBox1.Text == "İstanbul Avrupa")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Avcılar", "Büyükçekmece", "Küçükçekmece", "Florya", "Yeşilköy", "Bakırköy", "Başakşehir", "Güneşli", "Bağcılar", "Esenler", "Zeytinburnu", "Güngören", "Aksaray", "Fatih", "Eminönü", "Şişli", "Levent", "Sarıyer", "Kağıthane", "Mecidiyeköy", "Beyoğlu", "Topkapı", "Kocamustafapaşa" };
-                    comboBox2.Items.AddRange(ilceler);
-                }
-                else if (comboBox1.Text == "İstanbul Anadolu")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Üsküdar", "Ümraniye(Merkez)", "Kadıköy", "Bostancı", "Beykoz(Merkez)", "Pendik", "Kartal", "Maltepe", "Ataşehir", "Tuzla", "Sultanbeyli", "Sancaktepe", "Çekmeköy", "Dilovası" };
-                    comboBox2.Items.AddRange(ilceler);
-                }
-                else if (comboBox1.Text == "Balıkesir")
-                {
-                    comboBox2.Text = "Seçiniz...";
-                    object[] ilceler = new object[] { "Altıeylül","Karesi" };
-                    comboBox2.Items.AddRange(ilceler);
-                }
+            if (comboBox1.SelectedIndex != -1)
+            {
+                DataTable dt = new DataTable();
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from ilceler1 where iller1 = " + comboBox1.SelectedValue, con);
+                da.Fill(dt);
+                comboBox2.ValueMember = "id";
+                comboBox2.DisplayMember = "ilceler1";
+                comboBox2.DataSource = dt;
+            }
         }
 
         private void button1_MouseEnter(object sender, EventArgs e)
