@@ -27,10 +27,37 @@ namespace Kargo
         {
             InitializeComponent();
         }
+        int row;
+        double desi;
+        double fiyat;
         OleDbConnection con;
         OleDbConnection con1;
+        OleDbConnection cone;
+        OleDbDataAdapter daa;
+        DataSet ds;
+        void griddoldur()
+        {
+            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+            daa = new OleDbDataAdapter("SElect *from KargoFiltre", cone);
+            ds = new DataSet();
+            cone.Open();
+            daa.Fill(ds, "KargoFiltre");
+            dataGridView1.DataSource = ds.Tables["KargoFiltre"];
+            cone.Close();
+        }
         private void FILTER_Load(object sender, EventArgs e)
         {
+            griddoldur();
+
+            dataGridView2.ColumnCount = 7;
+            dataGridView2.Columns[0].Name = "GÖNDERİLECEK FİRMA ADI";
+            dataGridView2.Columns[1].Name = "KARGO FİRMASI";
+            dataGridView2.Columns[2].Name = "DESİ";
+            dataGridView2.Columns[3].Name = "FİYAT TL";
+            dataGridView2.Columns[4].Name = "ADET";
+            dataGridView2.Columns[5].Name = "İL";
+            dataGridView2.Columns[6].Name = "İLÇE";
+
             if (textBox9.Text == null)
             {
                 con.Close();
@@ -61,16 +88,6 @@ namespace Kargo
                 dt1.EndInit();
             }
 
-
-            dataGridView2.ColumnCount = 7;
-            dataGridView2.Columns[0].Name = "FİRMA ADI";
-            dataGridView2.Columns[1].Name = "KARGO FİRMASI";
-            dataGridView2.Columns[2].Name = "DESİ";
-            dataGridView2.Columns[3].Name = "FİYAT TL";
-            dataGridView2.Columns[4].Name = "ADET";
-            dataGridView2.Columns[5].Name = "İL";
-            dataGridView2.Columns[6].Name = "İLÇE";
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,31 +113,12 @@ namespace Kargo
         private void button3_Click(object sender, EventArgs e)
         {
             Double desi = Convert.ToDouble(textBox4.Text);
-            dataGridView1.Rows.Clear();
-            dataGridView1.ColumnCount = 11;
-            dataGridView1.Columns[0].Name = "KARGO ŞİRKETLERİ";
-            dataGridView1.Columns[1].Name = "0 DESİ/KG";
-            dataGridView1.Columns[2].Name = "1-4 DESİ/KG";
-            dataGridView1.Columns[3].Name = "5 DESİ/KG";
-            dataGridView1.Columns[4].Name = "6-10 DESİ/KG";
-            dataGridView1.Columns[5].Name = "11-15 DESİ/KG";
-            dataGridView1.Columns[6].Name = "16-20 DESİ/KG";
-            dataGridView1.Columns[7].Name = "21-25 DESİ/KG";
-            dataGridView1.Columns[8].Name = "26-30 DESİ/KG";
-            dataGridView1.Columns[9].Name = "31-40 DESİ/KG";
-            dataGridView1.Columns[10].Name = "41-50 DESİ/KG";
+
 
 
 
             if (textBox4.Text != null)
             {
-                dataGridView1.Rows.Add("MNG KARGO", 32.ToString(), 32.ToString(), 32.ToString(), 35.ToString(), 38.ToString(), 45.ToString(), 55.ToString(), 60.ToString(), 75.ToString(), (75 + (desi - 40) * 2.30).ToString());
-                dataGridView1.Rows.Add("ARAS KARGO", 21.71.ToString(), 39.69.ToString(), 39.69.ToString(), 58.57.ToString(), 62.36.ToString(), 67.9.ToString(), 78.04.ToString(), 88.ToString(), (88.65 + (desi - 30) * 2.94).ToString(), (88.65 + (desi - 30) * 2.94).ToString());
-                dataGridView1.Rows.Add("SÜRAT KARGO", 25.45.ToString(), 25.45.ToString(), 25.45.ToString(), 32.33.ToString(), 40.37.ToString(), 46.44.ToString(), 53.53.ToString(), 63.ToString(), (63 + (desi - 30) * 2.7).ToString(), (63 + (desi - 30) * 2.7).ToString());
-                dataGridView1.Rows.Add("YURTİÇİ KARGO", 22.6.ToString(), 27.55.ToString(), 30.80.ToString(), 33.85.ToString(), 38.40.ToString(), 47.ToString(), 58.75.ToString(), 70.ToString(), (63 + (desi - 30) * 2.7).ToString(), (63 + (desi - 30) * 2.7).ToString());
-                dataGridView1.Rows.Add("ANKARA KARGO", 22.74.ToString(), 22.74.ToString(), 22.74.ToString(), 22.74.ToString(), 34.99.ToString(), 34.99.ToString(), 50.74.ToString(), 50.74.ToString(), 59.48.ToString(), 73.48.ToString());
-                dataGridView1.Rows.Add("CAN KARGO", 28.ToString(), 28.ToString(), 28.ToString(), 28.ToString(), 28.ToString(), 28.ToString(), 42.ToString(), 42.ToString(), 56.ToString(), 70.ToString());
-
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
                     if (desi == 0)
@@ -247,179 +245,178 @@ namespace Kargo
 
             double netfıyat = (fıyat * adet);
             if (textBox9.Text == "ANKARA KARGO")
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet,comboBox1.Text,comboBox2.Text);
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet, comboBox1.Text, comboBox2.Text);
             else if (textBox9.Text == "CAN KARGO")
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet,comboBox3.Text,comboBox4.Text);
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet, comboBox3.Text, comboBox4.Text);
             else
                 dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            desi=Convert.ToDouble(textBox4.Text);
             textBox10.Text = textBox4.Text.ToString();
+            double ekdesi;
 
-            //adet = Convert.ToInt32(textBox7.Text);
-            double ekdesı;
-            double desı = Convert.ToDouble(textBox4.Text);
             if (textBox4.Text != null)
             {
                 if (textBox9.Text == "YURTİÇİ KARGO")
                 {
 
-                    ekdesı = ((70 + (desı - 30) * 2.35) * 1.18 * 1.0235);
-                    if (desı < 1)
-                        textBox11.Text = Math.Round((22.6 * 1.18) + (22.6 * 0.0235), 2).ToString();
+                    ekdesi = ((fiyat + (desi - 30) * 2.35) * 1.18 * 1.0235);
+                    if (desi < 1)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı >= 1 && desı <= 4)
-                        textBox11.Text = (27.55 * 1.18 * 1.0235).ToString();
+                    else if (desi >= 1 && desi <= 4)
+                        textBox11.Text = Math.Round(fiyat * 1.18 * 1.0235).ToString();
 
-                    else if (desı > 4 && desı < 6)
-                        textBox11.Text = Math.Round((30.80 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 4 && desi < 6)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 6 && desı <= 10)
-                        textBox11.Text = Math.Round((33.85 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 6 && desi <= 10)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 10 && desı <= 15)
-                        textBox11.Text = Math.Round((38.40 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 10 && desi <= 15)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 15 && desı <= 20)
-                        textBox11.Text = Math.Round((47 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 15 && desi <= 20)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
 
-                    else if (desı > 20 && desı <= 25)
-                        textBox11.Text = Math.Round((58.75 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 20 && desi <= 25)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 25 && desı <= 30)
-                        textBox11.Text = Math.Round((70 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 25 && desi <= 30)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 30)
-                        textBox11.Text = Math.Round(ekdesı, 2).ToString();
+                    else if (desi > 30)
+                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
                 }
                 else if (textBox9.Text == "MNG KARGO")
                 {
-                    ekdesı = ((75 + (desı - 40) * 2.30) * 1.18 * 1.0235);
-                    if (desı == 0 && desı < 1)
-                        textBox11.Text = Math.Round((32 * 1.18 * 1.0235), 2).ToString();
+                    ekdesi = ((fiyat + (desi - 40) * 2.30) * 1.18 * 1.0235);
+                    if (desi == 0 && desi < 1)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı >= 1 && desı <= 5)
-                        textBox11.Text = Math.Round((32 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi >= 1 && desi <= 5)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 5 && desı <= 10)
-                        textBox11.Text = Math.Round((35 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 5 && desi <= 10)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 10 && desı <= 15)
-                        textBox11.Text = Math.Round((38 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 10 && desi <= 15)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 15 && desı <= 20)
-                        textBox11.Text = Math.Round((45 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 15 && desi <= 20)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 20 && desı <= 25)
-                        textBox11.Text = Math.Round((55 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 20 && desi <= 25)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 25 && desı <= 30)
-                        textBox11.Text = Math.Round((60 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 25 && desi <= 30)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 30 && desı <= 40)
-                        textBox11.Text = Math.Round((75 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 30 && desi <= 40)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 40)
-                        textBox11.Text = Math.Round(ekdesı, 2).ToString();
+                    else if (desi > 40)
+                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
                 }
                 else if (textBox9.Text == "ARAS KARGO")
                 {
-                    ekdesı = ((88.65 + (desı - 30) * 2.94) * 1.18 * 1.0235);
-                    if (desı < 1)
-                        textBox11.Text = Math.Round((21.71 * 1.18 * 1.0235), 2).ToString();
+                    ekdesi = ((fiyat + (desi - 30) * 2.94) * 1.18 * 1.0235);
+                    if (desi < 1)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı >= 1 && desı <= 5)
-                        textBox11.Text = Math.Round((39.69 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi >= 1 && desi <= 5)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 5 && desı <= 10)
-                        textBox11.Text = Math.Round((58.57 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 5 && desi <= 10)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 10 && desı <= 15)
-                        textBox11.Text = Math.Round((62.36 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 10 && desi <= 15)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 15 && desı <= 20)
-                        textBox11.Text = Math.Round((67.9 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 15 && desi <= 20)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
 
-                    else if (desı > 20 && desı <= 25)
-                        textBox11.Text = Math.Round((78.04 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 20 && desi <= 25)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 25 && desı <= 30)
-                        textBox11.Text = Math.Round((88.65 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 25 && desi <= 30)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 30)
-                        textBox11.Text = Math.Round(ekdesı, 2).ToString();
+                    else if (desi > 30)
+                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
                 }
                 else if (textBox9.Text == "SÜRAT KARGO")
                 {
-                    ekdesı = ((63 + (desı - 30) * 2.7) * 1.18 * 1.0235);
-                    if (desı < 1)
-                        textBox11.Text = Math.Round((25.45 * 1.18 * 1.0235), 2).ToString();
+                    ekdesi = ((fiyat + (desi - 30) * 2.7) * 1.18 * 1.0235);
+                    if (desi < 1)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı >= 1 && desı <= 5)
-                        textBox11.Text = Math.Round((25.65 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi >= 1 && desi <= 5)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 5 && desı <= 10)
-                        textBox11.Text = Math.Round((32.33 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 5 && desi <= 10)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 10 && desı <= 15)
-                        textBox11.Text = Math.Round((40.37 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 10 && desi <= 15)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 15 && desı <= 20)
-                        textBox11.Text = Math.Round((46.44 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 15 && desi <= 20)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
 
-                    else if (desı > 20 && desı <= 25)
-                        textBox11.Text = Math.Round((53.53 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 20 && desi <= 25)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 25 && desı <= 30)
-                        textBox11.Text = Math.Round((63 * 1.18 * 1.0235), 2).ToString();
+                    else if (desi > 25 && desi <= 30)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
-                    else if (desı > 30)
-                        textBox11.Text = Math.Round(ekdesı, 2).ToString();
+                    else if (desi > 30)
+                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
                 }
                 else if (textBox9.Text == "ANKARA KARGO")
                 {
-                    ekdesı = (73.48 + (desı - 50) * 1.91) * 1.18 * 1.06;
-                    if (desı > 0 && desı <= 10)
-                        textBox11.Text = Math.Round((22.74 * 1.18 * 1.06), 2).ToString();
+                    ekdesi = (fiyat + (desi - 50) * 1.91) * 1.18 * 1.06;
+                    if (desi > 0 && desi <= 10)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 10 && desı <= 20)
-                        textBox11.Text = Math.Round((34.99 * 1.18 * 1.06), 2).ToString();
+                    else if (desi > 10 && desi <= 20)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 20 && desı <= 30)
-                        textBox11.Text = Math.Round((50.74 * 1.18 * 1.06), 2).ToString();
+                    else if (desi > 20 && desi <= 30)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 30 && desı <= 40)
-                        textBox11.Text = Math.Round((59.48 * 1.18 * 1.06), 2).ToString();
+                    else if (desi > 30 && desi <= 40)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 40 && desı <= 50)
-                        textBox11.Text = Math.Round((73.48 * 1.18 * 1.06), 2).ToString();
+                    else if (desi > 40 && desi <= 50)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 50)
-                        textBox11.Text = Math.Round(ekdesı, 2).ToString();
+                    else if (desi > 50)
+                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
                 }
                 else if (textBox9.Text == "CAN KARGO")
                 {
 
-                    ekdesı = (70 + (desı - 50) * 1.40) * 1.18 * 1.06;
-                    if (desı > 0 && desı <= 20)
-                        textBox11.Text = Math.Round((28 * 1.18 * 1.06), 2).ToString();
+                    ekdesi = (fiyat + (desi - 50) * 1.40) * 1.18 * 1.06;
+                    if (desi > 0 && desi <= 20)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 20 && desı <= 30)
-                        textBox11.Text = Math.Round((42 * 1.18 * 1.06), 2).ToString();
+                    else if (desi > 20 && desi <= 30)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 30 && desı <= 40)
-                        textBox11.Text = Math.Round((56 * 1.18 * 1.06), 2).ToString();
+                    else if (desi > 30 && desi <= 40)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 40 && desı <= 50)
-                        textBox11.Text = Math.Round((70 * 1.18 * 1.06), 2).ToString();
+                    else if (desi > 40 && desi <= 50)
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                    else if (desı > 50)
-                        textBox11.Text = Math.Round(ekdesı, 2).ToString();
+                    else if (desi > 50)
+                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
                 }
 
 
@@ -428,92 +425,7 @@ namespace Kargo
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBox1.Text == "Ankara")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Akyurt", "Altındağ", "Çankaya", "Etimesgut", "Gölbaşı", "Kazan", "Keçiören", "Mamak", "Pursaklar", "Sincan", " Yenimahalle", "Hasanoğlan", " Etlik", "Kızılay", "Balgat", "Dikmen", "Şaşmaz", "Yenikent", "Öveçler", "Batıkent", "İskitler", "Akköprü", "Polatlı", "Maliköy", "Temelli", "Ulus", "Dışkapı", "karapürçekler", "Aydınlıkevler", "Saray", "Eryaman", "Subayevler", "Ostim", "İvedik", "Demetevler", "Gersan", "Abidinpaşa", "Cebeci", "Ümitköy", "Çayyolu", "Söğütözü", "Gimat", "Macunköy", "Çıbuk", "Siteler", "Gülveren", "Oran" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
 
-            //else if (comboBox1.Text == "Bursa")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Osmangazi", "Nilüfer", "Yıldırım", "Gürsu", "Kestel", "İnegöl" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Kocaeli")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Merkez", "Derince", "İzmit", "Kartepe", "Başiskele", "Körfez", "Kuruçeşme", "Gebze" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Sakarya")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Merkez", "Serdivan", "Erenler" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Eskişehir")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Odunpazarı", "Tepebaşı" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Manisa")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Yunusemre", "Şehzadeler" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Adana")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Yüreğir", "Seyhan", "Çukurova", "Sarıçam" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "İzmir")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Bornova", "Çankaya", "Balçova", "Pınarbaşı", "Kemalpaşa", "Işıkkent", "Yenişehir", "Konak", "Kemeraltı", "Alsancak", "Çiğle", "Karşıyaka", "Bostanlı", "Gaziemir", "Karabağlar", "Menderes", "Sarnıç", "Kısıkköy", "Torbalı", "Bayraklı", "Mavişehir", "5.Sanayi", "Yeşilyurt", "Hatay", "Buca", "Narlıdere", "Menemen" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-
-            //else if (comboBox1.Text == "Gaziantep")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Şahinbey", "Şehitkemal", "Nizip" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "İstanbul Avrupa")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Avcılar", "Büyükçekmece", "Küçükçekmece", "Florya", "Yeşilköy", "Bakırköy", "Başakşehir", "Güneşli", "Bağcılar", "Esenler", "Zeytinburnu", "Güngören", "Aksaray", "Fatih", "Eminönü", "Şişli", "Levent", "Sarıyer", "Kağıthane", "Mecidiyeköy", "Beyoğlu", "Topkapı", "Kocamustafapaşa" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "İstanbul Anadolu")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Üsküdar", "Ümraniye(Merkez)", "Kadıköy", "Bostancı", "Beykoz(Merkez)", "Pendik", "Kartal", "Maltepe", "Ataşehir", "Tuzla", "Sultanbeyli", "Sancaktepe", "Çekmeköy", "Dilovası" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Konya")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Selçuklu", "Karatay", "Meram" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Mersin")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Akdeniz", "Toros", "Tarsus", "Yenişehir", "Erdemli", "Mezitli" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox1.Text == "Tekirdağ")
-            //{
-            //    comboBox2.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Çorlu", "Çerkezköy" };
-            //    comboBox2.Items.AddRange(ilceler);
-            //}
             if (comboBox1.SelectedIndex != -1)
             {
                 DataTable dt = new DataTable();
@@ -526,7 +438,7 @@ namespace Kargo
 
         }
 
-    
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -766,245 +678,181 @@ namespace Kargo
             KS.Show();
             this.Hide();
         }
+        string seçilensatır;
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            double desi = Convert.ToDouble(textBox4.Text);
+            desi=Convert.ToDouble(textBox4.Text);
             if (desi != null)
             {
-                if (desi == 0)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                else if (desi > 0 && desi <= 4)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                else if (desi == 5)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                else if (desi > 5 && desi <= 10)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                else if (desi > 10 && desi <= 15)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                else if (desi > 16 && desi <= 20)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                else if (desi > 21 && desi <= 25)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-                else if (desi >= 26 && desi <= 30)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-                else if (desi >= 31 && desi <= 40)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                else if (desi >= 41 && desi <= 50)
-                    textBox5.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-            }
-
-            textBox9.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-
-
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            double desı = Convert.ToDouble(textBox4.Text);
-            double adet = 1;
-            adet = Convert.ToDouble(textBox7.Text);
-            if (desı >= 0 && desı <= 20)
-                if (adet >= 6)
-                    textBox11.Text = Math.Round(adet * (28 * 1.18 * 1.06), 2).ToString();
-                else
-                    MessageBox.Show("adet en az 6 girilmeli...");
-
-            else if (desı > 20 && desı <= 30)
-                if (adet >= 4)
-                    textBox11.Text = Math.Round(adet * (42 * 1.18 * 1.06), 2).ToString();
-                else
-                    MessageBox.Show("adet en az 4 girilmeli...");
-
-            else if (desı > 30 && desı <= 40)
-                if (adet >= 3)
-                    textBox11.Text = Math.Round(adet * (56 * 1.18 * 1.06), 2).ToString();
-                else
-                    MessageBox.Show("adet en az 4 girilmeli...");
-
-            else if (desı > 40 && desı <= 50)
-                if (adet >= 3)
-                    textBox11.Text = Math.Round(adet * (70 * 1.18 * 1.06), 2).ToString();
-                else
-                    MessageBox.Show("adet en az 3 girilmeli...");
-
-        }
-
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
+                     row = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    textBox9.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value);
+                    if (desi == 0)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[2].Value);
+                    else if (desi >= 1 && desi <= 4)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[3].Value);
+                    else if (desi == 5)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value);
+                    else if (desi > 5 && desi <= 10)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value);
+                    else if (desi > 10 && desi <= 15)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[6].Value);
+                    else if (desi > 1 && desi <= 20)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[7].Value);
+                    else if (desi > 20 && desi <= 25)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[8].Value);
+                    else if (desi > 25 && desi <= 30)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[9].Value);
+                    else if (desi > 30 && desi <= 40)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[10].Value);
+                    else if (desi > 40 && desi <= 50)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
+                }
+                //textBox9.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (comboBox3.Text == "Ankara")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Akyurt", "Altındağ", "Çankaya", "Etimesgut", "Gölbaşı", "Kazan", "Keçiören", "Mamak", "Pursaklar", "Sincan", " Yenimahalle" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-
-            //else if (comboBox3.Text == "Bursa")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Osmangazi", "Nilüfer", "Yıldırım", "Gürsu", "Kestel", "İnegöl", "Hasanağa OSB", "Mudanya" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox3.Text == "Kocaeli")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Merkez", "Derince", "İzmit", "Kartepe", "Başiskele", "Körfez", "Kuruçeşme", "Gebze", "Gölcük", "Karamürsel", "Darıca", "Çayırova", "Dilovası" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox3.Text == "Sakarya")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Merkez", "Serdivan", "Erenler", "Ferizli", "Söğütlü", "Sapanca", "Arifiye" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox3.Text == "Eskişehir")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Odunpazarı", "Tepebaşı" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox3.Text == "Manisa")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Merkez", "Yunusemre", "Şehzadeler" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-
-            //else if (comboBox3.Text == "İzmir")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Bornova", "Balçova", "Pınarbaşı", "Kemalpaşa", "Çiğle", "Karşıyaka", "Gaziemir", "Karabağlar", "Menderes", "Torbalı", "Bayraklı", "Buca", "Menemen", "Kemalpaşa", "Konak" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-
-            //else if (comboBox3.Text == "İstanbul Avrupa")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Avcılar", "Büyükçekmece", "Küçükçekmece", "Florya", "Yeşilköy", "Bakırköy", "Başakşehir", "Güneşli", "Bağcılar", "Esenler", "Zeytinburnu", "Güngören", "Aksaray", "Fatih", "Eminönü", "Şişli", "Levent", "Sarıyer", "Kağıthane", "Mecidiyeköy", "Beyoğlu", "Topkapı", "Kocamustafapaşa" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox3.Text == "İstanbul Anadolu")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Üsküdar", "Ümraniye(Merkez)", "Kadıköy", "Bostancı", "Beykoz(Merkez)", "Pendik", "Kartal", "Maltepe", "Ataşehir", "Tuzla", "Sultanbeyli", "Sancaktepe", "Çekmeköy", "Dilovası" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-            //else if (comboBox3.Text == "Balıkesir")
-            //{
-            //    comboBox4.Text = "Seçiniz...";
-            //    object[] ilceler = new object[] { "Altıeylül", "Karesi" };
-            //    comboBox4.Items.AddRange(ilceler);
-            //}
-            if (comboBox3.SelectedIndex != -1)
+            private void button7_Click(object sender, EventArgs e)
             {
-                DataTable dt1 = new DataTable();
-                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from ilce where il = " + comboBox3.SelectedValue, con1);
-                da1.Fill(dt1);
-                comboBox4.ValueMember = "ID";
-                comboBox4.DisplayMember = "ilce";
-                comboBox4.DataSource = dt1;
+                double desı = Convert.ToDouble(textBox4.Text);
+                double adet = 1;
+                adet = Convert.ToDouble(textBox7.Text);
+                if (desı >= 0 && desı <= 20)
+                    if (adet >= 6)
+                        textBox11.Text = Math.Round(adet * (28 * 1.18 * 1.06), 2).ToString();
+                    else
+                        MessageBox.Show("adet en az 6 girilmeli...");
+
+                else if (desı > 20 && desı <= 30)
+                    if (adet >= 4)
+                        textBox11.Text = Math.Round(adet * (42 * 1.18 * 1.06), 2).ToString();
+                    else
+                        MessageBox.Show("adet en az 4 girilmeli...");
+
+                else if (desı > 30 && desı <= 40)
+                    if (adet >= 3)
+                        textBox11.Text = Math.Round(adet * (56 * 1.18 * 1.06), 2).ToString();
+                    else
+                        MessageBox.Show("adet en az 4 girilmeli...");
+
+                else if (desı > 40 && desı <= 50)
+                    if (adet >= 3)
+                        textBox11.Text = Math.Round(adet * (70 * 1.18 * 1.06), 2).ToString();
+                    else
+                        MessageBox.Show("adet en az 3 girilmeli...");
+
             }
-        }
 
-        private void FILTER_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult c;
-            c = MessageBox.Show("Çıkmakistediğinizden eminmisiniz ? ", "KargoFiyatHesaplama Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (c == DialogResult.Yes)
-                Environment.Exit(0);
-            else
-                e.Cancel = true;//Çıkışı durdur
-        }
+            private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+            {
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            dataGridView2.Rows.Clear();
-        }
+                if (comboBox3.SelectedIndex != -1)
+                {
+                    DataTable dt1 = new DataTable();
+                    OleDbDataAdapter da1 = new OleDbDataAdapter("select * from ilce where il = " + comboBox3.SelectedValue, con1);
+                    da1.Fill(dt1);
+                    comboBox4.ValueMember = "ID";
+                    comboBox4.DisplayMember = "ilce";
+                    comboBox4.DataSource = dt1;
+                }
+            }
 
-        private void button4_MouseEnter(object sender, EventArgs e)
-        {
-            button4.BackColor = Color.Green;
-        }
+            private void FILTER_FormClosing(object sender, FormClosingEventArgs e)
+            {
+                DialogResult c;
+                c = MessageBox.Show("Çıkmakistediğinizden eminmisiniz ? ", "KargoFiyatHesaplama Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (c == DialogResult.Yes)
+                    Environment.Exit(0);
+                else
+                    e.Cancel = true;//Çıkışı durdur
+            }
 
-        private void button4_MouseLeave(object sender, EventArgs e)
-        {
-            button4.BackColor = Color.White;
-        }
+            private void button8_Click(object sender, EventArgs e)
+            {
+                dataGridView2.Rows.Clear();
+            }
 
-        private void button2_MouseEnter(object sender, EventArgs e)
-        {
-            button2.BackColor = Color.Red;
-        }
+            private void button4_MouseEnter(object sender, EventArgs e)
+            {
+                button4.BackColor = Color.Green;
+            }
 
-        private void button2_MouseLeave(object sender, EventArgs e)
-        {
-            button2.BackColor = Color.White;
-        }
+            private void button4_MouseLeave(object sender, EventArgs e)
+            {
+                button4.BackColor = Color.White;
+            }
 
-        private void button8_MouseEnter(object sender, EventArgs e)
-        {
-            button8.BackColor = Color.Gold;
-        }
+            private void button2_MouseEnter(object sender, EventArgs e)
+            {
+                button2.BackColor = Color.Red;
+            }
 
-        private void button8_MouseLeave(object sender, EventArgs e)
-        {
-            button8.BackColor = Color.Gold;
-        }
+            private void button2_MouseLeave(object sender, EventArgs e)
+            {
+                button2.BackColor = Color.White;
+            }
 
-        private void button1_MouseEnter(object sender, EventArgs e)
-        {
-            button1.BackColor = Color.Green;
-        }
+            private void button8_MouseEnter(object sender, EventArgs e)
+            {
+                button8.BackColor = Color.Gold;
+            }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
-        {
-            button1.BackColor = Color.White;
-        }
+            private void button8_MouseLeave(object sender, EventArgs e)
+            {
+                button8.BackColor = Color.Gold;
+            }
 
-        private void button3_MouseEnter(object sender, EventArgs e)
-        {
-            button3.BackColor = Color.SandyBrown;
-        }
+            private void button1_MouseEnter(object sender, EventArgs e)
+            {
+                button1.BackColor = Color.Green;
+            }
 
-        private void button3_MouseLeave(object sender, EventArgs e)
-        {
-            button3.BackColor = Color.White;
-        }
+            private void button1_MouseLeave(object sender, EventArgs e)
+            {
+                button1.BackColor = Color.White;
+            }
 
-        private void button6_MouseEnter(object sender, EventArgs e)
-        {
-            button6.BackColor = Color.Blue;
-        }
+            private void button3_MouseEnter(object sender, EventArgs e)
+            {
+                button3.BackColor = Color.SandyBrown;
+            }
 
-        private void button6_MouseLeave(object sender, EventArgs e)
-        {
-            button6.BackColor = Color.White;
-        }
+            private void button3_MouseLeave(object sender, EventArgs e)
+            {
+                button3.BackColor = Color.White;
+            }
 
-        private void button7_MouseEnter(object sender, EventArgs e)
-        {
-            button7.BackColor = Color.Green;
-        }
+            private void button6_MouseEnter(object sender, EventArgs e)
+            {
+                button6.BackColor = Color.Blue;
+            }
 
-        private void button7_MouseLeave(object sender, EventArgs e)
-        {
-            button7.BackColor = Color.White;
-        }
+            private void button6_MouseLeave(object sender, EventArgs e)
+            {
+                button6.BackColor = Color.White;
+            }
 
-        private void button5_MouseEnter(object sender, EventArgs e)
-        {
-            button5.BackColor = Color.Green;
-        }
+            private void button7_MouseEnter(object sender, EventArgs e)
+            {
+                button7.BackColor = Color.Green;
+            }
 
-        private void button5_MouseLeave(object sender, EventArgs e)
-        {
-            button5.BackColor = Color.White;
-        }
+            private void button7_MouseLeave(object sender, EventArgs e)
+            {
+                button7.BackColor = Color.White;
+            }
+
+            private void button5_MouseEnter(object sender, EventArgs e)
+            {
+                button5.BackColor = Color.Green;
+            }
+
+            private void button5_MouseLeave(object sender, EventArgs e)
+            {
+                button5.BackColor = Color.White;
+            }
+
+
     }
 }
+
