@@ -45,7 +45,7 @@ namespace Kargo
             dataGridView1.DataSource = ds.Tables["KargoFiltre"];
             cone.Close();
         }
-        private void FILTER_Load(object sender, EventArgs e)
+        public void FILTER_Load(object sender, EventArgs e)
         {
             griddoldur();
 

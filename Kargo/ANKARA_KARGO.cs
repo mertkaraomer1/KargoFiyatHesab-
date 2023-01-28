@@ -39,6 +39,7 @@ namespace Kargo
         bool bFirstPage = false;
         bool bNewPage = false;
         int iHeaderHeight = 0;
+
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             System.Drawing.Image Logo = imageList1.Images["ASPİRASYON SONDASI.PNG"];
@@ -298,7 +299,7 @@ namespace Kargo
         private void ANKARA_KARGO_Load(object sender, EventArgs e)
         {
 
-            con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=iller.accdb");
+            con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=ankarakargo.accdb");
             DataTable dt = new DataTable();
             OleDbDataAdapter da = new OleDbDataAdapter("select * from iller ORDER BY id ASC ", con);
             da.Fill(dt);
@@ -335,6 +336,8 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
+            
             int adet = 1;
             adet = Convert.ToInt32(textBox7.Text);
             string TL = "TL";
@@ -365,7 +368,7 @@ namespace Kargo
 
             }
             dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text,TL, adet,comboBox1.Text,comboBox2.Text);
-            comboBox2.Items.Clear();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
