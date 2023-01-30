@@ -351,6 +351,7 @@ namespace Kargo
         private void TEMIZLE_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            textBox6.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)

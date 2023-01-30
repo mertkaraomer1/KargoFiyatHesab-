@@ -233,6 +233,7 @@ namespace Kargo
                 label14.Visible = false;
                 comboBox3.Visible = false;
                 comboBox4.Visible = false;
+                button7.Visible = false;
             }
         }
 
@@ -240,16 +241,17 @@ namespace Kargo
         {
             double desı = Convert.ToDouble(textBox4.Text);
             double adet = 1;
-            double fıyat = Convert.ToDouble(textBox11.Text);
+            double fıyat1 = Convert.ToDouble(textBox11.Text);
             adet = Convert.ToDouble(textBox7.Text);
 
-            double netfıyat = (fıyat * adet);
-            if (textBox9.Text == "ANKARA KARGO")
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet, comboBox1.Text, comboBox2.Text);
-            else if (textBox9.Text == "CAN KARGO")
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet, comboBox3.Text, comboBox4.Text);
+            if (textBox9.Text == "ANKARA KARGO" && textBox8.Text != null)
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, comboBox1.Text, comboBox2.Text);
+            else if (textBox9.Text == "CAN KARGO" && textBox8.Text != null)
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, comboBox3.Text, comboBox4.Text);
+            else if (textBox8.Text != null)
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet);
             else
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, netfıyat, adet);
+                MessageBox.Show("hata");
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -769,6 +771,7 @@ namespace Kargo
             private void button8_Click(object sender, EventArgs e)
             {
                 dataGridView2.Rows.Clear();
+            textBox6.Clear();
             }
 
             private void button4_MouseEnter(object sender, EventArgs e)
