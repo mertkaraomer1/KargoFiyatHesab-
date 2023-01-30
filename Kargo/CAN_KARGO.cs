@@ -20,6 +20,7 @@ using System.Drawing.Imaging;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.OleDb;
 using DataTable = System.Data.DataTable;
+using System.Security.Policy;
 
 namespace Kargo
 {
@@ -30,7 +31,36 @@ namespace Kargo
             InitializeComponent();
         }
         OleDbConnection con;
+        OleDbConnection cone;
+        DataSet ds;
+        double fiyat;
+        OleDbCommand cmd;
+        double desi;
+        void griddoldur()
+        {
+            double desi = Convert.ToDouble(textBox4.Text);
+            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+            if (desi <= 50)
+            {
+                cmd = new OleDbCommand("Select fiyat from CANKARGO where desi Like '" + textBox4.Text + "'", cone);
+            }
+            else if (desi > 50)
+            {
+                cmd = new OleDbCommand("Select fiyat from CANKARGO where desi Like '50'", cone);
+            }
+            ds = new DataSet();
+            cone.Open();
+            OleDbDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
 
+                fiyat = (double)dr["fiyat"];
+                //desiList.Add(new Dictionary<double, double>((double)dr["desi"], (double)dr["fiyat"]));
+
+            }
+
+            cone.Close();
+        }
         private void CAN_KARGO_Load(object sender, EventArgs e)
         {
             con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=cankargo.accdb");
@@ -273,7 +303,7 @@ namespace Kargo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double sonuc = 0;
+
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
@@ -285,36 +315,37 @@ namespace Kargo
                 double boy = Convert.ToDouble(textBox2.Text);
                 double yukseklik = Convert.ToDouble(textBox3.Text);
 
-                sonuc = (en * boy * yukseklik) / 3000;
-
-                textBox4.Text = sonuc.ToString();
-                textBox4.ForeColor = Color.Red;
+                textBox4.Text = Math.Round((en * boy * yukseklik) / 3000, 0).ToString();
+                desi = Convert.ToDouble(textBox4.Text);
 
 
-                double ekdesı = (70 + (sonuc - 50) * 1.40) * 1.18 * 1.06;
+
+
+
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
+            }
+            griddoldur();
+            double ekdesı = (fiyat + (desi - 50) * 1.40) * 1.18 * 1.06;
 
+            ekdesı = (70 + (desi - 50) * 1.40) * 1.18 * 1.06;
+                if (desi > 0 && desi <= 20)
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
+                else if (desi > 20 && desi <= 30)
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                ekdesı = (70 + (sonuc - 50) * 1.40) * 1.18 * 1.06;
-                if (sonuc > 0 && sonuc <= 20)
-                    textBox5.Text = Math.Round((28 * 1.18 * 1.06), 2).ToString();
+                else if (desi > 30 && desi <= 40)
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                else if (sonuc > 20 && sonuc <= 30)
-                    textBox5.Text = Math.Round((42 * 1.18 * 1.06), 2).ToString();
+                else if (desi > 40 && desi <= 50)
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
-                else if (sonuc > 30 && sonuc <= 40)
-                    textBox5.Text = Math.Round((56 * 1.18 * 1.06), 2).ToString();
-
-                else if (sonuc > 40 && sonuc <= 50)
-                    textBox5.Text = Math.Round((70 * 1.18 * 1.06), 2).ToString();
-
-                else if (sonuc > 50)
+                else if (desi > 50)
                     textBox5.Text = Math.Round(ekdesı, 2).ToString();
 
-            }
+            
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)
@@ -339,7 +370,7 @@ namespace Kargo
            
 
             dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet, comboBox1.Text, comboBox2.Text);
-            comboBox2.Items.Clear();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -431,6 +462,7 @@ namespace Kargo
 
         private void button5_Click(object sender, EventArgs e)
         {
+            griddoldur();
             int adet = 1;
             adet = Convert.ToInt32(textBox7.Text);
             string TL = "TL";
@@ -438,34 +470,38 @@ namespace Kargo
             if (textBox4 != null)
             {
 
-                double ekdesı = ((70 + (desı - 50) * 1.40) * 1.18 * 1.06);
+                double ekdesı = ((fiyat + (desı - 50) * 1.40) * 1.18 * 1.06);
 
                 if (desı >= 0 && desı <= 20)
                     if (adet >= 6)
-                        textBox5.Text = Math.Round(adet * (28 * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
                     else
                         MessageBox.Show("adet en az 6 girilmeli...");
 
                 else if (desı > 20 && desı <= 30)
                     if (adet >= 4)
-                        textBox5.Text = Math.Round(adet * (42 * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
                     else
                         MessageBox.Show("adet en az 4 girilmeli...");
 
                 else if (desı > 30 && desı <= 40)
                     if (adet >= 3)
-                        textBox5.Text = Math.Round(adet * (56 * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
                     else
                         MessageBox.Show("adet en az 4 girilmeli...");
 
                 else if (desı > 40 && desı <= 50)
                     if (adet >= 3)
-                        textBox5.Text = Math.Round(adet * (70 * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
                     else
                         MessageBox.Show("adet en az 3 girilmeli...");
 
                 else if (desı > 50)
-                    textBox5.Text = Math.Round(adet * ekdesı, 2).ToString();
+                    if (adet >= 2)
+                        textBox5.Text = Math.Round(adet * ekdesı, 2).ToString();
+                    else
+                        MessageBox.Show("adet en az 2 girilmeli...");
+               
 
             }
         }

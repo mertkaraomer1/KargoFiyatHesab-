@@ -92,7 +92,7 @@ namespace Kargo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double sonuc = 0;
+
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
@@ -104,9 +104,9 @@ namespace Kargo
                 double boy = Convert.ToDouble(textBox2.Text);
                 double yukseklik = Convert.ToDouble(textBox3.Text);
 
-                sonuc = (en * boy * yukseklik) / 3000;
+                textBox4.Text = Math.Round((en * boy * yukseklik) / 3000,0).ToString();
 
-                textBox4.Text = sonuc.ToString();
+                desi= Convert.ToDouble(textBox4.Text);
             }
         }
 
@@ -678,7 +678,6 @@ namespace Kargo
             KS.Show();
             this.Hide();
         }
-        string seçilensatır;
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {

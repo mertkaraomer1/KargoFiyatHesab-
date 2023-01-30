@@ -17,6 +17,9 @@ using Rectangle = System.Drawing.Rectangle;
 using System.Runtime.ConstrainedExecution;
 using Microsoft.VisualBasic.Logging;
 using static System.Net.Mime.MediaTypeNames;
+using System.Data.OleDb;
+using System.Globalization;
+using DataTable = System.Data.DataTable;
 
 namespace Kargo
 {
@@ -26,11 +29,38 @@ namespace Kargo
         {
             InitializeComponent();
         }
+        OleDbConnection cone;
+        DataSet ds;
+        double fiyat;
+        OleDbCommand cmd;
+        double desi;
+        void griddoldur()
+        {
+            desi = Convert.ToDouble(textBox4.Text);
+            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+            if (desi <= 30)
+            {
+                cmd = new OleDbCommand("Select fiyat from YURTICIKARGO where desi Like '" + textBox4.Text + "'", cone);
+            }
+            else if (desi > 30)
+            {
+                cmd = new OleDbCommand("Select fiyat from YURTICIKARGO where desi Like '30'", cone);
+            }
+            ds = new DataSet();
+            cone.Open();
+            OleDbDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                fiyat = (double)dr["fiyat"];
+            }
+
+            cone.Close();
+        }
 
         public void button1_Click(object sender, EventArgs e)
         {
 
-            double sonuc = 0;
+
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
@@ -42,49 +72,46 @@ namespace Kargo
                 double boy = Convert.ToDouble(textBox2.Text);
                 double yukseklik = Convert.ToDouble(textBox3.Text);
 
-                sonuc = (en * boy * yukseklik) / 3000;
+                textBox4.Text = Math.Round((en * boy * yukseklik) / 3000, 0).ToString();
+                desi = Convert.ToDouble(textBox4.Text);
 
-                textBox4.Text = sonuc.ToString();
-                textBox4.ForeColor = Color.Red;
-                //var satir = new ListViewItem(sonuc.ToString());
 
-                //dataGridView1.Rows.Add(sonuc.ToString());
-                //dataGridView1.Visible = true;
 
-                double ekdesı = ((70 + (sonuc - 30) * 2.35) * 1.18 * 1.0235);
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
+            }
+            griddoldur();
+            double ekdesı = ((fiyat + (desi - 30) * 2.35) * 1.18 * 1.0235);
+                if (desi < 1)
+                    textBox5.Text = Math.Round(fiyat*1.18*1.0235,2).ToString();
 
-                if (sonuc < 1)
-                    textBox5.Text = Math.Round((22.6*1.18)+ (22.6 * 0.0235),2).ToString();
+                else if (desi >= 1 && desi <= 4)
+                    textBox5.Text =Math.Round (fiyat*1.18* 1.0235,2).ToString();
 
-                else if (sonuc >= 1 && sonuc <= 4)
-                    textBox5.Text = (27.55*1.18* 1.0235).ToString();
+                else if (desi > 4 && desi < 6)
+                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235,2).ToString();
 
-                else if (sonuc > 4 && sonuc < 6)
-                    textBox5.Text = Math.Round((30.80 * 1.18 * 1.0235),2).ToString();
+                else if (desi > 6 && desi <= 10)
+                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 2).ToString();
 
-                else if (sonuc > 6 && sonuc <= 10)
-                    textBox5.Text = Math.Round((33.85 * 1.18 * 1.0235), 2).ToString();
-
-                else if (sonuc > 10 && sonuc <= 15)
-                    textBox5.Text = Math.Round((38.40 * 1.18 * 1.0235), 2).ToString();
+                else if (desi > 10 && desi <= 15)
+                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 2).ToString();
                     
-                else if (sonuc > 15 && sonuc <= 20)
-                    textBox5.Text = Math.Round((47 * 1.18 * 1.0235), 2).ToString();
+                else if (desi > 15 && desi <= 20)
+                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 2).ToString();
 
 
-                else if (sonuc > 20 && sonuc <= 25)
-                    textBox5.Text = Math.Round((58.75 * 1.18 * 1.0235), 2).ToString();
+                else if (desi > 20 && desi <= 25)
+                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 2).ToString();
 
-                else if (sonuc > 25 && sonuc <= 30)
-                    textBox5.Text = Math.Round((70 * 1.18 * 1.0235), 2).ToString();
+                else if (desi > 25 && desi <= 30)
+                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 2).ToString();
 
-                else if (sonuc > 30)
+                else if (desi > 30)
                     textBox5.Text = Math.Round(ekdesı, 2).ToString();
 
-            }
+            
         }
 
         public void YURTICI_KARGO_Load(object sender, EventArgs e)
@@ -111,43 +138,44 @@ namespace Kargo
 
         public void button3_Click(object sender, EventArgs e)
         {
+            griddoldur();
             int adet = 1;
             adet = Convert.ToInt32(textBox7.Text);
             string TL = "TL";
-            double desı = Convert.ToDouble(textBox4.Text);
+            desi = Convert.ToDouble(textBox4.Text);
             if (textBox4 != null)
             {
 
-                double ekdesı = ((70 + (desı - 30) * 2.35) * 1.18 * 1.0235);
-                if (desı < 1)
-                    textBox5.Text =Math.Round(adet * (22.6 * 1.18* 1.0235), 2).ToString();
+                double ekdesı = ((fiyat + (desi - 30) * 2.35) * 1.18 * 1.0235);
+                if (desi < 1)
+                    textBox5.Text =Math.Round(adet * (fiyat * 1.18* 1.0235), 2).ToString();
 
-                else if (desı >= 1 && desı <= 4)
-                    textBox5.Text = Math.Round(adet * (27.55 * 1.18 * 1.0235), 2).ToString();
+                else if (desi >= 1 && desi <= 4)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
 
-                else if (desı > 4 && desı < 6)
-                    textBox5.Text = Math.Round(adet * (30.80 * 1.18 * 1.0235), 2).ToString();
+                else if (desi > 4 && desi < 6)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
 
-                else if (desı > 6 && desı <= 10)
-                    textBox5.Text = Math.Round(adet * (33.85 * 1.18* 1.0235), 2).ToString();
+                else if (desi > 6 && desi <= 10)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18* 1.0235), 2).ToString();
 
-                else if (desı > 10 && desı <= 15)
-                    textBox5.Text = Math.Round(adet * (38.40 * 1.18* 1.0235), 2).ToString();
+                else if (desi > 10 && desi <= 15)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18* 1.0235), 2).ToString();
 
-                else if (desı > 15 && desı <= 20)
-                    textBox5.Text = Math.Round(adet * (47 * 1.18* 1.0235), 2).ToString();
+                else if (desi > 15 && desi <= 20)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18* 1.0235), 2).ToString();
 
 
-                else if (desı > 20 && desı <= 25)
-                    textBox5.Text = Math.Round(adet * (58.75 * 1.18* 1.0235), 2) .ToString();
+                else if (desi > 20 && desi <= 25)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18* 1.0235), 2) .ToString();
 
-                else if (desı > 25 && desı <= 30)
-                    textBox5.Text = Math.Round(adet * (70 * 1.18* 1.0235), 2).ToString();
+                else if (desi > 25 && desi <= 30)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18* 1.0235), 2).ToString();
 
-                else if (desı > 30)
+                else if (desi > 30)
                     textBox5.Text = Math.Round(adet * ekdesı,2).ToString();
             }
-            dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet);
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet);
         }
 
         public void button4_Click(object sender, EventArgs e)
@@ -180,6 +208,8 @@ namespace Kargo
             object Missing = Type.Missing;
             Workbook kitap = excel.Workbooks.Add(Missing);
             Worksheet sayfa = (Worksheet)kitap.Sheets[1];
+
+
             for (int i = 0; i < dataGridView1.Columns.Count; i++)
             {
                 Range alan = (Range)sayfa.Cells[1, 1];
@@ -450,5 +480,6 @@ namespace Kargo
         {
             button4.BackColor = Color.White;
         }
+
     }
 }

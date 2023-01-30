@@ -143,7 +143,6 @@
             this.textBox7.Size = new System.Drawing.Size(149, 30);
             this.textBox7.TabIndex = 54;
             this.textBox7.Text = "1";
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // textBox6
             // 

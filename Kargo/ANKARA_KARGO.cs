@@ -19,6 +19,9 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Drawing.Imaging;
 using System.Data.OleDb;
 using DataTable = System.Data.DataTable;
+using System.Security.Cryptography;
+using System.Security.Policy;
+using System.Globalization;
 
 namespace Kargo
 {
@@ -39,7 +42,37 @@ namespace Kargo
         bool bFirstPage = false;
         bool bNewPage = false;
         int iHeaderHeight = 0;
+        OleDbConnection cone;
+        DataSet ds;
+        double fiyat;
+        OleDbCommand cmd;
+        double desi;
+        List<Dictionary<double, double>> desiList= new List<Dictionary<double, double>>();
+        void griddoldur()
+        {
+            double desi = Convert.ToDouble(textBox4.Text);
+            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+            if (desi <=50)
+            {
+                 cmd = new OleDbCommand("Select fiyat from ANKARAKARGO where desi Like '" + textBox4.Text + "'", cone);
+            }
+            else if (desi > 50)
+            {
+                 cmd = new OleDbCommand("Select fiyat from ANKARAKARGO where desi Like '50'", cone);
+            }
+            ds = new DataSet();
+            cone.Open();
+            OleDbDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
 
+                fiyat = (double)dr["fiyat"];
+                //desiList.Add(new Dictionary<double, double>((double)dr["desi"], (double)dr["fiyat"]));
+
+            }
+
+            cone.Close();
+        }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             System.Drawing.Image Logo = imageList1.Images["ASPİRASYON SONDASI.PNG"];
@@ -250,7 +283,8 @@ namespace Kargo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double sonuc = 0;
+
+            
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
@@ -262,39 +296,44 @@ namespace Kargo
                 double boy = Convert.ToDouble(textBox2.Text);
                 double yukseklik = Convert.ToDouble(textBox3.Text);
 
-                sonuc = (en * boy * yukseklik) / 3000;
-
-                textBox4.Text = sonuc.ToString();
-                textBox4.ForeColor = Color.Red;
-                
-
-                double ekdesı = (73.48 + (sonuc - 50) * 1.91)*1.18*1.06;
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox3.Text = "";
 
 
-
-                if (sonuc >0 && sonuc <= 10)
-                    textBox5.Text =Math.Round ((22.74 * 1.18* 1.06),2).ToString();
-
-                else if (sonuc > 10 && sonuc < 20)
-                    textBox5.Text = Math.Round((34.99 * 1.18* 1.06), 2).ToString();
-
-                else if (sonuc > 20 && sonuc <= 30)
-                    textBox5.Text = Math.Round((50.74 * 1.18 * 1.06), 2).ToString();
-
-                else if (sonuc > 30 && sonuc <= 40)
-                    textBox5.Text = Math.Round((59.48 * 1.18 * 1.06), 2).ToString();
-
-                else if (sonuc > 40 && sonuc <= 50)
-                    textBox5.Text = Math.Round((73.48 * 1.18 * 1.06), 2).ToString();
-
-                else if (sonuc > 50)
-                    textBox5.Text =Math.Round( ekdesı,2).ToString();
-
+                textBox4.Text =Math.Round((en * boy * yukseklik) / 3000,0).ToString();
+                desi = Convert.ToDouble(textBox4.Text);
             }
+
+            griddoldur();
+
+            double ekdesı = (fiyat + (desi - 50) * 1.91)*1.18*1.06;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+
+
+
+            if (desi > 0 && desi <= 10)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+
+            else if (desi > 10 && desi < 20)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+
+            else if (desi > 20 && desi <= 30)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+
+            else if (desi > 30 && desi <= 40)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+
+            else if (desi > 40 && desi <= 50)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+
+            else if (desi > 50)
+                textBox5.Text = Math.Round(ekdesı, 2).ToString();
+
+
         }
+
+
+
         OleDbConnection con;
         private void ANKARA_KARGO_Load(object sender, EventArgs e)
         {
@@ -336,38 +375,38 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            griddoldur();
             
             int adet = 1;
             adet = Convert.ToInt32(textBox7.Text);
             string TL = "TL";
-            double desı = Convert.ToDouble(textBox4.Text);
+            double desi = Convert.ToDouble(textBox4.Text);
             if (textBox4 != null)
             {
 
-                double ekdesı = ((73.48 + (desı - 50) * 1.91) * 1.18* 1.06);
+                double ekdesi = ((fiyat + (desi - 50) * 1.91) * 1.18 * 1.06);
 
-                if (desı > 1 && desı <= 10)
-                    textBox5.Text =Math.Round (adet * (22.74 * 1.18* 1.06),2).ToString();
-                    
+                if (desi > 1 && desi <= 10)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
 
-                else if (desı > 10 && desı <= 20)
-                    textBox5.Text =Math.Round (adet * (34.99 * 1.18* 1.06),2).ToString();
 
-                else if (desı > 20 && desı <= 30)
-                    textBox5.Text = Math.Round(adet * (50.74 * 1.18* 1.06), 2).ToString();
+                else if (desi > 10 && desi <= 20)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
 
-                else if (desı > 30 && desı <= 40)
-                    textBox5.Text = Math.Round(adet * (59.48 * 1.18* 1.06), 2).ToString();
+                else if (desi > 20 && desi <= 30)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
 
-                else if (desı > 40  && desı <= 50)
-                    textBox5.Text = Math.Round(adet * (73.48 * 1.18* 1.06), 2).ToString();
+                else if (desi > 30 && desi <= 40)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
 
-                else if (desı > 50)
-                    textBox5.Text =Math.Round (adet * ekdesı,2).ToString();
+                else if (desi > 40 && desi <= 50)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+
+                else if (desi > 50)
+                    textBox5.Text = Math.Round(adet * ekdesi, 2).ToString();
 
             }
-            dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text,TL, adet,comboBox1.Text,comboBox2.Text);
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text,TL, adet,comboBox1.Text,comboBox2.Text);
 
         }
 
@@ -458,9 +497,5 @@ namespace Kargo
             TEMIZLE.BackColor = Color.Gold;
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -335,6 +335,7 @@
             this.imageList1.Images.SetKeyName(2, "ERMED2.png");
             this.imageList1.Images.SetKeyName(3, "ASPİRASYON-SONDASI.ico");
             this.imageList1.Images.SetKeyName(4, "ASPİRASYON SONDASI.PNG");
+            this.imageList1.Images.SetKeyName(5, "icons8-xls-import-96.png");
             // 
             // textBox8
             // 
