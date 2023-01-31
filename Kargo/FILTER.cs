@@ -675,10 +675,6 @@ namespace Kargo
 
                 comboBox1.DataSource = dt;
                 dt.EndInit();
-                if (textBox5.Text != comboBox1.Text)
-                {
-                    dataGridView1.SelectedRows[5].Visible = false;
-                }
 
             }
             else if (textBox9.Text == "CAN KARGO")
