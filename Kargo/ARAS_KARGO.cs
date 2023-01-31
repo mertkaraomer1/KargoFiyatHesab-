@@ -78,9 +78,10 @@ namespace Kargo
                 textBox3.Text = "";
             }
             griddoldur();
-                double ekdesı = ((fiyat + (desi - 30) * 2.94) * 1.18 * 1.0235);
+                double ekdesı =  (desi - 30) * 2.94 * 1.18 * 1.0235;
+                double desifiyat = fiyat + ekdesı;
 
-                if (desi < 1)  
+            if (desi < 1)  
                     textBox5.Text = Math.Round((fiyat * 1.18* 1.0235), 2).ToString();
 
                 else if (desi >= 1 && desi <= 5)
@@ -103,7 +104,7 @@ namespace Kargo
                     textBox5.Text =Math.Round ((fiyat * 1.18 * 1.0235),2).ToString();
 
                 else if (desi > 30)
-                    textBox5.Text =Math.Round(ekdesı,2).ToString();
+                    textBox5.Text =Math.Round(desifiyat,2).ToString();
 
 
             
@@ -142,7 +143,8 @@ namespace Kargo
 
             if (textBox4 != null)
             {
-                double ekdesı = ((88.65 + (desı - 30) * 2.94) * 1.18 * 1.0235);
+                double ekdesı = (desi - 30) * 2.94 * 1.18 * 1.0235;
+                double desifiyat = fiyat + ekdesı;
                 if (desı < 1)
                     textBox5.Text = Math.Round(adet * (fiyat * 1.18* 1.0235), 2).ToString();
 
@@ -166,7 +168,7 @@ namespace Kargo
                     textBox5.Text =Math.Round (adet * (fiyat * 1.18* 1.0235),2).ToString();
 
                 else if (desı > 30)
-                    textBox5.Text =Math.Round (adet*ekdesı,2).ToString();
+                    textBox5.Text =Math.Round (adet*desifiyat,2).ToString();
             }
             dataGridView1.Rows.Add(textBox8.Text,desı, textBox5.Text,TL,adet);
         }

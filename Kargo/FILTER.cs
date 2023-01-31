@@ -34,6 +34,7 @@ namespace Kargo
         OleDbConnection con1;
         OleDbConnection cone;
         OleDbDataAdapter daa;
+        OleDbCommand cmd;
         DataSet ds;
         void griddoldur()
         {
@@ -87,6 +88,7 @@ namespace Kargo
                 comboBox3.DataSource = dt1;
                 dt1.EndInit();
             }
+
 
         }
 
@@ -161,82 +163,18 @@ namespace Kargo
                     {
                         dataGridView1.Sort(dataGridView1.Columns[10], ListSortDirection.Ascending);
                     }
+                    else if(desi>50)
+                    {
+                        dataGridView1.Sort(dataGridView1.Columns[10], ListSortDirection.Ascending);
+                    }
 
                 }
+
+
             }
+ 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox9.Text == null)
-            {
-                con.Close();
-                con1.Close();
-            }
-            else if (textBox9.Text == "ANKARA KARGO")
-            {
-
-                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=ankarakargo.accdb");
-                DataTable dt = new DataTable();
-                OleDbDataAdapter da = new OleDbDataAdapter("select * from iller ORDER BY ID ASC ", con);
-                da.Fill(dt);
-                comboBox1.ValueMember = "ID";
-                comboBox1.DisplayMember = "iller";
-                comboBox1.DataSource = dt;
-                dt.EndInit();
-
-            }
-            else if (textBox9.Text == "CAN KARGO")
-            {
-                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=cankargo.accdb");
-                DataTable dt1 = new DataTable();
-                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from il ORDER BY ID ASC ", con1);
-                da1.Fill(dt1);
-                comboBox3.ValueMember = "ID";
-                comboBox3.DisplayMember = "il";
-                comboBox3.DataSource = dt1;
-                dt1.EndInit();
-            }
-
-            if (textBox9.Text == "ANKARA KARGO")
-            {
-                label8.Visible = true;
-                label9.Visible = true;
-                comboBox1.Visible = true;
-                comboBox2.Visible = true;
-                label13.Visible = true;
-                comboBox3.Visible = false;
-                comboBox4.Visible = false;
-                button7.Visible = false;
-                label14.Visible = false;
-            }
-            else if (textBox9.Text == "CAN KARGO")
-            {
-                label14.Visible = true;
-                label8.Visible = true;
-                label9.Visible = true;
-                comboBox3.Visible = true;
-                comboBox4.Visible = true;
-                button7.Visible = true;
-                comboBox1.Visible = false;
-                comboBox2.Visible = false;
-            }
-            else
-            {
-                comboBox1.Visible = false;
-                comboBox2.Visible = false;
-                label8.Visible = false;
-                label9.Visible = false;
-                label13.Visible = false;
-                label14.Visible = false;
-                comboBox3.Visible = false;
-                comboBox4.Visible = false;
-                button7.Visible = false;
-            }
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             double desı = Convert.ToDouble(textBox4.Text);
@@ -265,7 +203,8 @@ namespace Kargo
                 if (textBox9.Text == "YURTİÇİ KARGO")
                 {
 
-                    ekdesi = ((fiyat + (desi - 30) * 2.35) * 1.18 * 1.0235);
+                    ekdesi = (desi - 30) * 2.35 * 1.18 * 1.0235;
+                    double desifiyat = fiyat + ekdesi;
                     if (desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
@@ -292,11 +231,12 @@ namespace Kargo
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
                     else if (desi > 30)
-                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
                 }
                 else if (textBox9.Text == "MNG KARGO")
                 {
-                    ekdesi = ((fiyat + (desi - 40) * 2.30) * 1.18 * 1.0235);
+                    ekdesi =  (desi - 40) * 2.30 * 1.18 * 1.0235;
+                    double desifiyat = fiyat + ekdesi;
                     if (desi == 0 && desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
@@ -322,11 +262,12 @@ namespace Kargo
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
                     else if (desi > 40)
-                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
                 }
                 else if (textBox9.Text == "ARAS KARGO")
                 {
-                    ekdesi = ((fiyat + (desi - 30) * 2.94) * 1.18 * 1.0235);
+                    ekdesi = (desi - 30) * 2.94 * 1.18 * 1.0235;
+                    double desifiyat = fiyat + ekdesi;
                     if (desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
@@ -350,11 +291,12 @@ namespace Kargo
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
                     else if (desi > 30)
-                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
                 }
                 else if (textBox9.Text == "SÜRAT KARGO")
                 {
-                    ekdesi = ((fiyat + (desi - 30) * 2.7) * 1.18 * 1.0235);
+                    ekdesi =  (desi - 30) * 2.7 * 1.18 * 1.0235;
+                    double desifiyat = fiyat + ekdesi;
                     if (desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
@@ -378,11 +320,13 @@ namespace Kargo
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 
                     else if (desi > 30)
-                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
                 }
                 else if (textBox9.Text == "ANKARA KARGO")
                 {
-                    ekdesi = (fiyat + (desi - 50) * 1.91) * 1.18 * 1.06;
+                    ekdesi = (desi - 50) * 1.91 * 1.18 * 1.06;
+                    double desifiyat = fiyat + ekdesi;
+
                     if (desi > 0 && desi <= 10)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
@@ -399,12 +343,13 @@ namespace Kargo
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
                     else if (desi > 50)
-                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
                 }
                 else if (textBox9.Text == "CAN KARGO")
                 {
 
-                    ekdesi = (fiyat + (desi - 50) * 1.40) * 1.18 * 1.06;
+                    ekdesi =(desi - 50) * 1.40 * 1.18 * 1.06;
+                    double desifiyat = fiyat + ekdesi;
                     if (desi > 0 && desi <= 20)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
@@ -418,7 +363,7 @@ namespace Kargo
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
                     else if (desi > 50)
-                        textBox11.Text = Math.Round(ekdesi, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
                 }
 
 
@@ -708,9 +653,79 @@ namespace Kargo
                         fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[10].Value);
                     else if (desi > 40 && desi <= 50)
                         fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
+                    else if (desi > 50)
+                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
+            }
+            //textBox9.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            if (textBox9.Text == null)
+            {
+                con.Close();
+                con1.Close();
+            }
+            else if (textBox9.Text == "ANKARA KARGO")
+            {
+
+                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=ankarakargo.accdb");
+                DataTable dt = new DataTable();
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from iller ORDER BY ID ASC ", con);
+                da.Fill(dt);
+                comboBox1.ValueMember = "ID";
+                
+                comboBox1.DisplayMember = "iller";
+
+                comboBox1.DataSource = dt;
+                dt.EndInit();
+                if (textBox5.Text != comboBox1.Text)
+                {
+                    dataGridView1.SelectedRows[5].Visible = false;
                 }
-                //textBox9.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            
+
+            }
+            else if (textBox9.Text == "CAN KARGO")
+            {
+                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=cankargo.accdb");
+                DataTable dt1 = new DataTable();
+                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from il ORDER BY ID ASC ", con1);
+                da1.Fill(dt1);
+                comboBox3.ValueMember = "ID";
+                comboBox3.DisplayMember = "il";
+                comboBox3.DataSource = dt1;
+                dt1.EndInit();
+            }
+
+            if (textBox9.Text == "ANKARA KARGO")
+            {
+                label8.Visible = true;
+                label9.Visible = true;
+                comboBox1.Visible = true;
+                comboBox2.Visible = true;
+                label13.Visible = true;
+                comboBox3.Visible = false;
+                comboBox4.Visible = false;
+                label14.Visible = false;
+            }
+            else if (textBox9.Text == "CAN KARGO")
+            {
+                label14.Visible = true;
+                label8.Visible = true;
+                label9.Visible = true;
+                comboBox3.Visible = true;
+                comboBox4.Visible = true;
+                comboBox1.Visible = false;
+                comboBox2.Visible = false;
+            }
+            else
+            {
+                comboBox1.Visible = false;
+                comboBox2.Visible = false;
+                label8.Visible = false;
+                label9.Visible = false;
+                label13.Visible = false;
+                label14.Visible = false;
+                comboBox3.Visible = false;
+                comboBox4.Visible = false;
+
+            }
         }
 
             private void button7_Click(object sender, EventArgs e)
@@ -718,30 +733,36 @@ namespace Kargo
                 double desı = Convert.ToDouble(textBox4.Text);
                 double adet = 1;
                 adet = Convert.ToDouble(textBox7.Text);
-                if (desı >= 0 && desı <= 20)
-                    if (adet >= 6)
-                        textBox11.Text = Math.Round(adet * (28 * 1.18 * 1.06), 2).ToString();
-                    else
-                        MessageBox.Show("adet en az 6 girilmeli...");
+                if (textBox9.Text == "CAN KARGO")
+                {
+                    if (desı >= 0 && desı <= 20)
+                        if (adet >= 6)
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        else
+                            MessageBox.Show("adet en az 6 girilmeli...");
 
-                else if (desı > 20 && desı <= 30)
-                    if (adet >= 4)
-                        textBox11.Text = Math.Round(adet * (42 * 1.18 * 1.06), 2).ToString();
-                    else
-                        MessageBox.Show("adet en az 4 girilmeli...");
+                    else if (desı > 20 && desı <= 30)
+                        if (adet >= 4)
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        else
+                            MessageBox.Show("adet en az 4 girilmeli...");
 
-                else if (desı > 30 && desı <= 40)
-                    if (adet >= 3)
-                        textBox11.Text = Math.Round(adet * (56 * 1.18 * 1.06), 2).ToString();
-                    else
-                        MessageBox.Show("adet en az 4 girilmeli...");
+                    else if (desı > 30 && desı <= 40)
+                        if (adet >= 3)
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        else
+                            MessageBox.Show("adet en az 4 girilmeli...");
 
-                else if (desı > 40 && desı <= 50)
-                    if (adet >= 3)
-                        textBox11.Text = Math.Round(adet * (70 * 1.18 * 1.06), 2).ToString();
-                    else
-                        MessageBox.Show("adet en az 3 girilmeli...");
-
+                    else if (desı > 40 && desı <= 50)
+                        if (adet >= 3)
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        else
+                            MessageBox.Show("adet en az 3 girilmeli...");
+                }
+                else
+                {
+                   textBox11.Text= (fiyat* adet).ToString();
+                }
             }
 
             private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)

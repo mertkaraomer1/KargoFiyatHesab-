@@ -327,8 +327,8 @@ namespace Kargo
                 textBox3.Text = "";
             }
             griddoldur();
-            double ekdesı = (fiyat + (desi - 50) * 1.40) * 1.18 * 1.06;
-
+            double ekdesı = (desi - 50) * 1.40* 1.18 * 1.06;
+            double desifiyat = fiyat + ekdesı;
             ekdesı = (70 + (desi - 50) * 1.40) * 1.18 * 1.06;
                 if (desi > 0 && desi <= 20)
                     textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
@@ -343,7 +343,7 @@ namespace Kargo
                     textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
 
                 else if (desi > 50)
-                    textBox5.Text = Math.Round(ekdesı, 2).ToString();
+                    textBox5.Text = Math.Round(desifiyat, 2).ToString();
 
             
         }
@@ -471,7 +471,8 @@ namespace Kargo
             if (textBox4 != null)
             {
 
-                double ekdesı = ((fiyat + (desı - 50) * 1.40) * 1.18 * 1.06);
+                double ekdesı = (desi - 50) * 1.40 * 1.18 * 1.06;
+                double desifiyat = fiyat + ekdesı;
 
                 if (desı >= 0 && desı <= 20)
                     if (adet >= 6)
@@ -499,7 +500,7 @@ namespace Kargo
 
                 else if (desı > 50)
                     if (adet >= 2)
-                        textBox5.Text = Math.Round(adet * ekdesı, 2).ToString();
+                        textBox5.Text = Math.Round(adet * desifiyat, 2).ToString();
                     else
                         MessageBox.Show("adet en az 2 girilmeli...");
                
