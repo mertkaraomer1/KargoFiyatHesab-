@@ -92,5 +92,12 @@ namespace Kargo
             CN.Show();
             this.Hide();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ERGULKARGO ERG= new ERGULKARGO();
+            ERG.Show();
+            this.Hide();
+        }
     }
 }
