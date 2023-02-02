@@ -67,27 +67,31 @@ namespace Kargo
             else if (textBox9.Text == "ANKARA KARGO")
             {
 
-                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=ankarakargo.accdb");
+                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
                 DataTable dt = new DataTable();
-                OleDbDataAdapter da = new OleDbDataAdapter("select * from iller ORDER BY ID ASC ", con);
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİL ORDER BY ID ASC ", con);
                 da.Fill(dt);
                 comboBox1.ValueMember = "ID";
-                comboBox1.DisplayMember = "iller";
+
+                comboBox1.DisplayMember = "il";
+
                 comboBox1.DataSource = dt;
                 dt.EndInit();
 
             }
             else if (textBox9.Text == "CAN KARGO")
             {
-                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=cankargo.accdb");
+                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
                 DataTable dt1 = new DataTable();
-                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from iller1 ORDER BY ID ASC ", con);
+                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from CANKARGOİL ORDER BY ID ASC ", con1);
                 da1.Fill(dt1);
                 comboBox3.ValueMember = "ID";
-                comboBox3.DisplayMember = "iller1";
+                comboBox3.DisplayMember = "il";
                 comboBox3.DataSource = dt1;
                 dt1.EndInit();
             }
+
+
 
 
         }
@@ -376,10 +380,10 @@ namespace Kargo
             if (comboBox1.SelectedIndex != -1)
             {
                 DataTable dt = new DataTable();
-                OleDbDataAdapter da = new OleDbDataAdapter("select * from ilceler where iller = " + comboBox1.SelectedValue.ToString(), con);
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİLCE where il = " + comboBox1.SelectedValue.ToString(), con);
                 da.Fill(dt);
                 comboBox2.ValueMember = "ID";
-                comboBox2.DisplayMember = "ilceler";
+                comboBox2.DisplayMember = "ilce";
                 comboBox2.DataSource = dt;
             }
 
@@ -628,6 +632,7 @@ namespace Kargo
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
+
             desi=Convert.ToDouble(textBox4.Text);
             if (desi != null)
             {
@@ -656,7 +661,7 @@ namespace Kargo
                     else if (desi > 50)
                         fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
             }
-            //textBox9.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
             if (textBox9.Text == null)
             {
                 con.Close();
@@ -665,13 +670,13 @@ namespace Kargo
             else if (textBox9.Text == "ANKARA KARGO")
             {
 
-                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=ankarakargo.accdb");
+                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
                 DataTable dt = new DataTable();
-                OleDbDataAdapter da = new OleDbDataAdapter("select * from iller ORDER BY ID ASC ", con);
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİL ORDER BY ID ASC ", con);
                 da.Fill(dt);
                 comboBox1.ValueMember = "ID";
                 
-                comboBox1.DisplayMember = "iller";
+                comboBox1.DisplayMember = "il";
 
                 comboBox1.DataSource = dt;
                 dt.EndInit();
@@ -679,9 +684,9 @@ namespace Kargo
             }
             else if (textBox9.Text == "CAN KARGO")
             {
-                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=cankargo.accdb");
+                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
                 DataTable dt1 = new DataTable();
-                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from il ORDER BY ID ASC ", con1);
+                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from CANKARGOİL ORDER BY ID ASC ", con1);
                 da1.Fill(dt1);
                 comboBox3.ValueMember = "ID";
                 comboBox3.DisplayMember = "il";
@@ -757,17 +762,18 @@ namespace Kargo
                 }
                 else
                 {
-                   textBox11.Text= (fiyat* adet).ToString();
+                   double gfiyat=Convert.ToDouble(textBox11.Text);
+                   textBox11.Text=(gfiyat*adet).ToString();
                 }
             }
 
-            private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+            private void comboBox3_SelectedIndexChanged(object sender, EventArgs e) 
             {
 
                 if (comboBox3.SelectedIndex != -1)
                 {
                     DataTable dt1 = new DataTable();
-                    OleDbDataAdapter da1 = new OleDbDataAdapter("select * from ilce where il = " + comboBox3.SelectedValue, con1);
+                    OleDbDataAdapter da1 = new OleDbDataAdapter("select * from CANKARGOİLCE where il = " + comboBox3.SelectedValue, con1);
                     da1.Fill(dt1);
                     comboBox4.ValueMember = "ID";
                     comboBox4.DisplayMember = "ilce";

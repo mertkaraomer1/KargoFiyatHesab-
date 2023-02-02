@@ -229,7 +229,6 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(177, 27);
             this.textBox9.TabIndex = 90;
-
             // 
             // comboBox1
             // 
@@ -250,6 +249,7 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(11, 544);

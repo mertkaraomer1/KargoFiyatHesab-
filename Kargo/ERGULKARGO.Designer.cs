@@ -430,6 +430,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ERGULKARGO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ERGULKARGO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ERGULKARGO_FormClosing);
             this.Load += new System.EventHandler(this.ERGULKARGO_Load);

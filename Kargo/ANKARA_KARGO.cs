@@ -339,12 +339,12 @@ namespace Kargo
         private void ANKARA_KARGO_Load(object sender, EventArgs e)
         {
 
-            con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=ankarakargo.accdb");
+            con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
             DataTable dt = new DataTable();
-            OleDbDataAdapter da = new OleDbDataAdapter("select * from iller ORDER BY id ASC ", con);
+            OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİL ORDER BY ID ASC ", con);
             da.Fill(dt);
-            comboBox1.ValueMember = "id";
-            comboBox1.DisplayMember = "iller";
+            comboBox1.ValueMember = "ID";
+            comboBox1.DisplayMember = "il";
             comboBox1.DataSource = dt;
 
 
@@ -442,10 +442,10 @@ namespace Kargo
             if (comboBox1.SelectedIndex != -1)
             {
                 DataTable dt = new DataTable();
-                OleDbDataAdapter da = new OleDbDataAdapter("select * from ilceler where iller = " + comboBox1.SelectedValue.ToString(), con);
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİLCE where il = " + comboBox1.SelectedValue.ToString(), con);
                 da.Fill(dt);
-                comboBox2.ValueMember = "id";
-                comboBox2.DisplayMember = "ilceler";
+                comboBox2.ValueMember = "ID";
+                comboBox2.DisplayMember = "ilce";
                 comboBox2.DataSource = dt;
             }
         }
