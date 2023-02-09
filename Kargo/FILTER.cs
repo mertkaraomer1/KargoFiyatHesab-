@@ -38,7 +38,7 @@ namespace Kargo
         DataSet ds;
         void griddoldur()
         {
-            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
             daa = new OleDbDataAdapter("SElect *from KargoFiltre", cone);
             ds = new DataSet();
             cone.Open();
@@ -67,7 +67,7 @@ namespace Kargo
             else if (textBox9.Text == "ANKARA KARGO")
             {
 
-                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
                 DataTable dt = new DataTable();
                 OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİL ORDER BY ID ASC ", con);
                 da.Fill(dt);
@@ -81,7 +81,7 @@ namespace Kargo
             }
             else if (textBox9.Text == "CAN KARGO")
             {
-                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
                 DataTable dt1 = new DataTable();
                 OleDbDataAdapter da1 = new OleDbDataAdapter("select * from CANKARGOİL ORDER BY ID ASC ", con1);
                 da1.Fill(dt1);
@@ -670,7 +670,7 @@ namespace Kargo
             else if (textBox9.Text == "ANKARA KARGO")
             {
 
-                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+                con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
                 DataTable dt = new DataTable();
                 OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİL ORDER BY ID ASC ", con);
                 da.Fill(dt);
@@ -684,7 +684,7 @@ namespace Kargo
             }
             else if (textBox9.Text == "CAN KARGO")
             {
-                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+                con1 = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
                 DataTable dt1 = new DataTable();
                 OleDbDataAdapter da1 = new OleDbDataAdapter("select * from CANKARGOİL ORDER BY ID ASC ", con1);
                 da1.Fill(dt1);

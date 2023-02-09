@@ -35,7 +35,7 @@ namespace Kargo
         void griddoldur()
         {
             double desi = Convert.ToDouble(textBox4.Text);
-            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
+            cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
             if (desi <= 40)
             {
                 cmd = new OleDbCommand("Select fiyat from CANKARGO where desi Like '" + textBox4.Text + "'", cone);
