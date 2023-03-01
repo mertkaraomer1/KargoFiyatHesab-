@@ -34,7 +34,7 @@ namespace Kargo
         double fiyat;
         double desi;
         SqlConnection baglanti;
-
+        string Depo;
         private void ERGULKARGO_Load(object sender, EventArgs e)
         {
             con = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=fiyat_listesi.accdb");
@@ -559,9 +559,17 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string Depo=comboBox2.SelectedItem.ToString();
-            string TL = "TL";
-            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet,Depo, comboBox1.Text,DateTime.Now.ToString("yyyy-MM-dd"));
+            if (Depo==null)
+            {
+                MessageBox.Show("DEPO SEÇİMİ YAPINIZ...");
+            }
+            else
+            {
+                Depo = comboBox2.SelectedItem.ToString();
+                string TL = "TL";
+                dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, comboBox1.Text, DateTime.Now.ToString("yyyy-MM-dd"));
+            }
+
         }  
         private void toolStripButton3_Click(object sender, EventArgs e)
         {

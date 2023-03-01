@@ -49,7 +49,7 @@ namespace Kargo
         OleDbCommand cmd;
         double desi;
         SqlConnection baglanti;
-
+        string Depo;
         void griddoldur()
         {
             double desi = Convert.ToDouble(textBox4.Text);
@@ -382,39 +382,47 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            griddoldur();
-            string Depo=comboBox3.SelectedItem.ToString();
-            int adet = 1;
-            adet = Convert.ToInt32(textBox7.Text);
-            string TL = "TL";
-            double desi = Convert.ToDouble(textBox4.Text);
-            if (textBox4 != null)
+            if (Depo==null)
             {
-
-                double ekdesı = (desi - 50) * 1.91 * 1.18 * 1.06;
-                double desifiyat = fiyat + ekdesı;
-
-                if (desi > 1 && desi <= 10)
-                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
-
-
-                else if (desi > 10 && desi <= 20)
-                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
-
-                else if (desi > 20 && desi <= 30)
-                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
-
-                else if (desi > 30 && desi <= 40)
-                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
-
-                else if (desi > 40 && desi <= 50)
-                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
-
-                else if (desi > 50)
-                    textBox5.Text = Math.Round(adet * desifiyat, 2).ToString();
-
+                MessageBox.Show("DEPO SEÇİMİ YAPINIZ...");
             }
-            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text,TL, adet,Depo,comboBox1.Text,comboBox2.Text,DateTime.Now.ToString("yyyy-MM-dd"));
+            else
+            {
+                griddoldur();
+                Depo = comboBox3.SelectedItem.ToString();
+                int adet = 1;
+                adet = Convert.ToInt32(textBox7.Text);
+                string TL = "TL";
+                double desi = Convert.ToDouble(textBox4.Text);
+                if (textBox4 != null)
+                {
+
+                    double ekdesı = (desi - 50) * 1.91 * 1.18 * 1.06;
+                    double desifiyat = fiyat + ekdesı;
+
+                    if (desi > 1 && desi <= 10)
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+
+
+                    else if (desi > 10 && desi <= 20)
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+
+                    else if (desi > 20 && desi <= 30)
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+
+                    else if (desi > 30 && desi <= 40)
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+
+                    else if (desi > 40 && desi <= 50)
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+
+                    else if (desi > 50)
+                        textBox5.Text = Math.Round(adet * desifiyat, 2).ToString();
+
+                }
+                dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, comboBox1.Text, comboBox2.Text, DateTime.Now.ToString("yyyy-MM-dd"));
+            }
+
 
         }
         private void toolStripButton3_Click(object sender, EventArgs e)

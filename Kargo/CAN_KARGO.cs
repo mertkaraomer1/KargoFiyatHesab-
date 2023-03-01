@@ -40,6 +40,7 @@ namespace Kargo
         SqlConnection baglanti;
         SqlCommand komut;
         SqlDataAdapter da;
+        string Depo;
         void griddoldur()
         {
             double desi = Convert.ToDouble(textBox4.Text);
@@ -372,14 +373,20 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string Depo=comboBox3.SelectedItem.ToString();
-            int adet = 1;
-            adet = Convert.ToInt32(textBox7.Text);
-            string TL = "TL";
-            double desı = Convert.ToDouble(textBox4.Text);
-           
+            if (Depo==null)
+            {
+                MessageBox.Show("DEPO SEÇİMİ YAPINIZ...");
+            }
+            else
+            {
+                Depo = comboBox3.SelectedItem.ToString();
+                int adet = 1;
+                adet = Convert.ToInt32(textBox7.Text);
+                string TL = "TL";
+                double desı = Convert.ToDouble(textBox4.Text);
+                dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet, Depo, comboBox1.Text, comboBox2.Text, DateTime.Now.ToString("yyyy-MM-dd"));
+            }
 
-            dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet,Depo, comboBox1.Text, comboBox2.Text, DateTime.Now.ToString("yyyy-MM-dd"));
 
         }
         private void toolStripButton3_Click(object sender, EventArgs e)
