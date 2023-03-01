@@ -19,6 +19,9 @@ using Microsoft.VisualBasic.Logging;
 using static System.Net.Mime.MediaTypeNames;
 using System.Data.OleDb;
 using DataTable = System.Data.DataTable;
+using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+
 namespace Kargo
 {
     public partial class FILTER : Form
@@ -36,6 +39,9 @@ namespace Kargo
         OleDbDataAdapter daa;
         OleDbCommand cmd;
         DataSet ds;
+        SqlConnection baglanti;
+        SqlCommand komut;
+        SqlDataAdapter da;
         void griddoldur()
         {
             cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
@@ -50,14 +56,16 @@ namespace Kargo
         {
             griddoldur();
 
-            dataGridView2.ColumnCount = 7;
-            dataGridView2.Columns[0].Name = "GÖNDERİLECEK FİRMA ADI";
-            dataGridView2.Columns[1].Name = "KARGO FİRMASI";
-            dataGridView2.Columns[2].Name = "DESİ";
-            dataGridView2.Columns[3].Name = "FİYAT TL";
-            dataGridView2.Columns[4].Name = "ADET";
-            dataGridView2.Columns[5].Name = "İL";
-            dataGridView2.Columns[6].Name = "İLÇE";
+            //dataGridView2.ColumnCount = 9;
+            //dataGridView2.Columns[0].Name = "GÖNDERİLECEK FİRMA ADI";
+            //dataGridView2.Columns[1].Name = "KARGO FİRMASI";
+            //dataGridView2.Columns[2].Name = "DESİ";
+            //dataGridView2.Columns[3].Name = "FİYAT TL";
+            //dataGridView2.Columns[4].Name = "ADET";
+            //dataGridView2.Columns[5].Name = "DEPO";
+            //dataGridView2.Columns[6].Name = "İL";
+            //dataGridView2.Columns[7].Name = "İLÇE";
+            //dataGridView2.Columns[8].Name = "TARİH";
 
             if (textBox9.Text == null)
             {
@@ -90,7 +98,8 @@ namespace Kargo
                 comboBox3.DataSource = dt1;
                 dt1.EndInit();
             }
-
+            comboBox5.Items.Add("ANA DEPO");
+            comboBox5.Items.Add("DMO");
 
 
 
@@ -181,19 +190,75 @@ namespace Kargo
         }
         private void button5_Click(object sender, EventArgs e)
         {
+            dataGridView2.ColumnCount = 9;
+            dataGridView2.Columns[0].Name = "GÖNDERİLECEK FİRMA ADI";
+            dataGridView2.Columns[1].Name = "KARGO FİRMASI";
+            dataGridView2.Columns[2].Name = "DESİ";
+            dataGridView2.Columns[3].Name = "FİYAT TL";
+            dataGridView2.Columns[4].Name = "ADET";
+            dataGridView2.Columns[5].Name = "DEPO";
+            dataGridView2.Columns[6].Name = "İL";
+            dataGridView2.Columns[7].Name = "İLÇE";
+            dataGridView2.Columns[8].Name = "TARİH";
+
+            string depo=comboBox5.SelectedItem.ToString();
+            DateTime zaman = DateTime.Now;
+            string format = "yyyy-MM-dd";
+            var zamanim = zaman.ToString(format);
             double desı = Convert.ToDouble(textBox4.Text);
-            double adet = 1;
             double fıyat1 = Convert.ToDouble(textBox11.Text);
-            adet = Convert.ToDouble(textBox7.Text);
+            double adet = Convert.ToDouble(textBox7.Text);
 
             if (textBox9.Text == "ANKARA KARGO" && textBox8.Text != null)
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, comboBox1.Text, comboBox2.Text);
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, depo,comboBox1.Text, comboBox2.Text,zamanim);
             else if (textBox9.Text == "CAN KARGO" && textBox8.Text != null)
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, comboBox3.Text, comboBox4.Text);
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet,depo ,comboBox3.Text, comboBox4.Text,zamanim);
             else if (textBox8.Text != null)
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet);
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet,depo,null,null, zamanim);
             else
                 MessageBox.Show("hata");
+        }
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            baglanti = new SqlConnection("Data Source=DELLSRV;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+            try
+            {
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    if (baglanti.State == ConnectionState.Open)
+                    {
+                        baglanti.Close();
+                    }
+
+                    var G_firma = Convert.ToString(dataGridView2.Rows[i].Cells[0].Value); // 2. kolon
+                    var K_Firma = Convert.ToString(dataGridView2.Rows[i].Cells[1].Value); // 3. kolon
+                    var Desi = Convert.ToInt32(dataGridView2.Rows[i].Cells[2].Value).ToString(); // 4. kolon
+                    var Fiyat = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value).ToString(); // 5. kolon
+                    var Adet = Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value).ToString(); // 6. kolon
+                    var Depo = Convert.ToString(dataGridView2.Rows[i].Cells[5].Value);
+                    var il = Convert.ToString(dataGridView2.Rows[i].Cells[6].Value); // 7. kolon
+                    var ilce = Convert.ToString(dataGridView2.Rows[i].Cells[7].Value); // 8. kolon
+                    var Tarih = Convert.ToDateTime(dataGridView2.Rows[i].Cells[8].Value).ToString("yyyy-MM-dd"); // 9. kolon
+
+                    baglanti.Open();
+                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolar (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "','" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
+                    komut.ExecuteNonQuery();
+                }
+                baglanti.Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("HATA VAR!!!");
+            }
+            finally
+            {
+                MessageBox.Show("BAŞARI İLE KAYDEDİLDİ...");
+            }
+            
+           
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -207,7 +272,7 @@ namespace Kargo
                 if (textBox9.Text == "YURTİÇİ KARGO")
                 {
 
-                    ekdesi = (desi - 30) * 2.35 * 1.18 * 1.0235;
+                    ekdesi = (desi - 30) * 3.29 * 1.18 * 1.0235;
                     double desifiyat = fiyat + ekdesi;
                     if (desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
@@ -616,9 +681,9 @@ namespace Kargo
                     Range alan2 = (Range)sayfa.Cells[j + 1, i + 1];
                     alan2.Cells[2, 1] = dataGridView2[i, j].Value;
                 }
-                Range alan4 = (Range)sayfa.Cells[1, 6];
+                Range alan4 = (Range)sayfa.Cells[1, 11];
                 alan4.Value2 = "TOPLAM FİYAT";
-                Range alan3 = (Range)sayfa.Cells[2, 6];
+                Range alan3 = (Range)sayfa.Cells[2, 11];
                 alan3.Value2 = textBox6.Text;
             }
         }
@@ -824,7 +889,7 @@ namespace Kargo
 
             private void button8_MouseLeave(object sender, EventArgs e)
             {
-                button8.BackColor = Color.Gold;
+                button8.BackColor = Color.White;
             }
 
             private void button1_MouseEnter(object sender, EventArgs e)
@@ -877,7 +942,50 @@ namespace Kargo
                 button5.BackColor = Color.White;
             }
 
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Clear();
+            try
+            {
+                // Dosya seçme penceresi açmak için
+                OpenFileDialog file = new OpenFileDialog();
+                file.Filter = "Excel Dosyası |*.xlsx";
+                file.ShowDialog();
 
+                // seçtiğimiz excel'in tam yolu
+                string tamYol = file.FileName;
+
+                //Excel bağlantı adresi
+                string baglantiAdresi = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + tamYol + ";Extended Properties='Excel 12.0;IMEX=1;'";
+
+                //bağlantı 
+                OleDbConnection baglanti = new(baglantiAdresi);
+
+                //tüm verileri seçmek için select sorgumuz. Sayfa1 olan kısmı Excel'de hangi sayfayı açmak istiyosanız orayı yazabilirsiniz.
+                OleDbCommand komut = new OleDbCommand("Select * From [" + "Sheet1" + "$]", baglanti);
+
+                //bağlantıyı açıyoruz.
+                baglanti.Open();
+
+                //Gelen verileri DataAdapter'e atıyoruz.
+                OleDbDataAdapter da = new OleDbDataAdapter(komut);
+
+                //Grid'imiz için bir DataTable oluşturuyoruz.
+                DataTable data = new DataTable();
+
+                //DataAdapter'da ki verileri data adındaki DataTable'a dolduruyoruz.
+                da.Fill(data);
+
+                //DataGrid'imizin kaynağını oluşturduğumuz DataTable ile dolduruyoruz.
+                dataGridView2.DataSource = data;
+                
+            }
+            catch (Exception ex)
+            {
+                // Hata alırsak ekrana bastırıyoruz.
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
 

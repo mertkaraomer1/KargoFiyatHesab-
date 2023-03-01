@@ -22,6 +22,7 @@ using DataTable = System.Data.DataTable;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Globalization;
+using System.Data.SqlClient;
 
 namespace Kargo
 {
@@ -47,7 +48,8 @@ namespace Kargo
         double fiyat;
         OleDbCommand cmd;
         double desi;
-        List<Dictionary<double, double>> desiList= new List<Dictionary<double, double>>();
+        SqlConnection baglanti;
+
         void griddoldur()
         {
             double desi = Convert.ToDouble(textBox4.Text);
@@ -273,9 +275,9 @@ namespace Kargo
                     Range alan2 = (Range)sayfa.Cells[j + 1, i + 1];
                     alan2.Cells[2, 1] = dataGridView1[i, j].Value;
                 }
-                Range alan4 = (Range)sayfa.Cells[1, 6];
+                Range alan4 = (Range)sayfa.Cells[1, 11];
                 alan4.Value2 = "TOPLAM FİYAT";
-                Range alan3 = (Range)sayfa.Cells[2, 6];
+                Range alan3 = (Range)sayfa.Cells[2, 11];
                 alan3.Value2 = textBox6.Text;
             }
 
@@ -350,16 +352,19 @@ namespace Kargo
 
 
 
-            dataGridView1.ColumnCount = 7;
+            dataGridView1.ColumnCount = 9;
             dataGridView1.Columns[0].Name = "FİRMA ADI";
             dataGridView1.Columns[1].Name = "DESI/KİLO";
             dataGridView1.Columns[2].Name = "FIYAT";
             dataGridView1.Columns[3].Name = "TL";
             dataGridView1.Columns[4].Name = "ADET";
-            dataGridView1.Columns[5].Name = "İL"; 
-            dataGridView1.Columns[6].Name = "İLÇE";
+            dataGridView1.Columns[5].Name = "DEPO";
+            dataGridView1.Columns[6].Name = "İL"; 
+            dataGridView1.Columns[7].Name = "İLÇE";
+            dataGridView1.Columns[8].Name = "TARİH";
 
-
+            comboBox3.Items.Add("ANA DEPO");
+            comboBox3.Items.Add("DMO");
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)
@@ -378,7 +383,7 @@ namespace Kargo
         private void button3_Click(object sender, EventArgs e)
         {
             griddoldur();
-            
+            string Depo=comboBox3.SelectedItem.ToString();
             int adet = 1;
             adet = Convert.ToInt32(textBox7.Text);
             string TL = "TL";
@@ -409,10 +414,49 @@ namespace Kargo
                     textBox5.Text = Math.Round(adet * desifiyat, 2).ToString();
 
             }
-            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text,TL, adet,comboBox1.Text,comboBox2.Text);
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text,TL, adet,Depo,comboBox1.Text,comboBox2.Text,DateTime.Now.ToString("yyyy-MM-dd"));
 
         }
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            baglanti = new SqlConnection("Data Source=DELLSRV;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
+            try
+            {
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    if (baglanti.State == ConnectionState.Open)
+                    {
+                        baglanti.Close();
+                    }
+
+                    var G_firma = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); // 2. kolon
+                    var K_Firma = Convert.ToString("ANKARA KARGO"); // 3. kolon
+                    var Desi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); // 4. kolon
+                    var Fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
+                    var Adet = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); // 6. kolon
+                    var Depo = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); // 7. kolon
+                    var il = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value); // 7. kolon
+                    var ilce = Convert.ToString(dataGridView1.Rows[i].Cells[7].Value); // 8. kolon
+                    var Tarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[8].Value).ToString("yyyy-MM-dd"); // 9. kolon
+
+                    baglanti.Open();
+                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolar (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "','" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
+                    komut.ExecuteNonQuery();
+                }
+                baglanti.Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("HATA VAR!!!");
+            }
+            finally
+            {
+                MessageBox.Show("BAŞARI İLE KAYDEDİLDİ...");
+            }
+
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             double toplam = 0;
@@ -499,6 +543,7 @@ namespace Kargo
         {
             TEMIZLE.BackColor = Color.Gold;
         }
+
 
     }
 }
