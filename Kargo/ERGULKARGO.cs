@@ -559,16 +559,11 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Depo==null)
-            {
-                MessageBox.Show("DEPO SEÇİMİ YAPINIZ...");
-            }
-            else
-            {
-                Depo = comboBox2.SelectedItem.ToString();
-                string TL = "TL";
-                dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, comboBox1.Text, DateTime.Now.ToString("yyyy-MM-dd"));
-            }
+
+            Depo = comboBox2.SelectedItem.ToString();
+            string TL = "TL";
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, comboBox1.Text, DateTime.Now.ToString("yyyy-MM-dd"));
+
 
         }  
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -841,7 +836,7 @@ namespace Kargo
                 toplam = Math.Round(toplam, 2);
             }
             toplam = Math.Round(toplam, 2);
-            textBox6.Text = toplam.ToString() + " TL";
+            textBox6.Text = Math.Round(toplam, 2).ToString() + " TL";
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)

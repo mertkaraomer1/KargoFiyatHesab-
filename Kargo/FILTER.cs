@@ -191,40 +191,35 @@ namespace Kargo
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            if (Depo==null)
-            {
-                MessageBox.Show("DEPO SEÇİMİ YAPINIZ...");
-            }
+
+            dataGridView2.ColumnCount = 9;
+            dataGridView2.Columns[0].Name = "GÖNDERİLECEK FİRMA ADI";
+            dataGridView2.Columns[1].Name = "KARGO FİRMASI";
+            dataGridView2.Columns[2].Name = "DESİ";
+            dataGridView2.Columns[3].Name = "FİYAT TL";
+            dataGridView2.Columns[4].Name = "ADET";
+            dataGridView2.Columns[5].Name = "DEPO";
+            dataGridView2.Columns[6].Name = "İL";
+            dataGridView2.Columns[7].Name = "İLÇE";
+            dataGridView2.Columns[8].Name = "TARİH";
+
+            Depo = comboBox5.SelectedItem.ToString();
+            DateTime zaman = DateTime.Now;
+            string format = "yyyy-MM-dd";
+            var zamanim = zaman.ToString(format);
+            double desı = Convert.ToDouble(textBox4.Text);
+            double fıyat1 = Convert.ToDouble(textBox11.Text);
+            double adet = Convert.ToDouble(textBox7.Text);
+
+            if (textBox9.Text == "ANKARA KARGO" && textBox8.Text != null)
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, comboBox1.Text, comboBox2.Text, zamanim);
+            else if (textBox9.Text == "CAN KARGO" && textBox8.Text != null)
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, comboBox3.Text, comboBox4.Text, zamanim);
+            else if (textBox8.Text != null)
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, null, null, zamanim);
             else
-            {
-                dataGridView2.ColumnCount = 9;
-                dataGridView2.Columns[0].Name = "GÖNDERİLECEK FİRMA ADI";
-                dataGridView2.Columns[1].Name = "KARGO FİRMASI";
-                dataGridView2.Columns[2].Name = "DESİ";
-                dataGridView2.Columns[3].Name = "FİYAT TL";
-                dataGridView2.Columns[4].Name = "ADET";
-                dataGridView2.Columns[5].Name = "DEPO";
-                dataGridView2.Columns[6].Name = "İL";
-                dataGridView2.Columns[7].Name = "İLÇE";
-                dataGridView2.Columns[8].Name = "TARİH";
+                MessageBox.Show("hata");
 
-                Depo = comboBox5.SelectedItem.ToString();
-                DateTime zaman = DateTime.Now;
-                string format = "yyyy-MM-dd";
-                var zamanim = zaman.ToString(format);
-                double desı = Convert.ToDouble(textBox4.Text);
-                double fıyat1 = Convert.ToDouble(textBox11.Text);
-                double adet = Convert.ToDouble(textBox7.Text);
-
-                if (textBox9.Text == "ANKARA KARGO" && textBox8.Text != null)
-                    dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, comboBox1.Text, comboBox2.Text, zamanim);
-                else if (textBox9.Text == "CAN KARGO" && textBox8.Text != null)
-                    dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, comboBox3.Text, comboBox4.Text, zamanim);
-                else if (textBox8.Text != null)
-                    dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, null, null, zamanim);
-                else
-                    MessageBox.Show("hata");
-            }
 
         }
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -474,7 +469,7 @@ namespace Kargo
                 Math.Round(toplam, 2);
             }
             Math.Round(toplam, 2);
-            textBox6.Text = toplam.ToString() + " TL";
+            textBox6.Text = Math.Round(toplam, 2).ToString() + " TL";
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)

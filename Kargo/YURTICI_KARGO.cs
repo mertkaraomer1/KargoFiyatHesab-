@@ -149,55 +149,44 @@ namespace Kargo
         public void button3_Click(object sender, EventArgs e)
         {
             griddoldur();
-            if (Depo==null)
+            Depo = comboBox1.SelectedItem.ToString();
+            int adet = 1;
+            adet = Convert.ToInt32(textBox7.Text);
+            string TL = "TL";
+            desi = Convert.ToDouble(textBox4.Text);
+            if (textBox4 != null)
             {
-                MessageBox.Show("DEPO SEÇİMİ YAPINIZ..");
+                double ekdesı = (desi - 30) * 3.29 * 1.18 * 1.0235;
+                double desifiyat = fiyat + ekdesı;
+                if (desi < 1)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi >= 1 && desi <= 4)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 4 && desi < 6)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 6 && desi <= 10)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 10 && desi <= 15)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 15 && desi <= 20)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+
+                else if (desi > 20 && desi <= 25)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 25 && desi <= 30)
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 30)
+                    textBox5.Text = Math.Round(adet * desifiyat, 2).ToString();
             }
-            else
-            {
-                Depo = comboBox1.SelectedItem.ToString();
-                int adet = 1;
-                adet = Convert.ToInt32(textBox7.Text);
-                string TL = "TL";
-                desi = Convert.ToDouble(textBox4.Text);
-                if (textBox4 != null)
-                {
-
-                    double ekdesı = (desi - 30) * 3.29 * 1.18 * 1.0235;
-                    double desifiyat = fiyat + ekdesı;
-                    if (desi < 1)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi >= 1 && desi <= 4)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 4 && desi < 6)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 6 && desi <= 10)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 10 && desi <= 15)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 15 && desi <= 20)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-
-                    else if (desi > 20 && desi <= 25)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 25 && desi <= 30)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 30)
-                        textBox5.Text = Math.Round(adet * desifiyat, 2).ToString();
-                }
-                dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, DateTime.Now.ToString("yyyy-MM-dd"));
-            }
-
-
-            
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, DateTime.Now.ToString("yyyy-MM-dd"));
         }
 
         public void button4_Click(object sender, EventArgs e)
@@ -209,7 +198,7 @@ namespace Kargo
                 toplam = Math.Round(toplam, 2);
             }
             toplam = Math.Round(toplam, 2);
-            textBox6.Text =toplam.ToString() + " TL";
+            textBox6.Text =Math.Round( toplam,2).ToString() + " TL";
         }
 
         private void YURTICI_KARGO_FormClosing_1(object sender, FormClosingEventArgs e)

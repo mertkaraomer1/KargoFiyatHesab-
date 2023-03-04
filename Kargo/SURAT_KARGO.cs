@@ -142,51 +142,46 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Depo==null)
+
+            griddoldur();
+            Depo = comboBox1.SelectedItem.ToString();
+            int adet = 1;
+            adet = Convert.ToInt32(textBox7.Text);
+            string TL = "TL";
+            desi = Convert.ToDouble(textBox4.Text);
+
+            if (textBox4 != null)
             {
-                MessageBox.Show("DEPO SEÇİMİ YAPINIZ...");
+
+                double ekdesı = (desi - 30) * 2.7 * 1.18 * 1.0235;
+                double desifiyat = fiyat + ekdesı;
+                if (desi < 1)
+                    textBox5.Text = Math.Round(adet * (25.45 * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi >= 1 && desi <= 5)
+                    textBox5.Text = Math.Round(adet * (25.65 * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 5 && desi <= 10)
+                    textBox5.Text = Math.Round(adet * (32.33 * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 10 && desi <= 15)
+                    textBox5.Text = Math.Round(adet * (40.37 * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 15 && desi <= 20)
+                    textBox5.Text = Math.Round(adet * (46.44 * 1.18 * 1.0235), 2).ToString();
+
+
+                else if (desi > 20 && desi <= 25)
+                    textBox5.Text = Math.Round(adet * (53.53 * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 25 && desi <= 30)
+                    textBox5.Text = Math.Round(adet * (63 * 1.18 * 1.0235), 2).ToString();
+
+                else if (desi > 30)
+                    textBox5.Text = Math.Round((adet * desifiyat), 2).ToString();
             }
-            else
-            {
-                griddoldur();
-                Depo = comboBox1.SelectedItem.ToString();
-                int adet = 1;
-                adet = Convert.ToInt32(textBox7.Text);
-                string TL = "TL";
-                desi = Convert.ToDouble(textBox4.Text);
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, DateTime.Now.ToString("yyyy-MM-dd"));
 
-                if (textBox4 != null)
-                {
-
-                    double ekdesı = (desi - 30) * 2.7 * 1.18 * 1.0235;
-                    double desifiyat = fiyat + ekdesı;
-                    if (desi < 1)
-                        textBox5.Text = Math.Round(adet * (25.45 * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi >= 1 && desi <= 5)
-                        textBox5.Text = Math.Round(adet * (25.65 * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 5 && desi <= 10)
-                        textBox5.Text = Math.Round(adet * (32.33 * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 10 && desi <= 15)
-                        textBox5.Text = Math.Round(adet * (40.37 * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 15 && desi <= 20)
-                        textBox5.Text = Math.Round(adet * (46.44 * 1.18 * 1.0235), 2).ToString();
-
-
-                    else if (desi > 20 && desi <= 25)
-                        textBox5.Text = Math.Round(adet * (53.53 * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 25 && desi <= 30)
-                        textBox5.Text = Math.Round(adet * (63 * 1.18 * 1.0235), 2).ToString();
-
-                    else if (desi > 30)
-                        textBox5.Text = Math.Round((adet * desifiyat), 2).ToString();
-                }
-                dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, DateTime.Now.ToString("yyyy-MM-dd"));
-            }
 
 
         }
@@ -234,8 +229,9 @@ namespace Kargo
                 toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value);
                 toplam = Math.Round(toplam, 2);
             }
-            textBox6.Text = toplam.ToString() + " TL";
             toplam = Math.Round(toplam, 2);
+            textBox6.Text =Math.Round( toplam,2).ToString() + " TL";
+
         }
 
         private void SURAT_KARGO_FormClosing(object sender, FormClosingEventArgs e)
@@ -511,6 +507,9 @@ namespace Kargo
             button4.BackColor = Color.White;
         }
 
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -51,6 +51,8 @@ namespace Kargo
 
         private void LISTELEME_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.Value= DateTime.Now;
+            dateTimePicker2.Value= DateTime.Now;
             griddoldur();
             comboBox1.Items.Add("ANA DEPO");
             comboBox1.Items.Add("DMO");
@@ -58,7 +60,18 @@ namespace Kargo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox9.Text == "") 
+            griddoldur();
+            if (comboBox1.Text.ToString()==""&&textBox9.Text=="")
+            {
+                da = new SqlDataAdapter("select * From Kargolar where Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'AND'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'", baglanti);
+                ds = new DataSet();
+            }
+            else if (comboBox1.Text.ToString()==""&& dateTimePicker1.Value.ToString() != null && dateTimePicker2.Value.ToString() != null && textBox9.Text != null)
+            {
+                da = new SqlDataAdapter("select * From Kargolar where Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'AND'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'AND Kargo_sirketi = '" + textBox9.Text + "' ", baglanti);
+                ds = new DataSet();
+            }
+            else if (textBox9.Text == "") 
             {
                 da = new SqlDataAdapter("select * From Kargolar where Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'AND'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'AND Depo = '" + comboBox1.SelectedItem.ToString() + "'", baglanti);
                 ds = new DataSet();
@@ -307,7 +320,7 @@ namespace Kargo
                 Math.Round(toplam, 2);
             }
             Math.Round(toplam, 2);
-            textBox6.Text = toplam.ToString() + " TL";
+            textBox6.Text = Math.Round(toplam, 2).ToString() + " TL";
         }
 
         private void LISTELEME_FormClosing(object sender, FormClosingEventArgs e)

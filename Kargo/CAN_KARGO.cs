@@ -373,19 +373,14 @@ namespace Kargo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Depo==null)
-            {
-                MessageBox.Show("DEPO SEÇİMİ YAPINIZ...");
-            }
-            else
-            {
-                Depo = comboBox3.SelectedItem.ToString();
-                int adet = 1;
-                adet = Convert.ToInt32(textBox7.Text);
-                string TL = "TL";
-                double desı = Convert.ToDouble(textBox4.Text);
-                dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet, Depo, comboBox1.Text, comboBox2.Text, DateTime.Now.ToString("yyyy-MM-dd"));
-            }
+
+            Depo = comboBox3.SelectedItem.ToString();
+            int adet = 1;
+            adet = Convert.ToInt32(textBox7.Text);
+            string TL = "TL";
+            double desı = Convert.ToDouble(textBox4.Text);
+            dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet, Depo, comboBox1.Text, comboBox2.Text, DateTime.Now.ToString("yyyy-MM-dd"));
+
 
 
         }
@@ -436,7 +431,7 @@ namespace Kargo
                 Math.Round(toplam, 2);
             }
             Math.Round(toplam, 2);
-            textBox6.Text = toplam.ToString() + " TL";
+            textBox6.Text = Math.Round(toplam, 2).ToString() + " TL";
         }
 
         private void CAN_KARGO_FormClosing(object sender, FormClosingEventArgs e)
