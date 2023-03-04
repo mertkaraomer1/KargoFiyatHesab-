@@ -862,9 +862,17 @@ namespace Kargo
 
             private void button8_Click(object sender, EventArgs e)
             {
-                dataGridView2.Rows.Clear();
+            dataGridView2.Rows.Clear();
             textBox6.Clear();
-            }
+            textBox8.Clear();
+            textBox4.Clear();
+            textBox3.Clear();
+            textBox2.Clear();
+            textBox1.Clear();
+            textBox9.Clear();
+            textBox10.Clear();
+            textBox11.Clear();
+        }
 
             private void button4_MouseEnter(object sender, EventArgs e)
             {

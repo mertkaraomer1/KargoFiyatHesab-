@@ -132,6 +132,12 @@ namespace Kargo
         {
             dataGridView1.Rows.Clear();
             textBox6.Clear();
+            textBox5.Clear();
+            textBox4.Clear();
+            textBox3.Clear();
+            textBox2.Clear();
+            textBox1.Clear();
+            textBox8.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
