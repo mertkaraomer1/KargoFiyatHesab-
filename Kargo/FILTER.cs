@@ -277,7 +277,7 @@ namespace Kargo
                 {
 
                     ekdesi = (desi - 30) * 3.29 * 1.18 * 1.0235;
-                    double desifiyat = fiyat + ekdesi;
+                    double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesi;
                     if (desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
 

@@ -82,7 +82,7 @@ namespace Kargo
             }
             griddoldur();
                 ekdesı = (desi - 40) * 2.30 * 1.18 * 1.0235;
-                double desifiyat = fiyat + ekdesı;
+                double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
             if (desi == 0 && desi < 1)
                     textBox5.Text = Math.Round((fiyat*1.18* 1.0235), 2).ToString();
 
@@ -159,7 +159,7 @@ namespace Kargo
             if (textBox4 != null)
             {
                 ekdesı = (desi - 40) * 2.30 * 1.18 * 1.0235;
-                double desifiyat = fiyat + ekdesı;
+                double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
                 if (desi == 0 && desi < 1)
                     textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 2).ToString();
 
