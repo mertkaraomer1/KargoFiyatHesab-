@@ -337,7 +337,7 @@ namespace Kargo
                     else if (desi > 40)
                         textBox11.Text = Math.Round(desifiyat, 2).ToString();
                 }
-                else if (textBox9.Text == "ARAS KARGO")
+                else if (textBox9.Text == "A KARGO")
                 {
                     ekdesi = (desi - 30) * 2.94 * 1.18 * 1.0235;
                     double desifiyat = fiyat + ekdesi;

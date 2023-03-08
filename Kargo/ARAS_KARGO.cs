@@ -40,11 +40,11 @@ namespace Kargo
             cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
             if (desi <= 30)
             {
-                cmd = new OleDbCommand("Select fiyat from ARASKARGO where desi Like '" + textBox4.Text + "'", cone);
+                cmd = new OleDbCommand("Select fiyat from AKARGO where desi Like '" + textBox4.Text + "'", cone);
             }
             else if (desi > 30)
             {
-                cmd = new OleDbCommand("Select fiyat from ARASKARGO where desi Like '30'", cone);
+                cmd = new OleDbCommand("Select fiyat from AKARGO where desi Like '30'", cone);
             }
             ds = new DataSet();
             cone.Open();
@@ -204,7 +204,7 @@ namespace Kargo
                     }
 
                     var G_firma = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); // 2. kolon
-                    var K_Firma = Convert.ToString("ARAS KARGO"); // 3. kolon
+                    var K_Firma = Convert.ToString("A KARGO"); // 3. kolon
                     var Desi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); // 4. kolon
                     var Fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
                     var Adet = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); // 6. kolon
@@ -342,9 +342,9 @@ namespace Kargo
                         if (bNewPage)
                         {
 
-                            e.Graphics.DrawString("ARAS KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
+                            e.Graphics.DrawString("A KARGO FİYAT HESABI", new Font(dataGridView1.Font, FontStyle.Bold),
                                     Brushes.Black, e.MarginBounds.Left, e.MarginBounds.Top -
-                                    e.Graphics.MeasureString("ARAS KARGO FİYAT HESABI", new Font(dataGridView1.Font,
+                                    e.Graphics.MeasureString("A KARGO FİYAT HESABI", new Font(dataGridView1.Font,
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
                             e.Graphics.DrawString("ERMED TIP MEDİKAL", font,
                                    Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -
