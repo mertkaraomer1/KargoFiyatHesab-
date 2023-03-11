@@ -93,9 +93,9 @@ namespace Kargo
 
         private void button9_Click(object sender, EventArgs e)
         {
-            LISTELEME LST = new LISTELEME();
-            LST.Show();
-            this.Hide();
+            KULLANICIGİRİSİ KG = new KULLANICIGİRİSİ();
+            KG.Show();
+
         }
     }
 }
