@@ -23,13 +23,13 @@ namespace Kargo
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             baglanti = new SqlConnection("Data Source=DELLSRV;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             cmd = new SqlCommand();
             baglanti.Open();
-            cmd.Connection= baglanti;
-            cmd .CommandText = "select* From KullaniciGirisi where K_Adi = '" + textBox1.Text + "' and Sifre='" + textBox2.Text + "'";
-            dr=cmd.ExecuteReader();
+            cmd.Connection = baglanti;
+            cmd.CommandText = "select* From KullaniciGirisi where K_Adi = '" + textBox1.Text + "' and Sifre='" + textBox2.Text + "'";
+            dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 LISTELEME LST = new LISTELEME();
@@ -44,6 +44,11 @@ namespace Kargo
 
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
