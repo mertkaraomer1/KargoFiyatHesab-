@@ -139,47 +139,47 @@ namespace Kargo
                 {
                     if (desi == 0)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
                     }
                     else if (desi > 0 && desi <= 4)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
                     }
                     else if (desi == 5)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[4], ListSortDirection.Ascending);
                     }
                     else if (desi > 5 && desi <= 10)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[4], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[5], ListSortDirection.Ascending);
                     }
                     else if (desi > 10 && desi <= 15)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[5], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[6], ListSortDirection.Ascending);
                     }
                     else if (desi > 15 && desi <= 20)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[6], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[7], ListSortDirection.Ascending);
                     }
                     else if (desi > 20 && desi <= 25)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[7], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[8], ListSortDirection.Ascending);
                     }
                     else if (desi > 25 && desi <= 30)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[8], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[9], ListSortDirection.Ascending);
                     }
                     else if (desi > 30 && desi <= 40)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[9], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[10], ListSortDirection.Ascending);
                     }
                     else if (desi > 40 && desi <= 50)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[10], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[11], ListSortDirection.Ascending);
                     }
                     else if(desi>50)
                     {
-                        dataGridView1.Sort(dataGridView1.Columns[10], ListSortDirection.Ascending);
+                        dataGridView1.Sort(dataGridView1.Columns[11], ListSortDirection.Ascending);
                     }
 
                 }
