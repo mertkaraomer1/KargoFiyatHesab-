@@ -100,6 +100,7 @@
             // 
             // KULLANICIGİRİSİ
             // 
+            AcceptButton = button1;
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
