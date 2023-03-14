@@ -20,14 +20,14 @@ namespace Kargo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            YURTICI_KARGO YK=new YURTICI_KARGO();
+            YURTICI_KARGO YK = new YURTICI_KARGO();
             YK.Show();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ARAS_KARGO ARAS=new ARAS_KARGO();
+            ARAS_KARGO ARAS = new ARAS_KARGO();
             ARAS.Show();
             this.Hide();
         }
@@ -79,17 +79,11 @@ namespace Kargo
 
         private void button7_Click(object sender, EventArgs e)
         {
-            CAN_KARGO CN= new CAN_KARGO();
+            CAN_KARGO CN = new CAN_KARGO();
             CN.Show();
             this.Hide();
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ERGULKARGO ERG= new ERGULKARGO();
-            ERG.Show();
-            this.Hide();
-        }
 
         private void button9_Click(object sender, EventArgs e)
         {

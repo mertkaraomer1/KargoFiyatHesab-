@@ -238,7 +238,7 @@ namespace Kargo
                     var G_firma = Convert.ToString(dataGridView2.Rows[i].Cells[0].Value); // 2. kolon
                     var K_Firma = Convert.ToString(dataGridView2.Rows[i].Cells[1].Value); // 3. kolon
                     var Desi = Convert.ToInt32(dataGridView2.Rows[i].Cells[2].Value).ToString(); // 4. kolon
-                    var Fiyat = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value).ToString(); // 5. kolon
+                    var Fiyat = Convert.ToDecimal(dataGridView2.Rows[i].Cells[3].Value).ToString(); // 5. kolon
                     var Adet = Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value).ToString(); // 6. kolon
                     var Depo = Convert.ToString(dataGridView2.Rows[i].Cells[5].Value);
                     var il = Convert.ToString(dataGridView2.Rows[i].Cells[6].Value); // 7. kolon
@@ -246,11 +246,11 @@ namespace Kargo
                     var Tarih = Convert.ToDateTime(dataGridView2.Rows[i].Cells[8].Value).ToString("yyyy-MM-dd"); // 9. kolon
 
                     baglanti.Open();
-                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolar (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "','" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
+                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "','" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
                     komut.ExecuteNonQuery();
                 }
                 baglanti.Close();
-            }
+        }
             catch (Exception)
             {
 
@@ -279,121 +279,121 @@ namespace Kargo
                     ekdesi = (desi - 30) * 3.29 * 1.18 * 1.0235;
                     double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesi;
                     if (desi < 1)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi >= 1 && desi <= 4)
-                        textBox11.Text = Math.Round(fiyat * 1.18 * 1.0235).ToString();
+                        textBox11.Text = Math.Round(fiyat * 1.18 * 1.0235,0).ToString();
 
                     else if (desi > 4 && desi < 6)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 6 && desi <= 10)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 10 && desi <= 15)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 15 && desi <= 20)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
 
                     else if (desi > 20 && desi <= 25)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 25 && desi <= 30)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 30)
-                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 0).ToString();
                 }
                 else if (textBox9.Text == "MNG KARGO")
                 {
                     ekdesi =  (desi - 40) * 2.30 * 1.18 * 1.0235;
                     double desifiyat = fiyat + ekdesi;
                     if (desi == 0 && desi < 1)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi >= 1 && desi <= 5)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 5 && desi <= 10)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 10 && desi <= 15)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 15 && desi <= 20)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 20 && desi <= 25)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 25 && desi <= 30)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 30 && desi <= 40)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 40)
-                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 0).ToString();
                 }
                 else if (textBox9.Text == "A KARGO")
                 {
                     ekdesi = (desi - 30) * 2.94 * 1.18 * 1.0235;
                     double desifiyat = fiyat + ekdesi;
                     if (desi < 1)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi >= 1 && desi <= 5)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 5 && desi <= 10)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 10 && desi <= 15)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 15 && desi <= 20)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
 
                     else if (desi > 20 && desi <= 25)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 25 && desi <= 30)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 30)
-                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 0).ToString();
                 }
                 else if (textBox9.Text == "SÜRAT KARGO")
                 {
                     ekdesi =  (desi - 30) * 2.7 * 1.18 * 1.0235;
                     double desifiyat = fiyat + ekdesi;
                     if (desi < 1)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi >= 1 && desi <= 5)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 5 && desi <= 10)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 10 && desi <= 15)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 15 && desi <= 20)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
 
                     else if (desi > 20 && desi <= 25)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 25 && desi <= 30)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi > 30)
-                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 0).ToString();
                 }
                 else if (textBox9.Text == "ANKARA KARGO")
                 {
@@ -401,22 +401,22 @@ namespace Kargo
                     double desifiyat = fiyat + ekdesi;
 
                     if (desi > 0 && desi <= 10)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 10 && desi <= 20)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 20 && desi <= 30)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 30 && desi <= 40)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 40 && desi <= 50)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 50)
-                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 0).ToString();
                 }
                 else if (textBox9.Text == "CAN KARGO")
                 {
@@ -424,19 +424,19 @@ namespace Kargo
                     ekdesi =(desi - 50) * 1.40 * 1.18 * 1.06;
                     double desifiyat = fiyat + ekdesi;
                     if (desi > 0 && desi <= 20)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 20 && desi <= 30)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 30 && desi <= 40)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 40 && desi <= 50)
-                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                     else if (desi > 50)
-                        textBox11.Text = Math.Round(desifiyat, 2).ToString();
+                        textBox11.Text = Math.Round(desifiyat, 0).ToString();
                 }
 
 
@@ -466,10 +466,10 @@ namespace Kargo
             for (int i = 0; i < dataGridView2.Rows.Count; ++i)
             {
                 toplam += Convert.ToDouble(dataGridView2.Rows[i].Cells[3].Value);
-                Math.Round(toplam, 2);
+                Math.Round(toplam, 0);
             }
-            Math.Round(toplam, 2);
-            textBox6.Text = Math.Round(toplam, 2).ToString() + " TL";
+            Math.Round(toplam, 0);
+            textBox6.Text = Math.Round(toplam, 0).ToString() + " TL";
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -807,25 +807,25 @@ namespace Kargo
                 {
                     if (desı >= 0 && desı <= 20)
                         if (adet >= 6)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                         else
                             MessageBox.Show("adet en az 6 girilmeli...");
 
                     else if (desı > 20 && desı <= 30)
                         if (adet >= 4)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                         else
                             MessageBox.Show("adet en az 4 girilmeli...");
 
                     else if (desı > 30 && desı <= 40)
                         if (adet >= 3)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                         else
                             MessageBox.Show("adet en az 4 girilmeli...");
 
                     else if (desı > 40 && desı <= 50)
                         if (adet >= 3)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                         else
                             MessageBox.Show("adet en az 3 girilmeli...");
                 }

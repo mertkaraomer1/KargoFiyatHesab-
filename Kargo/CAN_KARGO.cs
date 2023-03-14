@@ -340,19 +340,19 @@ namespace Kargo
             double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
             ekdesı = (70 + (desi - 50) * 1.40) * 1.18 * 1.06;
                 if (desi > 0 && desi <= 20)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                 else if (desi > 20 && desi <= 30)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                 else if (desi > 30 && desi <= 40)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                 else if (desi > 40 && desi <= 50)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 2).ToString();
+                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
                 else if (desi > 50)
-                    textBox5.Text = Math.Round(desifiyat, 2).ToString();
+                    textBox5.Text = Math.Round(desifiyat, 0).ToString();
 
             
         }
@@ -405,7 +405,7 @@ namespace Kargo
                     var G_firma = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); // 2. kolon
                     var K_Firma = Convert.ToString("CAN KARGO"); // 3. kolon
                     var Desi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); // 4. kolon
-                    var Fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
+                    var Fiyat = Convert.ToDecimal(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
                     var Adet = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); // 6. kolon
                     var Depo = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); // 7. kolon
                     var il = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value); // 7. kolon
@@ -413,7 +413,7 @@ namespace Kargo
                     var Tarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[8].Value).ToString("yyyy-MM-dd"); // 9. kolon
 
                     baglanti.Open();
-                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolar (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "' ,'" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
+                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "' ,'" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
                     komut.ExecuteNonQuery();
                 }
                 baglanti.Close();
@@ -434,10 +434,10 @@ namespace Kargo
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {
                 toplam += Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value);
-                Math.Round(toplam, 2);
+                Math.Round(toplam, 0);
             }
-            Math.Round(toplam, 2);
-            textBox6.Text = Math.Round(toplam, 2).ToString() + " TL";
+            Math.Round(toplam, 0);
+            textBox6.Text = Math.Round(toplam, 0).ToString() + " TL";
         }
 
         private void CAN_KARGO_FormClosing(object sender, FormClosingEventArgs e)
@@ -530,31 +530,31 @@ namespace Kargo
 
                 if (desı >= 0 && desı <= 20)
                     if (adet >= 6)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                     else
                         MessageBox.Show("adet en az 6 girilmeli...");
 
                 else if (desı > 20 && desı <= 30)
                     if (adet >= 4)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                     else
                         MessageBox.Show("adet en az 4 girilmeli...");
 
                 else if (desı > 30 && desı <= 40)
                     if (adet >= 3)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                     else
                         MessageBox.Show("adet en az 4 girilmeli...");
 
                 else if (desı > 40 && desı <= 50)
                     if (adet >= 3)
-                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 2).ToString();
+                        textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
                     else
                         MessageBox.Show("adet en az 3 girilmeli...");
 
                 else if (desı > 50)
                     if (adet >= 2)
-                        textBox5.Text = Math.Round(adet * desifiyat, 2).ToString();
+                        textBox5.Text = Math.Round(adet * desifiyat, 0).ToString();
                     else
                         MessageBox.Show("adet en az 2 girilmeli...");
                
