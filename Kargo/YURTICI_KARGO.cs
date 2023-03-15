@@ -513,7 +513,7 @@ namespace Kargo
                     var G_firma = Convert.ToString(dataGridView1.Rows[i].Cells[0].Value); // 2. kolon
                     var K_Firma = Convert.ToString("YURTİÇİ KARGO"); // 3. kolon
                     var Desi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); // 4. kolon
-                    var Fiyat = Convert.ToDecimal(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
+                    var Fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
                     var Adet = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); // 6. kolon
                     var Depo = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); // 6. kolon
                     var Tarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[6].Value).ToString("yyyy-MM-dd"); // 9. kolon
