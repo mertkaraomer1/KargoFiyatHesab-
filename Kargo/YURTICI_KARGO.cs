@@ -500,7 +500,7 @@ namespace Kargo
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            baglanti = new SqlConnection("Data Source=DELLSRV;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             try
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)

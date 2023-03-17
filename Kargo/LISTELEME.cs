@@ -33,7 +33,7 @@ namespace Kargo
         System.Data.DataTable dt;
         void griddoldur()
         {
-            baglanti = new SqlConnection("Data Source=DELLSRV;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
             da = new SqlDataAdapter("select* From Kargolarr", baglanti);
             ds = new DataSet();
