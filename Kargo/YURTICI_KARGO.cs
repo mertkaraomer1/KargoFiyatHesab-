@@ -37,6 +37,7 @@ namespace Kargo
         double desi;
         SqlConnection baglanti;
         string Depo;
+        string il;
         void griddoldur()
         {
             desi = Convert.ToDouble(textBox4.Text);
@@ -85,49 +86,50 @@ namespace Kargo
                 textBox3.Text = "";
             }
             griddoldur();
-            double ekdesı =(desi - 30) * 3.29 * 1.18 * 1.0235;
+            double ekdesı = (desi - 30) * 3.05 * 1.18 * 1.0235;
             double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
             if (desi < 1)
-                    textBox5.Text = Math.Round(fiyat*1.18*1.0235,0).ToString();
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
-                else if (desi >= 1 && desi <= 4)
-                    textBox5.Text =Math.Round (fiyat*1.18* 1.0235,0).ToString();
+            else if (desi >= 1 && desi <= 4)
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
-                else if (desi > 4 && desi < 6)
-                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235,0).ToString();
+            else if (desi > 4 && desi < 6)
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
-                else if (desi > 6 && desi <= 10)
-                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
+            else if (desi > 6 && desi <= 10)
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
-                else if (desi > 10 && desi <= 15)
-                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
-                    
-                else if (desi > 15 && desi <= 20)
-                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
+            else if (desi > 10 && desi <= 15)
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
+
+            else if (desi > 15 && desi <= 20)
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
 
-                else if (desi > 20 && desi <= 25)
-                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
+            else if (desi > 20 && desi <= 25)
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
-                else if (desi > 25 && desi <= 30)
-                    textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
+            else if (desi > 25 && desi <= 30)
+                textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
-                else if (desi > 30)
-                    textBox5.Text = Math.Round(desifiyat, 0).ToString();
+            else if (desi > 30)
+                textBox5.Text = Math.Round(desifiyat, 0).ToString();
 
-            
+
         }
 
         public void YURTICI_KARGO_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 7;
+            dataGridView1.ColumnCount = 8;
             dataGridView1.Columns[0].Name = "FİRMA ADI";
             dataGridView1.Columns[1].Name = "DESI/KİLO";
             dataGridView1.Columns[2].Name = "FIYAT";
             dataGridView1.Columns[3].Name = "TL";
             dataGridView1.Columns[4].Name = "ADET";
             dataGridView1.Columns[5].Name = "DEPO";
-            dataGridView1.Columns[6].Name = "TARİH";
+            dataGridView1.Columns[6].Name = "İL";
+            dataGridView1.Columns[7].Name = "TARİH";
 
             comboBox1.Items.Add("ANA DEPO");
             comboBox1.Items.Add("DMO");
@@ -160,9 +162,10 @@ namespace Kargo
             adet = Convert.ToInt32(textBox7.Text);
             string TL = "TL";
             desi = Convert.ToDouble(textBox4.Text);
+            il = comboBox2.SelectedItem.ToString();
             if (textBox4 != null)
             {
-                double ekdesı = (desi - 30) * 3.29 * 1.18 * 1.0235;
+                double ekdesı = (desi - 30) * 3.05 * 1.18 * 1.0235;
                 double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
                 if (desi < 1)
                     textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 0).ToString();
@@ -192,7 +195,7 @@ namespace Kargo
                 else if (desi > 30)
                     textBox5.Text = Math.Round(adet * desifiyat, 0).ToString();
             }
-            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, DateTime.Now.ToString("yyyy-MM-dd"));
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo,il, DateTime.Now.ToString("yyyy-MM-dd"));
         }
 
         public void button4_Click(object sender, EventArgs e)
@@ -204,7 +207,7 @@ namespace Kargo
                 toplam = Math.Round(toplam, 0);
             }
             toplam = Math.Round(toplam, 0);
-            textBox6.Text =Math.Round( toplam,0).ToString() + " TL";
+            textBox6.Text = Math.Round(toplam, 0).ToString() + " TL";
         }
 
         private void YURTICI_KARGO_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -264,8 +267,8 @@ namespace Kargo
         {
 
 
-            System.Drawing.Image Logo =imageList1.Images["ASPİRASYON SONDASI.PNG"];
-            Pen kalem=new Pen(Color.Black);
+            System.Drawing.Image Logo = imageList1.Images["ASPİRASYON SONDASI.PNG"];
+            Pen kalem = new Pen(Color.Black);
             Font font = new Font("Arial", 15);
             SolidBrush firca = new SolidBrush(Color.Black);
             int iCount = 0;
@@ -277,8 +280,8 @@ namespace Kargo
                 bool bMorePagesToPrint = false;
                 int iTmpWidth = 0;
                 bFirstPage = true;
-               
-                
+
+
                 if (bFirstPage)
                 {
                     foreach (DataGridViewColumn GridCol in dataGridView1.Columns)
@@ -302,7 +305,7 @@ namespace Kargo
                     DataGridViewRow GridRow = dataGridView1.Rows[iRow];
 
                     iCellHeight = GridRow.Height + 5;
-                    
+
 
                     if (iTopMargin + iCellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
                     {
@@ -323,7 +326,7 @@ namespace Kargo
                                     FontStyle.Bold), e.MarginBounds.Width).Height - 13);
                             e.Graphics.DrawString("ERMED TIP MEDİKAL", font,
                                   Brushes.Black, e.MarginBounds.Top + 225, e.MarginBounds.Top -
-                                  e.Graphics.MeasureString("ERMED TIP MEDİKAL", font, e.MarginBounds.Left).Height+10);
+                                  e.Graphics.MeasureString("ERMED TIP MEDİKAL", font, e.MarginBounds.Left).Height + 10);
 
                             String strDate = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
 
@@ -333,7 +336,7 @@ namespace Kargo
                                     FontStyle.Bold), e.MarginBounds.Width).Width), e.MarginBounds.Top -
                                     e.Graphics.MeasureString("KARGO FİYAT HESABI", new Font(new Font(dataGridView1.Font,
                                     FontStyle.Bold), FontStyle.Bold), e.MarginBounds.Width).Height - 13);
-                         
+
 
                             iTopMargin = e.MarginBounds.Top;
                             foreach (DataGridViewColumn GridCol in dataGridView1.Columns)
@@ -371,12 +374,12 @@ namespace Kargo
                                     iTopMargin, (int)arrColumnWidths[iCount], iCellHeight));
                             iCount++;
                         }
-                       
+
                     }
                     iRow++;
                     iTopMargin += iCellHeight;
                 }
-                
+
 
                 if (bMorePagesToPrint)
                     e.HasMorePages = true;
@@ -388,20 +391,20 @@ namespace Kargo
                 MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Graphics mg = Graphics.FromImage(Logo);
-            e.Graphics.DrawImage(Logo, 730,10, 80, 80);
+            e.Graphics.DrawImage(Logo, 730, 10, 80, 80);
 
 
 
 
 
 
-            e.Graphics.DrawString("TOPLAM FİYAT=", font, firca, iCellHeight + 390,iTopMargin+10 );
-            e.Graphics.DrawString(textBox6.Text, font, firca, iCellHeight+570, iTopMargin+10);
+            e.Graphics.DrawString("TOPLAM FİYAT=", font, firca, iCellHeight + 390, iTopMargin + 10);
+            e.Graphics.DrawString(textBox6.Text, font, firca, iCellHeight + 570, iTopMargin + 10);
             e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin, iCellHeight + 360, iTopMargin + 40);
             e.Graphics.DrawLine(kalem, iCellHeight + 695, iTopMargin, iCellHeight + 695, iTopMargin + 40);
             e.Graphics.DrawLine(kalem, iCellHeight + 570, iTopMargin, iCellHeight + 570, iTopMargin + 40);
-            e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin, iCellHeight +695, iTopMargin);
-            e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin+40, iCellHeight + 695, iTopMargin + 40);
+            e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin, iCellHeight + 695, iTopMargin);
+            e.Graphics.DrawLine(kalem, iCellHeight + 360, iTopMargin + 40, iCellHeight + 695, iTopMargin + 40);
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -515,11 +518,12 @@ namespace Kargo
                     var Desi = Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value).ToString(); // 4. kolon
                     var Fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
                     var Adet = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); // 6. kolon
-                    var Depo = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); // 6. kolon
-                    var Tarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[6].Value).ToString("yyyy-MM-dd"); // 9. kolon
+                    var Depo = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value);
+                    var il = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value);// 6. kolon
+                    var Tarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); // 9. kolon
 
                     baglanti.Open();
-                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "', '" + Depo + "','" + Tarih + "')", baglanti);
+                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "', '" + Depo + "','" + il + "','" + Tarih + "')", baglanti);
                     komut.ExecuteNonQuery();
                 }
                 baglanti.Close();

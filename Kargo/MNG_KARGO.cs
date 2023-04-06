@@ -34,6 +34,7 @@ namespace Kargo
         double desi;
         SqlConnection baglanti;
         string Depo;
+        string il;
         void griddoldur()
         {
             double desi = Convert.ToDouble(textBox4.Text);
@@ -71,7 +72,7 @@ namespace Kargo
                 double boy = Convert.ToDouble(textBox2.Text);
                 double yukseklik = Convert.ToDouble(textBox3.Text);
 
-                textBox4.Text =Math.Round( (en * boy * yukseklik) / 3000,0).ToString();
+                textBox4.Text = Math.Round((en * boy * yukseklik) / 3000, 0).ToString();
 
                 desi = Convert.ToDouble(textBox4.Text);
 
@@ -81,48 +82,49 @@ namespace Kargo
                 textBox3.Text = "";
             }
             griddoldur();
-                ekdesı = (desi - 40) * 2.30 * 1.18 * 1.0235;
-                double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
+            ekdesı = (desi - 40) * 2.30 * 1.18 * 1.0235;
+            double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
             if (desi == 0 && desi < 1)
-                    textBox5.Text = Math.Round((fiyat*1.18* 1.0235),0).ToString();
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if (desi >= 1 && desi <= 5)
-                    textBox5.Text = Math.Round((fiyat * 1.18* 1.0235), 0).ToString();
+            else if (desi >= 1 && desi <= 5)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if (desi > 5 && desi <= 10)
-                    textBox5.Text = Math.Round((fiyat * 1.18* 1.0235), 0).ToString();
+            else if (desi > 5 && desi <= 10)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if (desi > 10 && desi <= 15)
-                    textBox5.Text = Math.Round((fiyat * 1.18* 1.0235), 0).ToString();
+            else if (desi > 10 && desi <= 15)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if (desi > 15 && desi <= 20)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
+            else if (desi > 15 && desi <= 20)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if (desi > 20 && desi <= 25)
-                    textBox5.Text = Math.Round((fiyat * 1.18* 1.0235), 0).ToString();
+            else if (desi > 20 && desi <= 25)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if (desi > 25 && desi <= 30)
-                    textBox5.Text =Math.Round ((fiyat * 1.18* 1.0235),0).ToString();
+            else if (desi > 25 && desi <= 30)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if (desi > 30 && desi <=40)
-                    textBox5.Text =Math.Round ((fiyat * 1.18* 1.0235),0).ToString();
+            else if (desi > 30 && desi <= 40)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
-                else if ( desi > 40)
-                    textBox5.Text =Math.Round(desifiyat,0).ToString();
+            else if (desi > 40)
+                textBox5.Text = Math.Round(desifiyat, 0).ToString();
 
-            
+
         }
 
         private void MNG_KARGO_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 7;
+            dataGridView1.ColumnCount = 8;
             dataGridView1.Columns[0].Name = "FİRMA ADI";
             dataGridView1.Columns[1].Name = "DESI/KİLO";
             dataGridView1.Columns[2].Name = "FIYAT";
             dataGridView1.Columns[3].Name = "TL";
             dataGridView1.Columns[4].Name = "ADET";
             dataGridView1.Columns[5].Name = "DEPO";
-            dataGridView1.Columns[6].Name = "TARİH";
+            dataGridView1.Columns[6].Name = "İL";
+            dataGridView1.Columns[7].Name = "TARİH";
 
             comboBox1.Items.Add("ANA DEPO");
             comboBox1.Items.Add("DMO");
@@ -156,6 +158,7 @@ namespace Kargo
             adet = Convert.ToInt32(textBox7.Text);
             string TL = "TL";
             desi = Convert.ToDouble(textBox4.Text);
+            il = comboBox2.SelectedItem.ToString();
             if (textBox4 != null)
             {
                 ekdesı = (desi - 40) * 2.30 * 1.18 * 1.0235;
@@ -187,7 +190,7 @@ namespace Kargo
                 else if (desi > 40)
                     textBox5.Text = Math.Round((adet * desifiyat), 0).ToString();
             }
-            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, DateTime.Now.ToString("yyyy-MM-dd"));
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo,il, DateTime.Now.ToString("yyyy-MM-dd"));
 
 
         }
@@ -209,10 +212,11 @@ namespace Kargo
                     var Fiyat = Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value).ToString(); // 5. kolon
                     var Adet = Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value).ToString(); // 6. kolon
                     var Depo = Convert.ToString(dataGridView1.Rows[i].Cells[5].Value); // 6. kolon
-                    var Tarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[6].Value).ToString("yyyy-MM-dd"); // 9. kolon
+                    var il = Convert.ToString(dataGridView1.Rows[i].Cells[6].Value);
+                    var Tarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[7].Value).ToString("yyyy-MM-dd"); // 9. kolon
 
                     baglanti.Open();
-                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "', '" + Depo + "','" + Tarih + "')", baglanti);
+                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "', '" + Depo + "','" + il + "','" + Tarih + "')", baglanti);
                     komut.ExecuteNonQuery();
                 }
                 baglanti.Close();
@@ -236,7 +240,7 @@ namespace Kargo
                 toplam = Math.Round(toplam, 2);
             }
             toplam = Math.Round(toplam, 2);
-            textBox6.Text =Math.Round (toplam,0).ToString() + "TL";
+            textBox6.Text = Math.Round(toplam, 0).ToString() + "TL";
 
         }
 

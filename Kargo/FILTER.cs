@@ -120,9 +120,9 @@ namespace Kargo
                 double boy = Convert.ToDouble(textBox2.Text);
                 double yukseklik = Convert.ToDouble(textBox3.Text);
 
-                textBox4.Text = Math.Round((en * boy * yukseklik) / 3000,0).ToString();
+                textBox4.Text = Math.Round((en * boy * yukseklik) / 3000, 0).ToString();
 
-                desi= Convert.ToDouble(textBox4.Text);
+                desi = Convert.ToDouble(textBox4.Text);
             }
         }
 
@@ -177,7 +177,7 @@ namespace Kargo
                     {
                         dataGridView1.Sort(dataGridView1.Columns[11], ListSortDirection.Ascending);
                     }
-                    else if(desi>50)
+                    else if (desi > 50)
                     {
                         dataGridView1.Sort(dataGridView1.Columns[11], ListSortDirection.Ascending);
                     }
@@ -186,7 +186,7 @@ namespace Kargo
 
 
             }
- 
+
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         private void button5_Click(object sender, EventArgs e)
@@ -216,7 +216,7 @@ namespace Kargo
             else if (textBox9.Text == "CAN KARGO" && textBox8.Text != null)
                 dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, comboBox3.Text, comboBox4.Text, zamanim);
             else if (textBox8.Text != null)
-                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, null, null, zamanim);
+                dataGridView2.Rows.Add(textBox8.Text, textBox9.Text, textBox4.Text, fıyat1, adet, Depo, comboBox6.Text, null, zamanim);
             else
                 MessageBox.Show("hata");
 
@@ -226,48 +226,48 @@ namespace Kargo
         {
             baglanti = new SqlConnection("Data Source=MERTSANAL;Initial Catalog=ermed_kargo;User ID=sa;Password=1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
-            try
+            //try
+            //{
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
-                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                if (baglanti.State == ConnectionState.Open)
                 {
-                    if (baglanti.State == ConnectionState.Open)
-                    {
-                        baglanti.Close();
-                    }
-
-                    var G_firma = Convert.ToString(dataGridView2.Rows[i].Cells[0].Value); // 2. kolon
-                    var K_Firma = Convert.ToString(dataGridView2.Rows[i].Cells[1].Value); // 3. kolon
-                    var Desi = Convert.ToInt32(dataGridView2.Rows[i].Cells[2].Value).ToString(); // 4. kolon
-                    var Fiyat = Convert.ToDouble(dataGridView2.Rows[i].Cells[3].Value).ToString(); // 5. kolon
-                    var Adet = Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value).ToString(); // 6. kolon
-                    var Depo = Convert.ToString(dataGridView2.Rows[i].Cells[5].Value);
-                    var il = Convert.ToString(dataGridView2.Rows[i].Cells[6].Value); // 7. kolon
-                    var ilce = Convert.ToString(dataGridView2.Rows[i].Cells[7].Value); // 8. kolon
-                    var Tarih = Convert.ToDateTime(dataGridView2.Rows[i].Cells[8].Value).ToString("yyyy-MM-dd"); // 9. kolon
-
-                    baglanti.Open();
-                    SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "','" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
-                    komut.ExecuteNonQuery();
+                    baglanti.Close();
                 }
-                baglanti.Close();
-        }
-            catch (Exception)
-            {
 
-                MessageBox.Show("HATA VAR!!!");
+                var G_firma = Convert.ToString(dataGridView2.Rows[i].Cells[0].Value); // 2. kolon
+                var K_Firma = Convert.ToString(dataGridView2.Rows[i].Cells[1].Value); // 3. kolon
+                var Desi = Convert.ToInt32(dataGridView2.Rows[i].Cells[2].Value).ToString(); // 4. kolon
+                var Fiyat = Convert.ToDouble(dataGridView2.Rows[i].Cells[3].Value).ToString(); // 5. kolon
+                var Adet = Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value).ToString(); // 6. kolon
+                var Depo = Convert.ToString(dataGridView2.Rows[i].Cells[5].Value);
+                var il = Convert.ToString(dataGridView2.Rows[i].Cells[6].Value); // 7. kolon
+                var ilce = Convert.ToString(dataGridView2.Rows[i].Cells[7].Value); // 8. kolon
+                var Tarih = Convert.ToDateTime(dataGridView2.Rows[i].Cells[8].Value).ToString("yyyy-MM-dd"); // 9. kolon
+
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("INSERT INTO Kargolarr (Gonderilcek_firma,Kargo_Sirketi,Desi_KG,Fiyat,Adet,Depo,İL,İLCE,Tarih) VALUES ('" + G_firma + "' , '" + K_Firma + "','" + Desi + "' , '" + Fiyat + "' , '" + Adet + "','" + Depo + "','" + il + "' , '" + ilce + "','" + Tarih + "')", baglanti);
+                komut.ExecuteNonQuery();
             }
-            finally
-            {
-                MessageBox.Show("BAŞARI İLE KAYDEDİLDİ...");
-            }
-            
-           
-            
+            baglanti.Close();
+            //}
+            //catch (Exception)
+            //{
+
+            //    MessageBox.Show("HATA VAR!!!");
+            //}
+            //finally
+            //{
+            //    MessageBox.Show("BAŞARI İLE KAYDEDİLDİ...");
+            //}
+
+
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            desi=Convert.ToDouble(textBox4.Text);
+            desi = Convert.ToDouble(textBox4.Text);
             textBox10.Text = textBox4.Text.ToString();
             double ekdesi;
 
@@ -282,7 +282,7 @@ namespace Kargo
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
 
                     else if (desi >= 1 && desi <= 4)
-                        textBox11.Text = Math.Round(fiyat * 1.18 * 1.0235,0).ToString();
+                        textBox11.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
                     else if (desi > 4 && desi < 6)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
@@ -308,7 +308,7 @@ namespace Kargo
                 }
                 else if (textBox9.Text == "MNG KARGO")
                 {
-                    ekdesi =  (desi - 40) * 2.30 * 1.18 * 1.0235;
+                    ekdesi = (desi - 40) * 2.30 * 1.18 * 1.0235;
                     double desifiyat = fiyat + ekdesi;
                     if (desi == 0 && desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
@@ -368,7 +368,7 @@ namespace Kargo
                 }
                 else if (textBox9.Text == "SÜRAT KARGO")
                 {
-                    ekdesi =  (desi - 30) * 2.7 * 1.18 * 1.0235;
+                    ekdesi = (desi - 30) * 2.7 * 1.18 * 1.0235;
                     double desifiyat = fiyat + ekdesi;
                     if (desi < 1)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.0235), 0).ToString();
@@ -421,7 +421,7 @@ namespace Kargo
                 else if (textBox9.Text == "CAN KARGO")
                 {
 
-                    ekdesi =(desi - 50) * 1.40 * 1.18 * 1.06;
+                    ekdesi = (desi - 50) * 1.40 * 1.18 * 1.06;
                     double desifiyat = fiyat + ekdesi;
                     if (desi > 0 && desi <= 20)
                         textBox11.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
@@ -702,33 +702,33 @@ namespace Kargo
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
 
-            desi=Convert.ToDouble(textBox4.Text);
+            desi = Convert.ToDouble(textBox4.Text);
             if (desi != null)
             {
-                     row = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                    textBox9.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value);
-                    if (desi == 0)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[2].Value);
-                    else if (desi >= 1 && desi <= 4)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[3].Value);
-                    else if (desi == 5)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value);
-                    else if (desi > 5 && desi <= 10)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value);
-                    else if (desi > 10 && desi <= 15)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[6].Value);
-                    else if (desi > 1 && desi <= 20)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[7].Value);
-                    else if (desi > 20 && desi <= 25)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[8].Value);
-                    else if (desi > 25 && desi <= 30)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[9].Value);
-                    else if (desi > 30 && desi <= 40)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[10].Value);
-                    else if (desi > 40 && desi <= 50)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
-                    else if (desi > 50)
-                        fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
+                row = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                textBox9.Text = Convert.ToString(dataGridView1.CurrentRow.Cells[1].Value);
+                if (desi == 0)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[2].Value);
+                else if (desi >= 1 && desi <= 4)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[3].Value);
+                else if (desi == 5)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value);
+                else if (desi > 5 && desi <= 10)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value);
+                else if (desi > 10 && desi <= 15)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[6].Value);
+                else if (desi > 1 && desi <= 20)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[7].Value);
+                else if (desi > 20 && desi <= 25)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[8].Value);
+                else if (desi > 25 && desi <= 30)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[9].Value);
+                else if (desi > 30 && desi <= 40)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[10].Value);
+                else if (desi > 40 && desi <= 50)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
+                else if (desi > 50)
+                    fiyat = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[11].Value);
             }
 
             if (textBox9.Text == null)
@@ -744,7 +744,7 @@ namespace Kargo
                 OleDbDataAdapter da = new OleDbDataAdapter("select * from ANKARAKARGOİL ORDER BY ID ASC ", con);
                 da.Fill(dt);
                 comboBox1.ValueMember = "ID";
-                
+
                 comboBox1.DisplayMember = "il";
 
                 comboBox1.DataSource = dt;
@@ -773,6 +773,8 @@ namespace Kargo
                 comboBox3.Visible = false;
                 comboBox4.Visible = false;
                 label14.Visible = false;
+                comboBox6.Visible = false;
+                label16.Visible = false;
             }
             else if (textBox9.Text == "CAN KARGO")
             {
@@ -783,6 +785,8 @@ namespace Kargo
                 comboBox4.Visible = true;
                 comboBox1.Visible = false;
                 comboBox2.Visible = false;
+                comboBox6.Visible = false;
+                label16.Visible = false;
             }
             else
             {
@@ -794,74 +798,75 @@ namespace Kargo
                 label14.Visible = false;
                 comboBox3.Visible = false;
                 comboBox4.Visible = false;
-
+                comboBox6.Visible = true;
+                label16.Visible = true;
             }
         }
 
-            private void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
+        {
+            double desı = Convert.ToDouble(textBox4.Text);
+            double adet = 1;
+            adet = Convert.ToDouble(textBox7.Text);
+            if (textBox9.Text == "CAN KARGO")
             {
-                double desı = Convert.ToDouble(textBox4.Text);
-                double adet = 1;
-                adet = Convert.ToDouble(textBox7.Text);
-                if (textBox9.Text == "CAN KARGO")
-                {
-                    if (desı >= 0 && desı <= 20)
-                        if (adet >= 6)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
-                        else
-                            MessageBox.Show("adet en az 6 girilmeli...");
+                if (desı >= 0 && desı <= 20)
+                    if (adet >= 6)
+                        textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
+                    else
+                        MessageBox.Show("adet en az 6 girilmeli...");
 
-                    else if (desı > 20 && desı <= 30)
-                        if (adet >= 4)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
-                        else
-                            MessageBox.Show("adet en az 4 girilmeli...");
+                else if (desı > 20 && desı <= 30)
+                    if (adet >= 4)
+                        textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
+                    else
+                        MessageBox.Show("adet en az 4 girilmeli...");
 
-                    else if (desı > 30 && desı <= 40)
-                        if (adet >= 3)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
-                        else
-                            MessageBox.Show("adet en az 4 girilmeli...");
+                else if (desı > 30 && desı <= 40)
+                    if (adet >= 3)
+                        textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
+                    else
+                        MessageBox.Show("adet en az 4 girilmeli...");
 
-                    else if (desı > 40 && desı <= 50)
-                        if (adet >= 3)
-                            textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
-                        else
-                            MessageBox.Show("adet en az 3 girilmeli...");
-                }
-                else
-                {
-                   double gfiyat=Convert.ToDouble(textBox11.Text);
-                   textBox11.Text=(gfiyat*adet).ToString();
-                }
+                else if (desı > 40 && desı <= 50)
+                    if (adet >= 3)
+                        textBox11.Text = Math.Round(adet * (fiyat * 1.18 * 1.06), 0).ToString();
+                    else
+                        MessageBox.Show("adet en az 3 girilmeli...");
             }
-
-            private void comboBox3_SelectedIndexChanged(object sender, EventArgs e) 
+            else
             {
-
-                if (comboBox3.SelectedIndex != -1)
-                {
-                    DataTable dt1 = new DataTable();
-                    OleDbDataAdapter da1 = new OleDbDataAdapter("select * from CANKARGOİLCE where il = " + comboBox3.SelectedValue, con1);
-                    da1.Fill(dt1);
-                    comboBox4.ValueMember = "ID";
-                    comboBox4.DisplayMember = "ilce";
-                    comboBox4.DataSource = dt1;
-                }
+                double gfiyat = Convert.ToDouble(textBox11.Text);
+                textBox11.Text = (gfiyat * adet).ToString();
             }
+        }
 
-            private void FILTER_FormClosing(object sender, FormClosingEventArgs e)
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboBox3.SelectedIndex != -1)
             {
-                DialogResult c;
-                c = MessageBox.Show("Çıkmakistediğinizden eminmisiniz ? ", "KargoFiyatHesaplama Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (c == DialogResult.Yes)
-                    Environment.Exit(0);
-                else
-                    e.Cancel = true;//Çıkışı durdur
+                DataTable dt1 = new DataTable();
+                OleDbDataAdapter da1 = new OleDbDataAdapter("select * from CANKARGOİLCE where il = " + comboBox3.SelectedValue, con1);
+                da1.Fill(dt1);
+                comboBox4.ValueMember = "ID";
+                comboBox4.DisplayMember = "ilce";
+                comboBox4.DataSource = dt1;
             }
+        }
 
-            private void button8_Click(object sender, EventArgs e)
-            {
+        private void FILTER_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult c;
+            c = MessageBox.Show("Çıkmakistediğinizden eminmisiniz ? ", "KargoFiyatHesaplama Çıkış", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (c == DialogResult.Yes)
+                Environment.Exit(0);
+            else
+                e.Cancel = true;//Çıkışı durdur
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
             dataGridView2.Rows.Clear();
             textBox6.Clear();
             textBox8.Clear();
@@ -874,85 +879,85 @@ namespace Kargo
             textBox11.Clear();
         }
 
-            private void button4_MouseEnter(object sender, EventArgs e)
-            {
-                button4.BackColor = Color.Green;
-            }
+        private void button4_MouseEnter(object sender, EventArgs e)
+        {
+            button4.BackColor = Color.Green;
+        }
 
-            private void button4_MouseLeave(object sender, EventArgs e)
-            {
-                button4.BackColor = Color.White;
-            }
+        private void button4_MouseLeave(object sender, EventArgs e)
+        {
+            button4.BackColor = Color.White;
+        }
 
-            private void button2_MouseEnter(object sender, EventArgs e)
-            {
-                button2.BackColor = Color.Red;
-            }
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.Red;
+        }
 
-            private void button2_MouseLeave(object sender, EventArgs e)
-            {
-                button2.BackColor = Color.White;
-            }
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.White;
+        }
 
-            private void button8_MouseEnter(object sender, EventArgs e)
-            {
-                button8.BackColor = Color.Gold;
-            }
+        private void button8_MouseEnter(object sender, EventArgs e)
+        {
+            button8.BackColor = Color.Gold;
+        }
 
-            private void button8_MouseLeave(object sender, EventArgs e)
-            {
-                button8.BackColor = Color.White;
-            }
+        private void button8_MouseLeave(object sender, EventArgs e)
+        {
+            button8.BackColor = Color.White;
+        }
 
-            private void button1_MouseEnter(object sender, EventArgs e)
-            {
-                button1.BackColor = Color.Green;
-            }
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Green;
+        }
 
-            private void button1_MouseLeave(object sender, EventArgs e)
-            {
-                button1.BackColor = Color.White;
-            }
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.White;
+        }
 
-            private void button3_MouseEnter(object sender, EventArgs e)
-            {
-                button3.BackColor = Color.SandyBrown;
-            }
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.SandyBrown;
+        }
 
-            private void button3_MouseLeave(object sender, EventArgs e)
-            {
-                button3.BackColor = Color.White;
-            }
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.White;
+        }
 
-            private void button6_MouseEnter(object sender, EventArgs e)
-            {
-                button6.BackColor = Color.Blue;
-            }
+        private void button6_MouseEnter(object sender, EventArgs e)
+        {
+            button6.BackColor = Color.Blue;
+        }
 
-            private void button6_MouseLeave(object sender, EventArgs e)
-            {
-                button6.BackColor = Color.White;
-            }
+        private void button6_MouseLeave(object sender, EventArgs e)
+        {
+            button6.BackColor = Color.White;
+        }
 
-            private void button7_MouseEnter(object sender, EventArgs e)
-            {
-                button7.BackColor = Color.Green;
-            }
+        private void button7_MouseEnter(object sender, EventArgs e)
+        {
+            button7.BackColor = Color.Green;
+        }
 
-            private void button7_MouseLeave(object sender, EventArgs e)
-            {
-                button7.BackColor = Color.White;
-            }
+        private void button7_MouseLeave(object sender, EventArgs e)
+        {
+            button7.BackColor = Color.White;
+        }
 
-            private void button5_MouseEnter(object sender, EventArgs e)
-            {
-                button5.BackColor = Color.Green;
-            }
+        private void button5_MouseEnter(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.Green;
+        }
 
-            private void button5_MouseLeave(object sender, EventArgs e)
-            {
-                button5.BackColor = Color.White;
-            }
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+            button5.BackColor = Color.White;
+        }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
@@ -974,7 +979,7 @@ namespace Kargo
                 OleDbConnection baglanti = new(baglantiAdresi);
 
                 //tüm verileri seçmek için select sorgumuz. Sayfa1 olan kısmı Excel'de hangi sayfayı açmak istiyosanız orayı yazabilirsiniz.
-                OleDbCommand komut = new OleDbCommand("Select * From [" + "Sheet1" + "$]", baglanti);
+                OleDbCommand komut = new OleDbCommand("Select * From [" + "Sayfa1" + "$]", baglanti);
 
                 //bağlantıyı açıyoruz.
                 baglanti.Open();
@@ -990,7 +995,7 @@ namespace Kargo
 
                 //DataGrid'imizin kaynağını oluşturduğumuz DataTable ile dolduruyoruz.
                 dataGridView2.DataSource = data;
-                
+
             }
             catch (Exception ex)
             {

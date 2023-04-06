@@ -40,6 +40,7 @@
             button6 = new Button();
             button7 = new Button();
             button9 = new Button();
+            button8 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -169,6 +170,22 @@
             button9.UseVisualStyleBackColor = false;
             button9.Click += button9_Click;
             // 
+            // button8
+            // 
+            button8.AutoSize = true;
+            button8.BackColor = SystemColors.InactiveBorder;
+            button8.BackgroundImage = (Image)resources.GetObject("button8.BackgroundImage");
+            button8.BackgroundImageLayout = ImageLayout.Stretch;
+            button8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button8.ForeColor = Color.Red;
+            button8.Location = new Point(688, 331);
+            button8.Margin = new Padding(3, 4, 3, 4);
+            button8.Name = "button8";
+            button8.Size = new Size(129, 92);
+            button8.TabIndex = 10;
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
+            // 
             // KARGO_SIRKETLERI
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -179,6 +196,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(910, 567);
+            Controls.Add(button8);
             Controls.Add(button9);
             Controls.Add(button7);
             Controls.Add(button6);
@@ -213,5 +231,6 @@
         private Button button6;
         private Button button7;
         private Button button9;
+        private Button button8;
     }
 }

@@ -63,7 +63,7 @@ namespace Kargo
             griddoldur();
             if (comboBox1.Text.ToString() == "" && textBox9.Text == "")
             {
-                da = new SqlDataAdapter("select * From Kargolarr where Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'AND'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'", baglanti);
+                da = new SqlDataAdapter("select * From Kargolarr where Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'AND'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "' AND İL='"+comboBox6.SelectedItem.ToString()+"'", baglanti);
                 ds = new DataSet();
             }
             else if (comboBox1.Text.ToString() == "" && dateTimePicker1.Value.ToString() != null && dateTimePicker2.Value.ToString() != null && textBox9.Text != null)
@@ -73,7 +73,7 @@ namespace Kargo
             }
             else if (textBox9.Text == "")
             {
-                da = new SqlDataAdapter("select * From Kargolarr where Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'AND'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'AND Depo = '" + comboBox1.SelectedItem.ToString() + "'", baglanti);
+                da = new SqlDataAdapter("select * From Kargolarr where Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'AND'" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'AND Depo = '" + comboBox1.SelectedItem.ToString() + "'AND İL='"+comboBox6.SelectedItem.ToString()+"'", baglanti);
                 ds = new DataSet();
 
             }
@@ -83,12 +83,19 @@ namespace Kargo
                 ds = new DataSet();
             }
 
-            else if (dateTimePicker1.Value.ToString() != null && dateTimePicker2.Value.ToString() != null && textBox9.Text != null && comboBox1.SelectedItem.ToString() != null)
+            else if (comboBox6.Text.ToString()=="" && dateTimePicker1.Value.ToString() != null && dateTimePicker2.Value.ToString() != null && textBox9.Text != null && comboBox1.SelectedItem.ToString() != null)
             {
 
                 da = new SqlDataAdapter("select* From Kargolarr where Kargo_sirketi = '" + textBox9.Text + "' AND Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' AND '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'AND Depo = '" + comboBox1.SelectedItem.ToString() + "' ", baglanti);
                 ds = new DataSet();
             }
+            else if (comboBox6.SelectedItem.ToString() !=null && dateTimePicker1.Value.ToString() != null && dateTimePicker2.Value.ToString() != null && textBox9.Text != null && comboBox1.SelectedItem.ToString() != null)
+            {
+
+                da = new SqlDataAdapter("select* From Kargolarr where Kargo_sirketi = '" + textBox9.Text + "' AND Tarih BETWEEN'" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' AND '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'AND Depo = '" + comboBox1.SelectedItem.ToString() + "'AND İL='"+comboBox6.SelectedItem.ToString()+"' ", baglanti);
+                ds = new DataSet();
+            }
+
             baglanti.Open();
             da.Fill(ds, "Kargolar");
             dataGridView1.DataSource = ds.Tables["Kargolar"];

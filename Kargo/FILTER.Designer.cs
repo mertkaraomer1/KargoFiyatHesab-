@@ -28,667 +28,684 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FILTER));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button5 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.button7 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.SuspendLayout();
+            imageList1 = new ImageList(components);
+            button5 = new Button();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            button4 = new Button();
+            textBox6 = new TextBox();
+            comboBox2 = new ComboBox();
+            label7 = new Label();
+            textBox11 = new TextBox();
+            label8 = new Label();
+            textBox10 = new TextBox();
+            textBox9 = new TextBox();
+            comboBox1 = new ComboBox();
+            textBox8 = new TextBox();
+            dataGridView2 = new DataGridView();
+            label6 = new Label();
+            textBox7 = new TextBox();
+            button6 = new Button();
+            dataGridView1 = new DataGridView();
+            textBox4 = new TextBox();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            button1 = new Button();
+            button3 = new Button();
+            label4 = new Label();
+            toolStrip1 = new ToolStrip();
+            toolStripButton2 = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripButton1 = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            toolStripButton3 = new ToolStripButton();
+            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripButton4 = new ToolStripButton();
+            button2 = new Button();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            button7 = new Button();
+            comboBox3 = new ComboBox();
+            label13 = new Label();
+            label14 = new Label();
+            comboBox4 = new ComboBox();
+            button8 = new Button();
+            comboBox5 = new ComboBox();
+            label5 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            comboBox6 = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            toolStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // imageList1
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "ASPİRASYON SONDASI.PNG");
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "ASPİRASYON SONDASI.PNG");
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(1298, 214);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 59);
-            this.button5.TabIndex = 98;
-            this.button5.Text = "EKLE";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            this.button5.MouseEnter += new System.EventHandler(this.button5_MouseEnter);
-            this.button5.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.ForeColor = Color.Black;
+            button5.Location = new Point(1298, 214);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 59);
+            button5.TabIndex = 98;
+            button5.Text = "EKLE";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            button5.MouseEnter += button5_MouseEnter;
+            button5.MouseLeave += button5_MouseLeave;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(726, 150);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 23);
-            this.label12.TabIndex = 97;
-            this.label12.Text = "Desi/Kg:";
+            label12.AutoSize = true;
+            label12.BackColor = Color.White;
+            label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(726, 150);
+            label12.Name = "label12";
+            label12.Size = new Size(79, 23);
+            label12.TabIndex = 97;
+            label12.Text = "Desi/Kg:";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(751, 190);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 23);
-            this.label11.TabIndex = 96;
-            this.label11.Text = "Fiyat:";
+            label11.AutoSize = true;
+            label11.BackColor = Color.White;
+            label11.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(751, 190);
+            label11.Name = "label11";
+            label11.Size = new Size(54, 23);
+            label11.TabIndex = 96;
+            label11.Text = "Fiyat:";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(622, 66);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(183, 23);
-            this.label10.TabIndex = 95;
-            this.label10.Text = "Gönderilecek Firması:";
+            label10.AutoSize = true;
+            label10.BackColor = Color.White;
+            label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(622, 66);
+            label10.Name = "label10";
+            label10.Size = new Size(183, 23);
+            label10.TabIndex = 95;
+            label10.Text = "Gönderilecek Firması:";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label9.Location = new System.Drawing.Point(999, 120);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 23);
-            this.label9.TabIndex = 86;
-            this.label9.Text = "İLÇE:";
-            this.label9.Visible = false;
+            label9.AutoSize = true;
+            label9.BackColor = Color.White;
+            label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = SystemColors.Desktop;
+            label9.Location = new Point(999, 120);
+            label9.Name = "label9";
+            label9.Size = new Size(49, 23);
+            label9.TabIndex = 86;
+            label9.Text = "İLÇE:";
+            label9.Visible = false;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button4.Location = new System.Drawing.Point(1149, 813);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(243, 44);
-            this.button4.TabIndex = 78;
-            this.button4.Text = "TOPLAM FİYAT";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            this.button4.MouseEnter += new System.EventHandler(this.button4_MouseEnter);
-            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
+            button4.BackColor = Color.White;
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.ForeColor = SystemColors.Desktop;
+            button4.Location = new Point(1149, 813);
+            button4.Name = "button4";
+            button4.Size = new Size(243, 44);
+            button4.TabIndex = 78;
+            button4.Text = "TOPLAM FİYAT";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            button4.MouseEnter += button4_MouseEnter;
+            button4.MouseLeave += button4_MouseLeave;
             // 
             // textBox6
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.ForeColor = System.Drawing.Color.Red;
-            this.textBox6.Location = new System.Drawing.Point(1149, 760);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(243, 47);
-            this.textBox6.TabIndex = 79;
+            textBox6.BackColor = SystemColors.Window;
+            textBox6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox6.ForeColor = Color.Red;
+            textBox6.Location = new Point(1149, 760);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(243, 47);
+            textBox6.TabIndex = 79;
             // 
             // comboBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1050, 119);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(147, 28);
-            this.comboBox2.TabIndex = 85;
-            this.comboBox2.Visible = false;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(1050, 119);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(147, 28);
+            comboBox2.TabIndex = 85;
+            comboBox2.Visible = false;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(679, 103);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 23);
-            this.label7.TabIndex = 94;
-            this.label7.Text = "Kargo Firması:";
+            label7.AutoSize = true;
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(679, 103);
+            label7.Name = "label7";
+            label7.Size = new Size(126, 23);
+            label7.TabIndex = 94;
+            label7.Text = "Kargo Firması:";
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(811, 182);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(177, 27);
-            this.textBox11.TabIndex = 92;
+            textBox11.Location = new Point(811, 182);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(177, 27);
+            textBox11.TabIndex = 92;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label8.Location = new System.Drawing.Point(1015, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 23);
-            this.label8.TabIndex = 84;
-            this.label8.Text = "İL:";
-            this.label8.Visible = false;
+            label8.AutoSize = true;
+            label8.BackColor = Color.White;
+            label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = SystemColors.Desktop;
+            label8.Location = new Point(1015, 88);
+            label8.Name = "label8";
+            label8.Size = new Size(29, 23);
+            label8.TabIndex = 84;
+            label8.Text = "İL:";
+            label8.Visible = false;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(811, 142);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(177, 27);
-            this.textBox10.TabIndex = 91;
+            textBox10.Location = new Point(811, 142);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(177, 27);
+            textBox10.TabIndex = 91;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(811, 99);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(177, 27);
-            this.textBox9.TabIndex = 90;
+            textBox9.Location = new Point(811, 99);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(177, 27);
+            textBox9.TabIndex = 90;
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1050, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 28);
-            this.comboBox1.TabIndex = 83;
-            this.comboBox1.Visible = false;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(1050, 85);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(147, 28);
+            comboBox1.TabIndex = 83;
+            comboBox1.Visible = false;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(811, 58);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(177, 27);
-            this.textBox8.TabIndex = 89;
+            textBox8.Location = new Point(811, 58);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(177, 27);
+            textBox8.TabIndex = 89;
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(11, 544);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(1266, 210);
-            this.dataGridView2.TabIndex = 88;
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.BackgroundColor = Color.White;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(11, 544);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.RowTemplate.Height = 29;
+            dataGridView2.Size = new Size(1266, 210);
+            dataGridView2.TabIndex = 88;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label6.Location = new System.Drawing.Point(751, 226);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 23);
-            this.label6.TabIndex = 81;
-            this.label6.Text = "Adet:";
+            label6.AutoSize = true;
+            label6.BackColor = Color.White;
+            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.InfoText;
+            label6.Location = new Point(751, 226);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 23);
+            label6.TabIndex = 81;
+            label6.Text = "Adet:";
             // 
             // textBox7
             // 
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(811, 222);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(177, 30);
-            this.textBox7.TabIndex = 80;
-            this.textBox7.Text = "1";
+            textBox7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox7.Location = new Point(811, 222);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(177, 30);
+            textBox7.TabIndex = 80;
+            textBox7.Text = "1";
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Location = new System.Drawing.Point(421, 216);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(145, 29);
-            this.button6.TabIndex = 88;
-            this.button6.Text = "AKTAR";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            this.button6.MouseEnter += new System.EventHandler(this.button6_MouseEnter);
-            this.button6.MouseLeave += new System.EventHandler(this.button6_MouseLeave);
+            button6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(421, 216);
+            button6.Name = "button6";
+            button6.Size = new Size(145, 29);
+            button6.TabIndex = 88;
+            button6.Text = "AKTAR";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            button6.MouseEnter += button6_MouseEnter;
+            button6.MouseLeave += button6_MouseLeave;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 279);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1381, 259);
-            this.dataGridView1.TabIndex = 87;
-            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(11, 279);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1381, 259);
+            dataGridView1.TabIndex = 87;
+            dataGridView1.MouseClick += dataGridView1_MouseClick;
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(421, 133);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(145, 30);
-            this.textBox4.TabIndex = 73;
+            textBox4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox4.Location = new Point(421, 133);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(145, 30);
+            textBox4.TabIndex = 73;
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(122, 57);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 30);
-            this.textBox1.TabIndex = 63;
+            textBox1.BackColor = SystemColors.Window;
+            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox1.Location = new Point(122, 57);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(186, 30);
+            textBox1.TabIndex = 63;
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(122, 93);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 30);
-            this.textBox2.TabIndex = 64;
+            textBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox2.Location = new Point(122, 93);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(186, 30);
+            textBox2.TabIndex = 64;
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(122, 132);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(186, 30);
-            this.textBox3.TabIndex = 65;
+            textBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            textBox3.Location = new Point(122, 132);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(186, 30);
+            textBox3.TabIndex = 65;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label1.Location = new System.Drawing.Point(79, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 23);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "EN:";
+            label1.AutoSize = true;
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.Desktop;
+            label1.Location = new Point(79, 60);
+            label1.Name = "label1";
+            label1.Size = new Size(37, 23);
+            label1.TabIndex = 66;
+            label1.Text = "EN:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(67, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 23);
-            this.label2.TabIndex = 67;
-            this.label2.Text = "BOY:";
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.Desktop;
+            label2.Location = new Point(67, 101);
+            label2.Name = "label2";
+            label2.Size = new Size(49, 23);
+            label2.TabIndex = 67;
+            label2.Text = "BOY:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(13, 132);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 23);
-            this.label3.TabIndex = 68;
-            this.label3.Text = "YÜKSEKLİK:";
+            label3.AutoSize = true;
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.Desktop;
+            label3.Location = new Point(13, 132);
+            label3.Name = "label3";
+            label3.Size = new Size(103, 23);
+            label3.TabIndex = 68;
+            label3.Text = "YÜKSEKLİK:";
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button1.Location = new System.Drawing.Point(122, 171);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 37);
-            this.button1.TabIndex = 69;
-            this.button1.Text = "HESAPLA";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            button1.BackColor = Color.White;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.Desktop;
+            button1.Location = new Point(122, 171);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(186, 37);
+            button1.TabIndex = 69;
+            button1.Text = "HESAPLA";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            button1.MouseEnter += button1_MouseEnter;
+            button1.MouseLeave += button1_MouseLeave;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button3.Location = new System.Drawing.Point(421, 170);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 36);
-            this.button3.TabIndex = 77;
-            this.button3.Text = "ARA";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
-            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
+            button3.BackColor = Color.White;
+            button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.ForeColor = SystemColors.Desktop;
+            button3.Location = new Point(421, 170);
+            button3.Name = "button3";
+            button3.Size = new Size(145, 36);
+            button3.TabIndex = 77;
+            button3.Text = "ARA";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            button3.MouseEnter += button3_MouseEnter;
+            button3.MouseLeave += button3_MouseLeave;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label4.Location = new System.Drawing.Point(332, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 23);
-            this.label4.TabIndex = 75;
-            this.label4.Text = "DESİ/KG:";
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = SystemColors.Desktop;
+            label4.Location = new Point(332, 135);
+            label4.Name = "label4";
+            label4.Size = new Size(83, 23);
+            label4.TabIndex = 75;
+            label4.Text = "DESİ/KG:";
             // 
             // toolStrip1
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripSeparator1,
-            this.toolStripButton1,
-            this.toolStripSeparator2,
-            this.toolStripButton3,
-            this.toolStripSeparator3,
-            this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1418, 27);
-            this.toolStrip1.TabIndex = 93;
-            this.toolStrip1.Text = "toolStrip1";
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripSeparator1, toolStripButton1, toolStripSeparator2, toolStripButton3, toolStripSeparator3, toolStripButton4 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1418, 27);
+            toolStrip1.TabIndex = 93;
+            toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton2
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(29, 24);
+            toolStripButton2.Text = "toolStripButton2";
+            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 27);
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(29, 24);
+            toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 27);
             // 
             // toolStripButton3
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(29, 24);
+            toolStripButton3.Text = "toolStripButton3";
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 27);
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton4.Text = "toolStripButton4";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
+            toolStripButton4.ImageTransparentColor = Color.Magenta;
+            toolStripButton4.Name = "toolStripButton4";
+            toolStripButton4.Size = new Size(29, 24);
+            toolStripButton4.Text = "toolStripButton4";
+            toolStripButton4.Click += toolStripButton4_Click;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(42, 771);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 75);
-            this.button2.TabIndex = 94;
-            this.button2.Text = "ANA MENÜ";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
-            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
+            button2.BackColor = Color.White;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(42, 771);
+            button2.Margin = new Padding(5, 3, 5, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(118, 75);
+            button2.TabIndex = 94;
+            button2.Text = "ANA MENÜ";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            button2.MouseEnter += button2_MouseEnter;
+            button2.MouseLeave += button2_MouseLeave;
             // 
             // printDocument1
             // 
-            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            printDocument1.BeginPrint += printDocument1_BeginPrint;
+            printDocument1.PrintPage += printDocument1_PrintPage;
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button7.Location = new System.Drawing.Point(1073, 214);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(219, 58);
-            this.button7.TabIndex = 102;
-            this.button7.Text = "ADET ÜZERİ FİYATLA";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            this.button7.MouseEnter += new System.EventHandler(this.button7_MouseEnter);
-            this.button7.MouseLeave += new System.EventHandler(this.button7_MouseLeave);
+            button7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button7.Location = new Point(1073, 214);
+            button7.Margin = new Padding(3, 4, 3, 4);
+            button7.Name = "button7";
+            button7.Size = new Size(219, 58);
+            button7.TabIndex = 102;
+            button7.Text = "ADET ÜZERİ FİYATLA";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            button7.MouseEnter += button7_MouseEnter;
+            button7.MouseLeave += button7_MouseLeave;
             // 
             // comboBox3
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1241, 83);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(151, 28);
-            this.comboBox3.TabIndex = 103;
-            this.comboBox3.Visible = false;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(1241, 83);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(151, 28);
+            comboBox3.TabIndex = 103;
+            comboBox3.Visible = false;
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(1034, 55);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(163, 28);
-            this.label13.TabIndex = 104;
-            this.label13.Text = "ANKARA KARGO";
-            this.label13.Visible = false;
+            label13.AutoSize = true;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label13.Location = new Point(1034, 55);
+            label13.Name = "label13";
+            label13.Size = new Size(163, 28);
+            label13.TabIndex = 104;
+            label13.Text = "ANKARA KARGO";
+            label13.Visible = false;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.White;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(1258, 54);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(125, 28);
-            this.label14.TabIndex = 105;
-            this.label14.Text = "CAN KARGO";
-            this.label14.Visible = false;
+            label14.AutoSize = true;
+            label14.BackColor = Color.White;
+            label14.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label14.Location = new Point(1258, 54);
+            label14.Name = "label14";
+            label14.Size = new Size(125, 28);
+            label14.TabIndex = 105;
+            label14.Text = "CAN KARGO";
+            label14.Visible = false;
             // 
             // comboBox4
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(1241, 122);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(151, 28);
-            this.comboBox4.TabIndex = 106;
-            this.comboBox4.Visible = false;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(1241, 122);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(151, 28);
+            comboBox4.TabIndex = 106;
+            comboBox4.Visible = false;
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(1283, 544);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(109, 59);
-            this.button8.TabIndex = 107;
-            this.button8.Text = "TEMİZLE";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            this.button8.MouseEnter += new System.EventHandler(this.button8_MouseEnter);
-            this.button8.MouseLeave += new System.EventHandler(this.button8_MouseLeave);
+            button8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button8.ForeColor = Color.Black;
+            button8.Location = new Point(1283, 544);
+            button8.Name = "button8";
+            button8.Size = new Size(109, 59);
+            button8.TabIndex = 107;
+            button8.Text = "TEMİZLE";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            button8.MouseEnter += button8_MouseEnter;
+            button8.MouseLeave += button8_MouseLeave;
             // 
             // comboBox5
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(421, 93);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(145, 28);
-            this.comboBox5.TabIndex = 108;
+            comboBox5.FormattingEnabled = true;
+            comboBox5.Location = new Point(421, 93);
+            comboBox5.Name = "comboBox5";
+            comboBox5.Size = new Size(145, 28);
+            comboBox5.TabIndex = 108;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label5.Location = new System.Drawing.Point(355, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 23);
-            this.label5.TabIndex = 109;
-            this.label5.Text = "DEPO:";
+            label5.AutoSize = true;
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = SystemColors.Desktop;
+            label5.Location = new Point(355, 94);
+            label5.Name = "label5";
+            label5.Size = new Size(60, 23);
+            label5.TabIndex = 109;
+            label5.Text = "DEPO:";
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Black;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(344, 64);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(257, 23);
-            this.label15.TabIndex = 110;
-            this.label15.Text = "DEPO SEÇMEK ZORUNLUDUR..";
+            label15.AutoSize = true;
+            label15.BackColor = Color.Black;
+            label15.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.ForeColor = Color.Red;
+            label15.Location = new Point(344, 64);
+            label15.Name = "label15";
+            label15.Size = new Size(257, 23);
+            label15.TabIndex = 110;
+            label15.Text = "DEPO SEÇMEK ZORUNLUDUR..";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = Color.White;
+            label16.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label16.Location = new Point(1012, 156);
+            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(29, 23);
+            label16.TabIndex = 112;
+            label16.Text = "İL:";
+            // 
+            // comboBox6
+            // 
+            comboBox6.FormattingEnabled = true;
+            comboBox6.Items.AddRange(new object[] { " Adana", " Adıyaman", " Afyonkarahisar", " Ağrı", " Aksaray", " Amasya", " Ankara", " Antalya", " Ardahan", " Artvin", " Aydın", " Balıkesir", " Bartın", " Batman", " Bayburt", " Bilecik", " Bingöl", " Bitlis", " Bolu", " Burdur", " Bursa", " Çanakkale", " Çankırı", " Çorum", " Denizli", " Diyarbakır", " Düzce", " Edirne", " Elazığ", " Erzincan", " Erzurum", " Eskişehir", " Gaziantep", " Giresun", " Gümüşhane", " Hakkâri", " Hatay", " Iğdır", " Isparta", " İstanbul", " İzmir", " Kahramanmaraş", " Karabük", " Karaman", " Kars", " Kastamonu", " Kayseri", " Kilis", " Kırıkkale", " Kırklareli", " Kırşehir", " Kocaeli", " Konya", " Kütahya", " Malatya", " Manisa", " Mardin", " Mersin", " Muğla", " Muş", " Nevşehir", " Niğde", " Ordu", " Osmaniye", " Rize", " Sakarya", " Samsun", " Şanlıurfa", " Siirt", " Sinop", " Sivas", " Şırnak", " Tekirdağ", " Tokat", " Trabzon", " Tunceli", " Uşak", " Van", " Yalova", " Yozgat", " Zonguldak" });
+            comboBox6.Location = new Point(1050, 153);
+            comboBox6.Name = "comboBox6";
+            comboBox6.Size = new Size(147, 28);
+            comboBox6.TabIndex = 111;
             // 
             // FILTER
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1418, 873);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox7);
-            this.DoubleBuffered = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.Name = "FILTER";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FILTER";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FILTER_FormClosing);
-            this.Load += new System.EventHandler(this.FILTER_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1418, 873);
+            Controls.Add(label16);
+            Controls.Add(comboBox6);
+            Controls.Add(label15);
+            Controls.Add(label5);
+            Controls.Add(comboBox5);
+            Controls.Add(button8);
+            Controls.Add(comboBox4);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(comboBox3);
+            Controls.Add(button7);
+            Controls.Add(button4);
+            Controls.Add(button5);
+            Controls.Add(label12);
+            Controls.Add(button2);
+            Controls.Add(label11);
+            Controls.Add(textBox2);
+            Controls.Add(label10);
+            Controls.Add(textBox3);
+            Controls.Add(label9);
+            Controls.Add(button6);
+            Controls.Add(label2);
+            Controls.Add(textBox6);
+            Controls.Add(textBox4);
+            Controls.Add(comboBox2);
+            Controls.Add(button1);
+            Controls.Add(label7);
+            Controls.Add(button3);
+            Controls.Add(textBox11);
+            Controls.Add(toolStrip1);
+            Controls.Add(label8);
+            Controls.Add(label3);
+            Controls.Add(textBox10);
+            Controls.Add(textBox9);
+            Controls.Add(dataGridView1);
+            Controls.Add(comboBox1);
+            Controls.Add(textBox1);
+            Controls.Add(textBox8);
+            Controls.Add(dataGridView2);
+            Controls.Add(label1);
+            Controls.Add(label6);
+            Controls.Add(label4);
+            Controls.Add(textBox7);
+            DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "FILTER";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FILTER";
+            FormClosing += FILTER_FormClosing;
+            Load += FILTER_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -743,5 +760,7 @@
         private Label label15;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton toolStripButton4;
+        private Label label16;
+        private ComboBox comboBox6;
     }
 }

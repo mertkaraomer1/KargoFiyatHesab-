@@ -91,5 +91,12 @@ namespace Kargo
             KG.Show();
 
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            UPS_KARGO UPS=new UPS_KARGO();
+            UPS.Show();
+            this.Hide();
+        }
     }
 }
