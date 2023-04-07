@@ -151,13 +151,13 @@ namespace Kargo
                 double ekdesı = (desi - 50) * 1.43 * 1.18 * 1.0235;
                 double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
                 if (desi > 0 && desi <= 5)
-                    textBox5.Text = Math.Round(adet*(fiyat * 1.18 * 1.0235), 0).ToString();
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 0).ToString();
 
                 else if (desi > 5 && desi <= 10)
-                    textBox5.Text = Math.Round(adet*(fiyat * 1.18 * 1.0235), 0).ToString();
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 0).ToString();
 
                 else if (desi > 10 && desi <= 15)
-                    textBox5.Text = Math.Round(adet*(fiyat * 1.18 * 1.0235), 0).ToString();
+                    textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 0).ToString();
 
                 else if (desi > 15 && desi <= 20)
                     textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 0).ToString();
