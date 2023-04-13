@@ -303,7 +303,7 @@ namespace Kargo
                     Range alan2 = (Range)sayfa.Cells[j + 1, i + 1];
                     alan2.Cells[2, 1] = dataGridView1[i, j].Value;
                 }
-                Range alan4 = (Range)sayfa.Cells[1,11];
+                Range alan4 = (Range)sayfa.Cells[1, 11];
                 alan4.Value2 = "TOPLAM FİYAT";
                 Range alan3 = (Range)sayfa.Cells[2, 11];
                 alan3.Value2 = textBox6.Text;
@@ -336,25 +336,25 @@ namespace Kargo
                 textBox3.Text = "";
             }
             griddoldur();
-            double ekdesı = (desi - 50) * 1.40* 1.18 * 1.06;
+            double ekdesı = (desi - 50) * 1.40 * 1.18 * 1.06;
             double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
             ekdesı = (70 + (desi - 50) * 1.40) * 1.18 * 1.06;
-                if (desi > 0 && desi <= 20)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
+            if (desi > 0 && desi <= 20)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
-                else if (desi > 20 && desi <= 30)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
+            else if (desi > 20 && desi <= 30)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
-                else if (desi > 30 && desi <= 40)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
+            else if (desi > 30 && desi <= 40)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
-                else if (desi > 40 && desi <= 50)
-                    textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
+            else if (desi > 40 && desi <= 50)
+                textBox5.Text = Math.Round((fiyat * 1.18 * 1.06), 0).ToString();
 
-                else if (desi > 50)
-                    textBox5.Text = Math.Round(desifiyat, 0).ToString();
+            else if (desi > 50)
+                textBox5.Text = Math.Round(desifiyat, 0).ToString();
 
-            
+
         }
 
         private void TEMIZLE_Click(object sender, EventArgs e)
@@ -557,7 +557,7 @@ namespace Kargo
                         textBox5.Text = Math.Round(adet * desifiyat, 0).ToString();
                     else
                         MessageBox.Show("adet en az 2 girilmeli...");
-               
+
 
             }
         }

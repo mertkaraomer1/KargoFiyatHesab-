@@ -74,7 +74,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 251);
+            dataGridView1.Location = new Point(16, 251);
             dataGridView1.Margin = new Padding(4, 5, 4, 5);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
@@ -89,7 +89,7 @@
             TEMIZLE.Location = new Point(817, 251);
             TEMIZLE.Margin = new Padding(4, 5, 4, 5);
             TEMIZLE.Name = "TEMIZLE";
-            TEMIZLE.Size = new Size(123, 73);
+            TEMIZLE.Size = new Size(123, 72);
             TEMIZLE.TabIndex = 31;
             TEMIZLE.Text = "TEMIZLE";
             TEMIZLE.UseVisualStyleBackColor = false;
@@ -166,7 +166,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(106, 73);
+            textBox1.Location = new Point(106, 72);
             textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(206, 30);
@@ -176,7 +176,7 @@
             // 
             button2.BackColor = Color.White;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(15, 531);
+            button2.Location = new Point(16, 531);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(118, 90);
@@ -220,7 +220,7 @@
             button3.Location = new Point(690, 79);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
-            button3.Size = new Size(155, 44);
+            button3.Size = new Size(156, 44);
             button3.TabIndex = 37;
             button3.Text = "LİSTEYE EKLE";
             button3.UseVisualStyleBackColor = false;
@@ -272,7 +272,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.White;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(624, 42);
+            label6.Location = new Point(624, 43);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(59, 23);
@@ -294,7 +294,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripSeparator1, toolStripButton1, toolStripSeparator2, toolStripButton3 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(953, 27);
+            toolStrip1.Size = new Size(984, 27);
             toolStrip1.TabIndex = 43;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -396,7 +396,7 @@
             label9.AutoSize = true;
             label9.BackColor = Color.Black;
             label9.ForeColor = Color.Red;
-            label9.Location = new Point(337, 42);
+            label9.Location = new Point(337, 43);
             label9.Name = "label9";
             label9.Size = new Size(257, 23);
             label9.TabIndex = 49;
@@ -430,7 +430,7 @@
             BackColor = Color.Black;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(953, 649);
+            ClientSize = new Size(984, 673);
             Controls.Add(label10);
             Controls.Add(comboBox2);
             Controls.Add(label9);

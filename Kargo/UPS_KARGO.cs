@@ -77,7 +77,7 @@ namespace Kargo
             griddoldur();
             double ekdesı = (desi - 50) * 1.43 * 1.18 * 1.0235;
             double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
-            if (desi > 0 && desi <=5)
+            if (desi > 0 && desi <= 5)
                 textBox5.Text = Math.Round(fiyat * 1.18 * 1.0235, 0).ToString();
 
             else if (desi > 5 && desi <= 10)
@@ -172,7 +172,7 @@ namespace Kargo
                     textBox5.Text = Math.Round(adet * (fiyat * 1.18 * 1.0235), 0).ToString();
 
                 else if (desi > 50)
-                    textBox5.Text = Math.Round(adet* desifiyat, 0).ToString();
+                    textBox5.Text = Math.Round(adet * desifiyat, 0).ToString();
             }
             dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, il, DateTime.Now.ToString("yyyy-MM-dd"));
         }

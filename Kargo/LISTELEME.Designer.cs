@@ -61,21 +61,22 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 135);
+            dataGridView1.Location = new Point(15, 155);
+            dataGridView1.Margin = new Padding(4, 3, 4, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1436, 509);
+            dataGridView1.Size = new Size(1795, 585);
             dataGridView1.TabIndex = 0;
             // 
             // button2
             // 
             button2.BackColor = Color.White;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(13, 650);
-            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Location = new Point(16, 748);
+            button2.Margin = new Padding(5, 3, 5, 3);
             button2.Name = "button2";
-            button2.Size = new Size(118, 90);
+            button2.Size = new Size(148, 104);
             button2.TabIndex = 34;
             button2.Text = "ANA MENÜ";
             button2.UseVisualStyleBackColor = false;
@@ -89,7 +90,8 @@
             label7.BackColor = Color.White;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(404, 39);
+            label7.Location = new Point(505, 45);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(126, 23);
             label7.TabIndex = 96;
@@ -97,17 +99,19 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(536, 35);
+            textBox9.Location = new Point(670, 40);
+            textBox9.Margin = new Padding(4, 3, 4, 3);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(177, 27);
+            textBox9.Size = new Size(220, 30);
             textBox9.TabIndex = 95;
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(137, 39);
+            dateTimePicker1.Location = new Point(171, 45);
+            dateTimePicker1.Margin = new Padding(4, 3, 4, 3);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.Size = new Size(312, 30);
             dateTimePicker1.TabIndex = 97;
             dateTimePicker1.Value = new DateTime(2023, 2, 27, 11, 35, 59, 0);
             // 
@@ -117,7 +121,8 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(28, 39);
+            label1.Location = new Point(35, 45);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(103, 23);
             label1.TabIndex = 98;
@@ -130,7 +135,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripSeparator1, toolStripButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1460, 27);
+            toolStrip1.Size = new Size(1825, 27);
             toolStrip1.TabIndex = 99;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -164,10 +169,10 @@
             button1.BackColor = Color.White;
             button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.Desktop;
-            button1.Location = new Point(990, 67);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(1238, 77);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(248, 37);
+            button1.Size = new Size(310, 43);
             button1.TabIndex = 100;
             button1.Text = "LİSTELE";
             button1.UseVisualStyleBackColor = false;
@@ -180,9 +185,10 @@
             textBox6.BackColor = SystemColors.Window;
             textBox6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             textBox6.ForeColor = Color.Red;
-            textBox6.Location = new Point(1201, 650);
+            textBox6.Location = new Point(1501, 748);
+            textBox6.Margin = new Padding(4, 3, 4, 3);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(247, 47);
+            textBox6.Size = new Size(308, 47);
             textBox6.TabIndex = 104;
             // 
             // button4
@@ -190,9 +196,10 @@
             button4.BackColor = Color.White;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = SystemColors.Desktop;
-            button4.Location = new Point(1201, 704);
+            button4.Location = new Point(1501, 810);
+            button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
-            button4.Size = new Size(247, 43);
+            button4.Size = new Size(309, 49);
             button4.TabIndex = 103;
             button4.Text = "TOPLAM FİYAT";
             button4.UseVisualStyleBackColor = false;
@@ -206,7 +213,8 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(25, 76);
+            label2.Location = new Point(31, 87);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(106, 23);
             label2.TabIndex = 107;
@@ -215,9 +223,10 @@
             // dateTimePicker2
             // 
             dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(137, 77);
+            dateTimePicker2.Location = new Point(171, 89);
+            dateTimePicker2.Margin = new Padding(4, 3, 4, 3);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(250, 27);
+            dateTimePicker2.Size = new Size(312, 30);
             dateTimePicker2.TabIndex = 106;
             dateTimePicker2.Value = new DateTime(2023, 2, 27, 0, 0, 0, 0);
             // 
@@ -236,9 +245,10 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(536, 71);
+            comboBox1.Location = new Point(670, 82);
+            comboBox1.Margin = new Padding(4, 3, 4, 3);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(177, 28);
+            comboBox1.Size = new Size(220, 31);
             comboBox1.TabIndex = 108;
             // 
             // label3
@@ -247,7 +257,8 @@
             label3.BackColor = Color.White;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(470, 76);
+            label3.Location = new Point(588, 87);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(60, 23);
             label3.TabIndex = 109;
@@ -258,8 +269,8 @@
             label16.AutoSize = true;
             label16.BackColor = Color.White;
             label16.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.Location = new Point(498, 108);
-            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Location = new Point(622, 124);
+            label16.Margin = new Padding(5, 0, 5, 0);
             label16.Name = "label16";
             label16.Size = new Size(29, 23);
             label16.TabIndex = 114;
@@ -269,19 +280,20 @@
             // 
             comboBox6.FormattingEnabled = true;
             comboBox6.Items.AddRange(new object[] { " Adana", " Adıyaman", " Afyonkarahisar", " Ağrı", " Aksaray", " Amasya", " Ankara", " Antalya", " Ardahan", " Artvin", " Aydın", " Balıkesir", " Bartın", " Batman", " Bayburt", " Bilecik", " Bingöl", " Bitlis", " Bolu", " Burdur", " Bursa", " Çanakkale", " Çankırı", " Çorum", " Denizli", " Diyarbakır", " Düzce", " Edirne", " Elazığ", " Erzincan", " Erzurum", " Eskişehir", " Gaziantep", " Giresun", " Gümüşhane", " Hakkâri", " Hatay", " Iğdır", " Isparta", " İstanbul", " İzmir", " Kahramanmaraş", " Karabük", " Karaman", " Kars", " Kastamonu", " Kayseri", " Kilis", " Kırıkkale", " Kırklareli", " Kırşehir", " Kocaeli", " Konya", " Kütahya", " Malatya", " Manisa", " Mardin", " Mersin", " Muğla", " Muş", " Nevşehir", " Niğde", " Ordu", " Osmaniye", " Rize", " Sakarya", " Samsun", " Şanlıurfa", " Siirt", " Sinop", " Sivas", " Şırnak", " Tekirdağ", " Tokat", " Trabzon", " Tunceli", " Uşak", " Van", " Yalova", " Yozgat", " Zonguldak" });
-            comboBox6.Location = new Point(536, 105);
+            comboBox6.Location = new Point(670, 121);
+            comboBox6.Margin = new Padding(4, 3, 4, 3);
             comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(177, 28);
+            comboBox6.Size = new Size(220, 31);
             comboBox6.TabIndex = 113;
             // 
             // LISTELEME
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1460, 759);
+            ClientSize = new Size(1825, 873);
             Controls.Add(label16);
             Controls.Add(comboBox6);
             Controls.Add(label3);
@@ -299,10 +311,13 @@
             Controls.Add(button2);
             Controls.Add(dataGridView1);
             DoubleBuffered = true;
+            Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
             Name = "LISTELEME";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LISTELEME";
+            WindowState = FormWindowState.Maximized;
             FormClosing += LISTELEME_FormClosing;
             Load += LISTELEME_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

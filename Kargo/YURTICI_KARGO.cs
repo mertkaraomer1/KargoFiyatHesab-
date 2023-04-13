@@ -195,7 +195,7 @@ namespace Kargo
                 else if (desi > 30)
                     textBox5.Text = Math.Round(adet * desifiyat, 0).ToString();
             }
-            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo,il, DateTime.Now.ToString("yyyy-MM-dd"));
+            dataGridView1.Rows.Add(textBox8.Text, desi, textBox5.Text, TL, adet, Depo, il, DateTime.Now.ToString("yyyy-MM-dd"));
         }
 
         public void button4_Click(object sender, EventArgs e)

@@ -74,13 +74,13 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 224);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(15, 258);
+            dataGridView1.Margin = new Padding(4, 5, 4, 5);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(755, 271);
+            dataGridView1.Size = new Size(944, 312);
             dataGridView1.TabIndex = 23;
             // 
             // TEMIZLE
@@ -88,10 +88,10 @@
             TEMIZLE.BackColor = Color.White;
             TEMIZLE.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             TEMIZLE.ForeColor = SystemColors.Desktop;
-            TEMIZLE.Location = new Point(773, 224);
-            TEMIZLE.Margin = new Padding(3, 4, 3, 4);
+            TEMIZLE.Location = new Point(966, 258);
+            TEMIZLE.Margin = new Padding(4, 5, 4, 5);
             TEMIZLE.Name = "TEMIZLE";
-            TEMIZLE.Size = new Size(132, 76);
+            TEMIZLE.Size = new Size(165, 87);
             TEMIZLE.TabIndex = 22;
             TEMIZLE.Text = "TEMIZLE";
             TEMIZLE.UseVisualStyleBackColor = false;
@@ -104,10 +104,10 @@
             button1.BackColor = Color.White;
             button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.Desktop;
-            button1.Location = new Point(107, 183);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(134, 210);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(190, 37);
+            button1.Size = new Size(238, 43);
             button1.TabIndex = 20;
             button1.Text = "HESAPLA";
             button1.UseVisualStyleBackColor = false;
@@ -121,7 +121,8 @@
             label3.BackColor = Color.White;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.Desktop;
-            label3.Location = new Point(2, 151);
+            label3.Location = new Point(2, 174);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(103, 23);
             label3.TabIndex = 19;
@@ -133,7 +134,8 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.Desktop;
-            label2.Location = new Point(55, 118);
+            label2.Location = new Point(69, 136);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(49, 23);
             label2.TabIndex = 18;
@@ -145,7 +147,8 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.Desktop;
-            label1.Location = new Point(64, 78);
+            label1.Location = new Point(80, 90);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(37, 23);
             label1.TabIndex = 17;
@@ -154,29 +157,29 @@
             // textBox3
             // 
             textBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox3.Location = new Point(107, 148);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Location = new Point(134, 170);
+            textBox3.Margin = new Padding(4, 5, 4, 5);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(190, 30);
+            textBox3.Size = new Size(236, 30);
             textBox3.TabIndex = 16;
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.Location = new Point(107, 113);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
+            textBox2.Location = new Point(134, 130);
+            textBox2.Margin = new Padding(4, 5, 4, 5);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(190, 30);
+            textBox2.Size = new Size(236, 30);
             textBox2.TabIndex = 15;
             // 
             // textBox1
             // 
             textBox1.BackColor = SystemColors.Window;
             textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(107, 78);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Location = new Point(134, 90);
+            textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(190, 30);
+            textBox1.Size = new Size(236, 30);
             textBox1.TabIndex = 14;
             // 
             // button2
@@ -184,9 +187,10 @@
             button2.BackColor = Color.White;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = SystemColors.Desktop;
-            button2.Location = new Point(12, 536);
+            button2.Location = new Point(15, 616);
+            button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new Size(132, 72);
+            button2.Size = new Size(165, 83);
             button2.TabIndex = 24;
             button2.Text = "ANA MENÜ";
             button2.UseVisualStyleBackColor = false;
@@ -197,17 +201,19 @@
             // textBox4
             // 
             textBox4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox4.Location = new Point(405, 114);
+            textBox4.Location = new Point(506, 131);
+            textBox4.Margin = new Padding(4, 3, 4, 3);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(149, 30);
+            textBox4.Size = new Size(185, 30);
             textBox4.TabIndex = 25;
             // 
             // textBox5
             // 
             textBox5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox5.Location = new Point(405, 147);
+            textBox5.Location = new Point(506, 169);
+            textBox5.Margin = new Padding(4, 3, 4, 3);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(149, 30);
+            textBox5.Size = new Size(185, 30);
             textBox5.TabIndex = 26;
             // 
             // label4
@@ -216,7 +222,8 @@
             label4.BackColor = Color.White;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.Desktop;
-            label4.Location = new Point(349, 118);
+            label4.Location = new Point(436, 136);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(52, 23);
             label4.TabIndex = 27;
@@ -228,7 +235,8 @@
             label5.BackColor = Color.White;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = SystemColors.Desktop;
-            label5.Location = new Point(342, 150);
+            label5.Location = new Point(428, 172);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(59, 23);
             label5.TabIndex = 28;
@@ -239,9 +247,10 @@
             button3.BackColor = Color.White;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = SystemColors.Desktop;
-            button3.Location = new Point(648, 84);
+            button3.Location = new Point(810, 97);
+            button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
-            button3.Size = new Size(149, 42);
+            button3.Size = new Size(186, 48);
             button3.TabIndex = 29;
             button3.Text = "LİSTEYE EKLE";
             button3.UseVisualStyleBackColor = false;
@@ -254,9 +263,10 @@
             button4.BackColor = Color.White;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = SystemColors.Desktop;
-            button4.Location = new Point(658, 567);
+            button4.Location = new Point(822, 652);
+            button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
-            button4.Size = new Size(247, 53);
+            button4.Size = new Size(309, 61);
             button4.TabIndex = 30;
             button4.Text = "TOPLAM FİYAT";
             button4.UseVisualStyleBackColor = false;
@@ -269,17 +279,19 @@
             textBox6.BackColor = SystemColors.Window;
             textBox6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             textBox6.ForeColor = Color.Red;
-            textBox6.Location = new Point(658, 514);
+            textBox6.Location = new Point(822, 591);
+            textBox6.Margin = new Padding(4, 3, 4, 3);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(247, 47);
+            textBox6.Size = new Size(308, 47);
             textBox6.TabIndex = 31;
             // 
             // textBox7
             // 
             textBox7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox7.Location = new Point(648, 51);
+            textBox7.Location = new Point(810, 59);
+            textBox7.Margin = new Padding(4, 3, 4, 3);
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(149, 30);
+            textBox7.Size = new Size(185, 30);
             textBox7.TabIndex = 32;
             textBox7.Text = "1";
             // 
@@ -289,7 +301,8 @@
             label6.BackColor = Color.White;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = SystemColors.InfoText;
-            label6.Location = new Point(583, 55);
+            label6.Location = new Point(729, 63);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(59, 23);
             label6.TabIndex = 33;
@@ -302,7 +315,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripSeparator1, toolStripButton1, toolStripSeparator2, toolStripButton3 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(917, 27);
+            toolStrip1.Size = new Size(1235, 27);
             toolStrip1.TabIndex = 34;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -361,9 +374,10 @@
             // textBox8
             // 
             textBox8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox8.Location = new Point(107, 42);
+            textBox8.Location = new Point(134, 48);
+            textBox8.Margin = new Padding(4, 3, 4, 3);
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(190, 30);
+            textBox8.Size = new Size(236, 30);
             textBox8.TabIndex = 35;
             // 
             // label7
@@ -371,7 +385,8 @@
             label7.AutoSize = true;
             label7.BackColor = Color.White;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(2, 42);
+            label7.Location = new Point(2, 48);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(103, 23);
             label7.TabIndex = 36;
@@ -385,9 +400,10 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(403, 80);
+            comboBox1.Location = new Point(504, 92);
+            comboBox1.Margin = new Padding(4, 3, 4, 3);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
+            comboBox1.Size = new Size(188, 31);
             comboBox1.TabIndex = 37;
             // 
             // label8
@@ -396,7 +412,8 @@
             label8.BackColor = Color.White;
             label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = SystemColors.Desktop;
-            label8.Location = new Point(341, 82);
+            label8.Location = new Point(426, 94);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(60, 23);
             label8.TabIndex = 38;
@@ -408,7 +425,8 @@
             label9.BackColor = Color.Black;
             label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.Red;
-            label9.Location = new Point(303, 51);
+            label9.Location = new Point(379, 59);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(257, 23);
             label9.TabIndex = 49;
@@ -419,8 +437,8 @@
             label10.AutoSize = true;
             label10.BackColor = Color.White;
             label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(365, 186);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(456, 214);
+            label10.Margin = new Padding(5, 0, 5, 0);
             label10.Name = "label10";
             label10.Size = new Size(29, 23);
             label10.TabIndex = 53;
@@ -430,19 +448,20 @@
             // 
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { " Adana", " Adıyaman", " Afyonkarahisar", " Ağrı", " Aksaray", " Amasya", " Ankara", " Antalya", " Ardahan", " Artvin", " Aydın", " Balıkesir", " Bartın", " Batman", " Bayburt", " Bilecik", " Bingöl", " Bitlis", " Bolu", " Burdur", " Bursa", " Çanakkale", " Çankırı", " Çorum", " Denizli", " Diyarbakır", " Düzce", " Edirne", " Elazığ", " Erzincan", " Erzurum", " Eskişehir", " Gaziantep", " Giresun", " Gümüşhane", " Hakkâri", " Hatay", " Iğdır", " Isparta", " İstanbul", " İzmir", " Kahramanmaraş", " Karabük", " Karaman", " Kars", " Kastamonu", " Kayseri", " Kilis", " Kırıkkale", " Kırklareli", " Kırşehir", " Kocaeli", " Konya", " Kütahya", " Malatya", " Manisa", " Mardin", " Mersin", " Muğla", " Muş", " Nevşehir", " Niğde", " Ordu", " Osmaniye", " Rize", " Sakarya", " Samsun", " Şanlıurfa", " Siirt", " Sinop", " Sivas", " Şırnak", " Tekirdağ", " Tokat", " Trabzon", " Tunceli", " Uşak", " Van", " Yalova", " Yozgat", " Zonguldak" });
-            comboBox2.Location = new Point(403, 183);
+            comboBox2.Location = new Point(504, 210);
+            comboBox2.Margin = new Padding(4, 3, 4, 3);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
+            comboBox2.Size = new Size(188, 31);
             comboBox2.TabIndex = 52;
             // 
             // YURTICI_KARGO
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(917, 630);
+            ClientSize = new Size(1235, 779);
             Controls.Add(label10);
             Controls.Add(comboBox2);
             Controls.Add(label9);
@@ -471,8 +490,9 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             DoubleBuffered = true;
+            Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             Name = "YURTICI_KARGO";
             StartPosition = FormStartPosition.CenterScreen;

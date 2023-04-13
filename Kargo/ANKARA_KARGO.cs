@@ -54,13 +54,13 @@ namespace Kargo
         {
             double desi = Convert.ToDouble(textBox4.Text);
             cone = new OleDbConnection("Provider=Microsoft.ACE.Oledb.12.0;Data Source=\\\\hpserver\\PROGRAM_PAYLASIM\\KARGO_FIYAT\\Kargo\\bin\\Debug\\net6.0-windows\\fiyat_listesi.accdb");
-            if (desi <=50)
+            if (desi <= 50)
             {
-                 cmd = new OleDbCommand("Select fiyat from ANKARAKARGO where desi Like '" + textBox4.Text + "'", cone);
+                cmd = new OleDbCommand("Select fiyat from ANKARAKARGO where desi Like '" + textBox4.Text + "'", cone);
             }
             else if (desi > 50)
             {
-                 cmd = new OleDbCommand("Select fiyat from ANKARAKARGO where desi Like '50'", cone);
+                cmd = new OleDbCommand("Select fiyat from ANKARAKARGO where desi Like '50'", cone);
             }
             ds = new DataSet();
             cone.Open();
@@ -286,7 +286,7 @@ namespace Kargo
         private void button1_Click(object sender, EventArgs e)
         {
 
-            
+
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
@@ -300,13 +300,13 @@ namespace Kargo
 
 
 
-                textBox4.Text =Math.Round((en * boy * yukseklik) / 3000,0).ToString();
+                textBox4.Text = Math.Round((en * boy * yukseklik) / 3000, 0).ToString();
                 desi = Convert.ToDouble(textBox4.Text);
             }
 
             griddoldur();
 
-            double ekdesı = (desi - 50) * 1.91*1.18*1.06;
+            double ekdesı = (desi - 50) * 1.91 * 1.18 * 1.06;
             double desifiyat = (fiyat * 1.18 * 1.0235) + ekdesı;
             textBox1.Text = "";
             textBox2.Text = "";
@@ -359,7 +359,7 @@ namespace Kargo
             dataGridView1.Columns[3].Name = "TL";
             dataGridView1.Columns[4].Name = "ADET";
             dataGridView1.Columns[5].Name = "DEPO";
-            dataGridView1.Columns[6].Name = "İL"; 
+            dataGridView1.Columns[6].Name = "İL";
             dataGridView1.Columns[7].Name = "İLÇE";
             dataGridView1.Columns[8].Name = "TARİH";
 
@@ -485,7 +485,7 @@ namespace Kargo
             if (c == DialogResult.Yes)
                 Environment.Exit(0);
             else
-                
+
                 e.Cancel = true;//Çıkışı durdur
         }
 

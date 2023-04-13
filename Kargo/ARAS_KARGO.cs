@@ -189,7 +189,7 @@ namespace Kargo
                 else if (desı > 30)
                     textBox5.Text = Math.Round(adet * desifiyat, 0).ToString();
             }
-            dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet, Depo,il, DateTime.Now.ToString("yyyy-MM-dd"));
+            dataGridView1.Rows.Add(textBox8.Text, desı, textBox5.Text, TL, adet, Depo, il, DateTime.Now.ToString("yyyy-MM-dd"));
 
 
         }
