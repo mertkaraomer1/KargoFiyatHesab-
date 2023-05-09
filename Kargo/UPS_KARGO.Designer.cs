@@ -64,6 +64,8 @@
             toolStripButton1 = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripButton3 = new ToolStripButton();
+            dateTimePicker1 = new DateTimePicker();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -96,7 +98,7 @@
             label9.BackColor = Color.Black;
             label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.Red;
-            label9.Location = new Point(405, 72);
+            label9.Location = new Point(475, 72);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(257, 23);
@@ -152,7 +154,7 @@
             label6.BackColor = Color.White;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = SystemColors.InfoText;
-            label6.Location = new Point(755, 77);
+            label6.Location = new Point(756, 113);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(59, 23);
@@ -162,7 +164,7 @@
             // textBox7
             // 
             textBox7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox7.Location = new Point(836, 72);
+            textBox7.Location = new Point(837, 108);
             textBox7.Margin = new Padding(4, 3, 4, 3);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(185, 30);
@@ -199,7 +201,7 @@
             button3.BackColor = Color.White;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = SystemColors.Desktop;
-            button3.Location = new Point(836, 110);
+            button3.Location = new Point(837, 146);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(186, 48);
@@ -444,6 +446,26 @@
             toolStripButton3.Text = "toolStripButton3";
             toolStripButton3.Click += toolStripButton3_Click;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(836, 65);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(186, 30);
+            dateTimePicker1.TabIndex = 81;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.White;
+            label11.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = SystemColors.InfoText;
+            label11.Location = new Point(750, 69);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(65, 23);
+            label11.TabIndex = 82;
+            label11.Text = "TARİH:";
+            // 
             // UPS_KARGO
             // 
             AutoScaleDimensions = new SizeF(10F, 23F);
@@ -452,6 +474,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1170, 739);
+            Controls.Add(label11);
+            Controls.Add(dateTimePicker1);
             Controls.Add(toolStrip1);
             Controls.Add(label10);
             Controls.Add(comboBox2);
@@ -532,5 +556,7 @@
         private ToolStripButton toolStripButton1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton toolStripButton3;
+        private DateTimePicker dateTimePicker1;
+        private Label label11;
     }
 }
